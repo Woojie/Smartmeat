@@ -4,25 +4,8 @@ const User = require('../database/models/user')
 const passport = require('../passport')
 const jwt = require('jsonwebtoken')
 
-
-
-// router.post('/login',
-//   function (req, res, next) {
-//       next()
-//   },
-//   passport.authenticate('local'),
-//   (req, res) => {
-//       var userInfo = {
-//           email: req.user.email
-//       };
-//       res.send(userInfo);
-//   }
-// )
-
-
 router.post('/login', function (req, res, next) {
   passport.authenticate('local', {session: false}, (err, user, info) => {
-      console.log("user123",user)
       if (err || !user) {
           return res.status(400).json({
               message: info ? info.message : 'Login failed',

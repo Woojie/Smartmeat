@@ -1,15 +1,17 @@
-const JwtStrategy = require('passport-jwt').Strategy,
-ExtractJwt = require('passport-jwt').ExtractJwt
+const passportJWT = require("passport-jwt")
+
+const ExtractJwt = passportJWT.ExtractJwt
+const JwtStrategy   = passportJWT.Strategy;
+
 const opts = {}
 
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = 'secret';
 // opts.issuer = 'accounts.examplesoft.com';
 // opts.audience = 'yoursite.net';
-
 const jwtStrategy = new JwtStrategy(opts, function(jwt_payload, done) {
   console.log("jwt:", jwt_payload)
-    User.findOne({id: jwt_payload.id}, function(err, user) {
+    User.findOne({id: jwt_payload.sub}, function(err, user) {
         if (err) {
             return done(err, false)
         }

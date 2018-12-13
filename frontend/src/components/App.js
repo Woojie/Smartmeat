@@ -1,14 +1,39 @@
-import React from 'react';
-import LoginForm from './login'
+import React from 'react'
+import {Route, Switch, Redirect} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-const App = () => {
+import LoginForm from './login'
+import Signup from './Signup'
+import HomePage from './HomePage'
+
+
+
+const App = ({loggedIn, token}) => {
 
     return (
-      <div className="App">
-        <LoginForm />
-      </div>
-    );
+      <Switch>
+        <Route path="/login" exact render={props=>(
+          !loggedIn ? <LoginForm {...props} />
+          : <Redirect  to="/home" exact />)} 
+        />
+        <Route path="/signup" render={props=>(
+          !loggedIn ? <Signup {...props} /> 
+          : <Redirect to="/home" exact />)} 
+        />
+        <Route path="/home" render={props=>(
+          loggedIn ? (<HomePage {...props} />) 
+          : (<Redirect from="/home" to="/login" exact />) )} 
+        />
+      </Switch>
+    )
 
 }
 
-export default App;
+const mapStatetoProps = ({login:{loggedIn, token}}) => {
+  return {
+    loggedIn: loggedIn,
+    token: token
+  }
+}
+
+export default connect(mapStatetoProps, null, null, {pure:false})(App);
