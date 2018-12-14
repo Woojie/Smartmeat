@@ -1,15 +1,11 @@
 import React, { useState, Fragment } from 'react'
-import axios from 'axios'
+import {connect} from 'react-redux'
+
+import { signUserUp } from '../store'
 
 const LoginForm = () => {
   const [email, getEmail] = useState(""),
   [password, getPassword] = useState("")
-
-  const logUserIn = (e) => {
-    e.preventDefault()
-    axios.post('http://localhost:3030/user/login', {email, password})
-    .then((res)=>localStorage.setItem('token', res.data.token))
-  }
 
   return(
     <Fragment>
@@ -17,11 +13,17 @@ const LoginForm = () => {
       <form>
         <input type="email" onChange={(e)=>getEmail(e.target.value)} placeholder="enter email" />
         <input type="password" onChange={(e)=>getPassword(e.target.value)} placeholder="Enter password" />
-        <button type="submit" onClick={logUserIn} >Login</button>
+        <button type="submit" onClick={(e)=>signUserUp(e, email, password)}  >Sign Up</button>
       </form>
-      <h4>Already a user? Sign up <a href="/login">here</a>.</h4>
+      <h4>Already a user? Login<a href="/login">here</a>.</h4>
     </Fragment>
   )
 }
 
-export default LoginForm
+const mapFunctoProps = dispatch => {
+  return {
+    signUserUp: (e, email, password) => signUserUp(e, email, password)
+  }
+}
+
+export default connect(mapFunctoProps)(LoginForm)

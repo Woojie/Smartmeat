@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 router.post('/login', function (req, res, next) {
   passport.authenticate('local', {session: false}, (err, user, info) => {
       if (err || !user) {
-          return res.status(400).json({
+          return res.json({
               message: info ? info.message : 'Login failed',
               user   : user
           });
@@ -29,15 +29,16 @@ router.post('/login', function (req, res, next) {
 
 router.post('/', (req, res) => {
   const { email, password } = req.body
-
+  console.log(email, password)
   User.findOne({ email }, (err, user) => {
     if (err) {
       console.log('User.js post error: ', err)
     } else if (user) {
       res.json({
-        error: `Sorry, already a user with the email: ${email}`
+        error: `Sorry, ${email} already has an account, trying logging in!`
       })
     }else {
+      console.log('hello')
       const newUser = new User({
         email,
         password,

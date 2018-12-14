@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Route, Switch, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 
@@ -10,6 +10,7 @@ import HomePage from './HomePage'
 
 const App = ({loggedIn, token}) => {
 
+  
     return (
       <Switch>
         <Redirect from="/" to="login" exact />
