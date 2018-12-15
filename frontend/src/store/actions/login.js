@@ -27,3 +27,8 @@ export const checkForUser = (token, decodedToken) =>
     user: decodedToken
   }
 })
+
+export const logout = () =>
+({
+  type: "LOGOUT"
+})

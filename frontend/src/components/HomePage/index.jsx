@@ -1,12 +1,17 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
+import { logout } from '../../store/actions/login'
 
-const HomePage = (props) => (
-  <div>
+const HomePage = ({dispatch}) => (
+  <div> 
+
     hello
-    <button onClick={()=>localStorage.removeItem('token')}>Logout </button>
+    <button onClick={()=>dispatch(logout())}>Logout </button>
   </div>
   
 )
 
-export default HomePage
+
+
+export default connect()(HomePage)

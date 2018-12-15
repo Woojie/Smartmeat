@@ -34,6 +34,13 @@ export const loginReducer = (state=loggedIn, action) => {
       loggedIn: action.payload.token !== undefined,
       user: action.payload.user
     }
+  }else if(action.type ==="LOGOUT"){
+    localStorage.removeItem('token')
+    return {
+      ...state,
+      loggedIn: false,
+      user: ""
+    }
   }
   return state
 }

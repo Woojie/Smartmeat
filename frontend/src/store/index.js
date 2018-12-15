@@ -43,6 +43,7 @@ export const signUserUp = (e, email, password) => {
   })
 }
 
+
 export const searchForUser = (token) => {
   store.dispatch(startCheckForUser())
   setAuthToken(token)

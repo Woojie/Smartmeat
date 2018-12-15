@@ -12,7 +12,11 @@ import { searchForUser } from '../store/'
 const App = ({loggedIn, user}) => {
 
     useEffect(()=>{
+      if(localStorage.token === undefined){
+
+      }else{
       searchForUser(localStorage.token)
+    }
   },[])
 
 
