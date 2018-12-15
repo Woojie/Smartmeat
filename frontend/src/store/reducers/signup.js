@@ -1,7 +1,9 @@
 
+
 const signIn = {
   loading: false,
 }
+
 export const signinReducer = (state=signIn, action) => {
   if (action.type === "START_LOGOUT"){
     return {

@@ -1,4 +1,3 @@
-import { CHECK_USER } from '../types'
 
 const loggedIn = {
   user: {},

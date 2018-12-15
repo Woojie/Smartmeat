@@ -3,7 +3,8 @@ import axios from 'axios'
 import { createStore, applyMiddleware } from 'redux'
 import jwt_decode from 'jwt-decode'
 
-import {startLogin, finishLogin, startSignup, finishSignup, startCheckForUser, checkForUser} from './actions'
+import { startSignup, finishSignup, } from './actions'
+import { startLogin, finishLogin, startCheckForUser, checkForUser } from './actions/login'
 import { allReducers } from './reducers'
 import setAuthToken from '../setAuthToken'
 
