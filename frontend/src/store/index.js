@@ -42,9 +42,10 @@ export const signUserUp = (e, email, password) => {
   })
 }
 
-export const searchForUser = (decodedToken) => {
+export const searchForUser = (token) => {
   store.dispatch(startCheckForUser())
-  store.dispatch(checkForUser(decodedToken))
+  setAuthToken(token)
+  store.dispatch(checkForUser(token, jwt_decode(token)))
 }
 
 const store = createStore(

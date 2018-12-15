@@ -12,9 +12,7 @@ import { searchForUser } from '../store/'
 const App = ({loggedIn, user}) => {
 
     useEffect(()=>{
-      console.log(localStorage.token)
       searchForUser(localStorage.token)
-
   },[])
 
 
@@ -49,7 +47,7 @@ const mapStatetoProps = ({login:{loggedIn, user}}) => {
 
 const mapFuncToProps = dispatch => {
   return {
-    searchForUser: (decode) => dispatch(searchForUser(decode))
+    searchForUser: (token) => dispatch(searchForUser(token))
   }
 }
 

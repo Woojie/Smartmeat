@@ -1,5 +1,8 @@
+
+
 import { CHECK_USER } from "../types"
- 
+
+
 export const startLogin = () => ({
   type: "START_LOGIN"
 })
@@ -25,10 +28,11 @@ export const startCheckForUser = () =>
 })
 
 
-export const checkForUser = (decodedToken) => 
+export const checkForUser = (token, decodedToken) => 
 ({
   type: "CHECK_USER",
   payload: {
-    decodedToken
+    token,
+    user: decodedToken
   }
 })

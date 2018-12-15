@@ -32,7 +32,8 @@ export const loginReducer = (state=loggedIn, action) => {
     return {
       ...state,
       loading: false,
-      loggedIn: action.payload.decodedToken !== undefined
+      loggedIn: action.payload.token !== undefined,
+      user: action.payload.user
     }
   }
   return state
