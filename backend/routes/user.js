@@ -19,7 +19,7 @@ router.post('/login', function (req, res, next) {
           }
 
           const token = jwt.sign(user.toJSON(), 'your_jwt_secret');
-          return res.json({user, token});
+          return res.json({token});
       });
   })
   (req, res);
@@ -27,9 +27,18 @@ router.post('/login', function (req, res, next) {
 });
 
 
+router.get('/check', passport.authenticate('jwt', {session: false}), (req, res) => {
+  console.log(req)
+  return res.json({
+    user: req.user
+  })
+})
+
+
+
 router.post('/', (req, res) => {
   const { email, password } = req.body
-  console.log(email, password)
+
   User.findOne({ email }, (err, user) => {
     if (err) {
       console.log('User.js post error: ', err)
@@ -51,6 +60,5 @@ router.post('/', (req, res) => {
     }
   })
 })
-
 
 module.exports = router

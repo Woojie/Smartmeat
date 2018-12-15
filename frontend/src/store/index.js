@@ -1,8 +1,11 @@
 import logger from 'redux-logger'
 import axios from 'axios'
 import { createStore, applyMiddleware } from 'redux'
-import {startLogin, finishLogin, startSignup, finishSignup} from './actions'
+import jwt_decode from 'jwt-decode'
+
+import {startLogin, finishLogin, startSignup, finishSignup, startCheckForUser, checkForUser} from './actions'
 import { allReducers } from './reducers'
+import setAuthToken from '../setAuthToken'
 
 export const logUserIn = (e, email, password) => {
 
@@ -14,8 +17,12 @@ export const logUserIn = (e, email, password) => {
     if(res.data.message){
       console.log(res.data.message)
     }else{
-    localStorage.setItem('token', res.data.token)
-    store.dispatch(finishLogin(res.data.token))
+    const {token} = res.data
+    setAuthToken(token)
+    const decoded = jwt_decode(token)
+
+    localStorage.setItem('token', token)
+    store.dispatch(finishLogin(decoded))
     }
   })
   .catch(error => console.log("error:", error))
@@ -35,6 +42,10 @@ export const signUserUp = (e, email, password) => {
   })
 }
 
+export const searchForUser = (decodedToken) => {
+  store.dispatch(startCheckForUser())
+  store.dispatch(checkForUser(decodedToken))
+}
 
 const store = createStore(
   allReducers,

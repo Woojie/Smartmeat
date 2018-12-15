@@ -1,11 +1,13 @@
+import { CHECK_USER } from "../types"
+ 
 export const startLogin = () => ({
   type: "START_LOGIN"
 })
 
-export const finishLogin = (token) => ({
+export const finishLogin = (user) => ({
   type: "FINISH_LOGIN",
   payload: {
-    token
+    user
   }
 })
 
@@ -17,3 +19,16 @@ export const finishSignup = () => ({
   type: "FINISH_SIGNUP"
 })
 
+export const startCheckForUser = () => 
+({
+  type: "START_CHECK_USER"
+})
+
+
+export const checkForUser = (decodedToken) => 
+({
+  type: "CHECK_USER",
+  payload: {
+    decodedToken
+  }
+})

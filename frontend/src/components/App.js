@@ -5,12 +5,20 @@ import {connect} from 'react-redux'
 import LoginForm from './login'
 import Signup from './Signup'
 import HomePage from './HomePage'
+import { searchForUser } from '../store/'
 
 
 
-const App = ({loggedIn, token}) => {
+const App = ({loggedIn, user}) => {
 
-  
+    useEffect(()=>{
+      console.log(localStorage.token)
+      searchForUser(localStorage.token)
+
+  },[])
+
+
+
     return (
       <Switch>
         <Redirect from="/" to="login" exact />
@@ -31,11 +39,18 @@ const App = ({loggedIn, token}) => {
 
 }
 
-const mapStatetoProps = ({login:{loggedIn, token}}) => {
+const mapStatetoProps = ({login:{loggedIn, user}}) => {
   return {
-    loggedIn: loggedIn,
-    token: token
+    loggedIn,
+    user,
+
   }
 }
 
-export default connect(mapStatetoProps, null, null, {pure:false})(App);
+const mapFuncToProps = dispatch => {
+  return {
+    searchForUser: (decode) => dispatch(searchForUser(decode))
+  }
+}
+
+export default connect(mapStatetoProps, mapFuncToProps,  null, {pure:false})(App);

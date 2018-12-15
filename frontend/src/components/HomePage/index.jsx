@@ -4,7 +4,7 @@ import React from 'react'
 const HomePage = (props) => (
   <div>
     hello
-    <button onClick={localStorage.setItem('token', null)}>Logout </button>
+    <button onClick={()=>localStorage.removeItem('token')}>Logout </button>
   </div>
   
 )
