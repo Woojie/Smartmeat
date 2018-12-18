@@ -4,21 +4,24 @@ import {connect} from 'react-redux'
 import { logout } from '../../store/actions/login'
 import { getCalculation } from '../../store'
 import Calculator from './Calculator'
+import DoughnutChart from './Charts/DoughnutChart'
 
-const HomePage = (props) => {
-
-  let results = props.result === 0  ? "" : (
+const HomePage = ({result, carbonCost, dispatch}) => {
+  
+  let results = result === 0  ? "" : (
     <div>
       <h4>Results</h4>
-      <p>Results:{props.result}</p>
-      <p>Carbon:{props.carbonCost}</p>
+      <p>Results:{result}</p>
+      <p>Carbon:{carbonCost}</p>
     </div>
   )
+  let doughChart = result === 0 ? "" : <DoughnutChart data={result} />
   return(
   <div> 
     <Calculator getCalculation={getCalculation} />
     {results}
-    <button onClick={()=>props.dispatch(logout())}>Logout </button>
+    {doughChart}
+    <button onClick={()=>dispatch(logout())}>Logout </button>
   </div>
   )
   
