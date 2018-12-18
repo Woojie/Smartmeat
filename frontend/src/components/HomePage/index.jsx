@@ -2,11 +2,12 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import { logout } from '../../store/actions/login'
+import Calculator from './Calculator'
 
 const HomePage = ({dispatch}) => (
   <div> 
 
-    hello
+    <Calculator />
     <button onClick={()=>dispatch(logout())}>Logout </button>
   </div>
   
