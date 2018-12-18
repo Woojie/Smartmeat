@@ -5,8 +5,10 @@ import jwt_decode from 'jwt-decode'
 
 import { startSignup, finishSignup, } from './actions'
 import { startLogin, finishLogin, startCheckForUser, checkForUser } from './actions/login'
+import { startCalculate, finishCalculate } from './actions/calculator'
 import { allReducers } from './reducers'
 import setAuthToken from '../setAuthToken'
+import func from './func'
 
 export const logUserIn = (e, email, password) => {
 
@@ -43,11 +45,17 @@ export const signUserUp = (e, email, password) => {
   })
 }
 
-
 export const searchForUser = (token) => {
   store.dispatch(startCheckForUser())
   setAuthToken(token)
   store.dispatch(checkForUser(token, jwt_decode(token)))
+}
+
+export const getCalculation = (e, order, quantity, frequency) => {
+  store.dispatch(startCalculate())
+  
+  store.dispatch(finishCalculate(func.calculate(order, quantity, frequency), func.calculate(order, quantity, frequency) * 0.43))
+
 }
 
 const store = createStore(

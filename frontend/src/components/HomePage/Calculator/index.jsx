@@ -20,9 +20,6 @@ class Calculator extends Component {
     <div>
       <h1>
         Instant Calculator <br />
-        {this.state.order} <br />
-        {this.state.quantity} <br />
-        {this.state.frequency}
       </h1>
       <form>
         <label>what are you ordering?</label>
