@@ -1,19 +1,17 @@
-import React, {Component} from 'react'
+import React from 'react'
 
 import CalcForm from './CalcForm'
 
-class Calculator extends Component {
-
-  render(){
+const Calculator = (props) => {
   return(
     <div>
       <h1>
         Instant Calculator <br />
       </h1>
-     <CalcForm getCalculation = {this.props.getCalculation} />
+     <CalcForm getCalculation = {props.getCalculation} />
     </div>
   )
-}
+
 }
 
 export default Calculator
