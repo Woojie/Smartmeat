@@ -16,8 +16,9 @@ const HomePage = ({result, carbonCost, dispatch}) => {
     </div>
   )
   let doughChart = result === 0 ? "" : <DoughnutChart data={result} />
+  let style = {width: "50%", height: "auto"}
   return(
-  <div> 
+  <div style={style}> 
     <Calculator getCalculation={getCalculation} />
     {results}
     {doughChart}
