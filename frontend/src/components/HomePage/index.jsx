@@ -4,24 +4,20 @@ import {connect} from 'react-redux'
 import { logout } from '../../store/actions/login'
 import { getCalculation } from '../../store'
 import Calculator from './Calculator'
-import DoughnutChart from './Charts/DoughnutChart'
+import Results from './Results'
 
-const HomePage = ({result, carbonCost, dispatch}) => {
+
+const HomePage = ({carbon, petrol, dispatch}) => {
   
-  let results = result === 0  ? "" : (
-    <div>
-      <h4>Results</h4>
-      <p>Results:{result}</p>
-      <p>Carbon:{carbonCost}</p>
-    </div>
+  let results = carbon === 0  ? "" : (
+    <Results carbon={carbon} petrol={petrol} />
   )
-  let doughChart = result === 0 ? "" : <DoughnutChart data={result} />
+
   let style = {width: "50%", height: "auto"}
   return(
   <div style={style}> 
     <Calculator getCalculation={getCalculation} />
     {results}
-    {doughChart}
     <button onClick={()=>dispatch(logout())}>Logout </button>
   </div>
   )
@@ -30,8 +26,8 @@ const HomePage = ({result, carbonCost, dispatch}) => {
 
 const mapStatetoProps = ({calculator:{result, carbonCost}}) => {
   return {
-    result,
-    carbonCost,
+    carbon: result,
+    petrol:carbonCost,
   }
 }
 
