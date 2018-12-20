@@ -1,10 +1,13 @@
 import React from 'react'
 import DoughnutChart from './Charts/DoughnutChart'
 
-const Results = ({carbon, petrol}) => {
+const Results = ({carbon, petrol, saveReport, userEmail, reports}) => {
   let drive = Math.round(petrol * 9.9)
   let directHousehold = Math.round(carbon / 41)
   let globalCitizen = Math.round(carbon / 4400 * 100)
+  let report = {carbon, petrol,}
+  console.log(reports)
+  
   return(
     <div>
     <h3>Results</h3>
@@ -19,7 +22,7 @@ const Results = ({carbon, petrol}) => {
 
     <h2>You vs the World</h2>
     <p>Per capita, a person produces 4.4 tonnes GHG emssion/year, your food consumption alone would make up {globalCitizen}% of that figure</p>
-    <button>Save Report</button>
+    <button onClick={() => saveReport(report, userEmail)}>Save Report</button>
   </div>
   )
 }

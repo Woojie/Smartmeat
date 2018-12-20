@@ -8,5 +8,4 @@ export const allReducers = combineReducers({
   login: loginReducer,
   signin: signinReducer,
   calculator: calculatorReducer,
-  saveReport: reportReducer
 })

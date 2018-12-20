@@ -26,6 +26,18 @@ router.post('/login', function (req, res, next) {
 
 });
 
+router.put('/report', (req, res) => {
+  const { report, email} = req.body
+  console.log("report:", report, "email:", email)
+  User.findOneAndUpdate({email:email}, {reports: report}, {new:true},
+    (err, user) => {
+      if(err){
+        return res.status(5000.).send(err)
+      }
+      console.log(user)
+      res.send(user)
+    })
+})
 
 router.get('/check', passport.authenticate('jwt', {session: false}), (req, res) => {
   console.log(req)

@@ -49,6 +49,7 @@ export const signUserUp = (e, email, password) => {
 export const searchForUser = (token) => {
   store.dispatch(startCheckForUser())
   setAuthToken(token)
+
   store.dispatch(checkForUser(token, jwt_decode(token)))
 }
 
@@ -60,9 +61,10 @@ export const getCalculation = (e, order, quantity, frequency) => {
 
 }
 
-export const saveReport = (report, user) => {
-  store.dispatch(startReport)
-  axios.post('http://localhost:3030/user/report', {report, user})
+export const saveReport = (report, email) => {
+  console.log(email)
+  store.dispatch(startReport())
+  axios.put('http://localhost:3030/user/report', {report, email})
   .then((res)=>store.dispatch(finishReport(res.data)))
 }
 

@@ -41,6 +41,17 @@ export const loginReducer = (state=loggedIn, action) => {
       loggedIn: false,
       user: ""
     }
+  }else if(action.type === "START_REPORT") {
+    return {
+      ...state,
+      loading: true
+    }
+  }else if(action.type === "FINISH_REPORT") {
+    return {
+      ...state,
+      loading: false, 
+      user: action.payload.user,
+    }
   }
   return state
 }
