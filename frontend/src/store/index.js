@@ -49,7 +49,8 @@ export const signUserUp = (e, email, password) => {
 export const searchForUser = (token) => {
   store.dispatch(startCheckForUser())
   setAuthToken(token)
-
+  axios.get('http://localhost:3030/user/')
+  .then((res)=>console.log(res))
   store.dispatch(checkForUser(token, jwt_decode(token)))
 }
 

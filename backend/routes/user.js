@@ -1,8 +1,18 @@
 const express = require('express')
 const router = express.Router()
+const jwt = require('jsonwebtoken')
+const jwt_decode = require('jwt-decode')
+
 const User = require('../database/models/user')
 const passport = require('../passport')
-const jwt = require('jsonwebtoken')
+
+
+
+
+router.get('/', (req, res, next) => {
+  let token = jwt_decode(req.headers.authorization)
+  res.send(token)
+})
 
 router.post('/login', function (req, res, next) {
   passport.authenticate('local', {session: false}, (err, user, info) => {
