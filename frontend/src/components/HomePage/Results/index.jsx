@@ -18,7 +18,7 @@ const Results = ({carbon, petrol}) => {
     <DoughnutChart data={carbon} />
 
     <h2>You vs the World</h2>
-    <p>Per capita, a person produces 4.4 tonnes GHG emssion/year, your food consumption would be {globalCitizen}% of that figure</p>
+    <p>Per capita, a person produces 4.4 tonnes GHG emssion/year, your food consumption alone would make up {globalCitizen}% of that figure</p>
     
   </div>
   )
