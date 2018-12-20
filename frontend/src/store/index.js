@@ -6,6 +6,7 @@ import jwt_decode from 'jwt-decode'
 import { startSignup, finishSignup, } from './actions'
 import { startLogin, finishLogin, startCheckForUser, checkForUser } from './actions/login'
 import { startCalculate, finishCalculate } from './actions/calculator'
+import { startReport, finishReport } from './actions/saveReport'
 import { allReducers } from './reducers'
 import setAuthToken from '../setAuthToken'
 import func from './func'
@@ -57,6 +58,12 @@ export const getCalculation = (e, order, quantity, frequency) => {
   
   store.dispatch(finishCalculate(func.calculate(order, quantity, frequency), func.calculate(order, quantity, frequency) * 0.43))
 
+}
+
+export const saveReport = (report, user) => {
+  store.dispatch(startReport)
+  axios.post('http://localhost:3030/user/report', {report, user})
+  .then((res)=>store.dispatch(finishReport(res.data)))
 }
 
 const store = createStore(
