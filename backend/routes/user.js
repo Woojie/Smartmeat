@@ -11,7 +11,11 @@ const passport = require('../passport')
 
 router.get('/', (req, res, next) => {
   let token = jwt_decode(req.headers.authorization)
-  res.send(token)
+  console.log(token)
+  User.findOne({email:token.email}, (err, user) => {
+    res.json(user)
+  })
+  
 })
 
 router.post('/login', function (req, res, next) {
@@ -29,7 +33,7 @@ router.post('/login', function (req, res, next) {
           }
 
           const token = jwt.sign(user.toJSON(), 'your_jwt_secret');
-          return res.json({token});
+          return res.json({user, token});
       });
   })
   (req, res);

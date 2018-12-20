@@ -21,12 +21,11 @@ export const logUserIn = (e, email, password) => {
     if(res.data.message){
       console.log(res.data.message)
     }else{
-    const {token} = res.data
+    const {token, user} = res.data
     setAuthToken(token)
-    const decoded = jwt_decode(token)
 
     localStorage.setItem('token', token)
-    store.dispatch(finishLogin(decoded))
+    store.dispatch(finishLogin(user))
     }
   })
   .catch(error => console.log("error:", error))
@@ -48,10 +47,11 @@ export const signUserUp = (e, email, password) => {
 
 export const searchForUser = (token) => {
   store.dispatch(startCheckForUser())
+
   setAuthToken(token)
   axios.get('http://localhost:3030/user/')
-  .then((res)=>console.log(res))
-  store.dispatch(checkForUser(token, jwt_decode(token)))
+  .then((res)=>store.dispatch(checkForUser(token, res.data)))
+  
 }
 
 export const getCalculation = (e, order, quantity, frequency) => {
