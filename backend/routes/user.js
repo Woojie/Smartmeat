@@ -54,7 +54,7 @@ router.put('/report', (req, res) => {
 })
 
 router.get('/check', passport.authenticate('jwt', {session: false}), (req, res) => {
-  console.log(req)
+
   return res.json({
     user: req.user
   })

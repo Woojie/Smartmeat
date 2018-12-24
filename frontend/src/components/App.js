@@ -7,6 +7,7 @@ import Signup from './Signup'
 import HomePage from './HomePage'
 import Header from './Header';
 import Footer from './Footer'
+import ProfilePage from './ProfilePage'
 import { searchForUser } from '../store/'
 
 
@@ -17,19 +18,20 @@ const App = ({loggedIn, user}) => {
       if(localStorage.token === undefined){
 
       }else{
+      console.log('hello')
       searchForUser(localStorage.token)
     }
   },[])
 
 
-
+  console.log(loggedIn)
     return (
 
       <div className='App'>
       <Header />
 
       <Switch>
-        <Redirect from="/" to="login" exact />
+        {/* <Redirect from="/" to="login" exact /> */}
         <Route path="/login" exact render={props=>(
           !loggedIn ? <LoginForm {...props} />
           : <Redirect  to="/home" exact />)} 
@@ -42,6 +44,10 @@ const App = ({loggedIn, user}) => {
           loggedIn ? (<HomePage {...props} />) 
           : (<Redirect  to="/login" exact />) )} 
         />
+        <Route path="/profile" render ={props=>(
+          loggedIn ? (<ProfilePage {...props} />)
+          : (<Redirect to="/login" exact />)
+        )} />
       </Switch>
       
       <Footer />

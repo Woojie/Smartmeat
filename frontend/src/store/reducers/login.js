@@ -36,6 +36,7 @@ export const loginReducer = (state=loggedIn, action) => {
     }
   }else if(action.type ==="LOGOUT"){
     localStorage.removeItem('token')
+
     return {
       ...state,
       loggedIn: false,
