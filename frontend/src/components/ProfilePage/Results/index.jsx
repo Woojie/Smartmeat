@@ -21,7 +21,11 @@ const Results = ({carbon, petrol, number}) => {
 
     <h2>You vs the World</h2>
     <p>Per capita, a person produces 4.4 tonnes GHG emssion/year, your food consumption alone would make up {globalCitizen}% of that figure</p>
+    <button>Delete Report</button>
+    <button>Alter Report</button>
+
     </div>
+    <br />
   </div>
   )
 }

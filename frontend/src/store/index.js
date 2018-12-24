@@ -66,7 +66,10 @@ export const saveReport = (report, email) => {
   console.log(email)
   store.dispatch(startReport())
   axios.put('http://localhost:3030/user/report', {report, email})
-  .then((res)=>store.dispatch(finishReport(res.data)))
+  .then((res)=>{
+    store.dispatch(finishReport(res.data))
+    alert("Thank You for saving the report! You can go to your profile c=page to delete or change reports to see how much emisions you can save")
+  })
 }
 
 const store = createStore(
