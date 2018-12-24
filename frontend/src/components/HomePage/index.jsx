@@ -12,13 +12,11 @@ const HomePage = ({carbon, petrol, dispatch, userEmail, reports}) => {
     <Results carbon={carbon} petrol={petrol} saveReport={saveReport} userEmail={userEmail} reports={reports} />
   )
 
-
-  let style = {width: "50%", height: "auto"}
   return(
-  <div style={style}> 
+  <div className='container' id='mainBody' data-spy="scroll"> 
     <Calculator getCalculation={getCalculation} />
-    {results}
-    <button onClick={()=>dispatch(logout())}>Logout </button>
+    {results} <br />
+    <button type="button" className="btn btn-dark" onClick={()=>dispatch(logout())}>Logout </button>
   </div>
   )
 }

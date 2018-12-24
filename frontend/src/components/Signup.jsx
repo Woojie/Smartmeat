@@ -9,8 +9,8 @@ const LoginForm = () => {
 
   return(
     <Fragment>
-      <h1>Sign Up</h1>
-      <form>
+      <h1 className='login'>Sign Up</h1>
+      <form className='login'>
         <input type="email" onChange={(e)=>getEmail(e.target.value)} placeholder="enter email" />
         <input type="password" onChange={(e)=>getPassword(e.target.value)} placeholder="Enter password" />
         <button type="submit" onClick={(e)=>signUserUp(e, email, password)}  >Sign Up</button>

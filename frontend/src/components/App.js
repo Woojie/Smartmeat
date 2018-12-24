@@ -5,6 +5,8 @@ import {connect} from 'react-redux'
 import LoginForm from './login'
 import Signup from './Signup'
 import HomePage from './HomePage'
+import Header from './Header';
+import Footer from './Footer'
 import { searchForUser } from '../store/'
 
 
@@ -22,6 +24,10 @@ const App = ({loggedIn, user}) => {
 
 
     return (
+
+      <div className='App'>
+      <Header />
+
       <Switch>
         <Redirect from="/" to="login" exact />
         <Route path="/login" exact render={props=>(
@@ -37,6 +43,10 @@ const App = ({loggedIn, user}) => {
           : (<Redirect  to="/login" exact />) )} 
         />
       </Switch>
+      
+      <Footer />
+      </div>
+
     )
 
 }

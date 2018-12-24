@@ -9,7 +9,8 @@ const Results = ({carbon, petrol, saveReport, userEmail, reports}) => {
   console.log(reports)
   
   return(
-    <div>
+    <div className='row'>
+    <div className='col'>
     <h3>Results</h3>
     <span>In total, your consumption produced <b>{carbon}kg</b> of greenhouse gas emissions per year. </span>
     <h3>In Comparison:</h3>
@@ -17,12 +18,13 @@ const Results = ({carbon, petrol, saveReport, userEmail, reports}) => {
     <br />
     <span>You can heat, cool and drive an average Canadian household for {directHousehold}days. </span>
 
-    <h2>Breakdown of how the emssion is produced:</h2>
+    <h2>Breakdown of how the emission is produced:</h2>
     <DoughnutChart data={carbon} />
 
     <h2>You vs the World</h2>
     <p>Per capita, a person produces 4.4 tonnes GHG emssion/year, your food consumption alone would make up {globalCitizen}% of that figure</p>
-    <button onClick={() => saveReport(report, userEmail)}>Save Report</button>
+    <button type="button" className="btn btn-info" onClick={() => saveReport(report, userEmail)}>Save Report</button>
+    </div>
   </div>
   )
 }

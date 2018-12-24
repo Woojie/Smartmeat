@@ -10,8 +10,8 @@ const LoginForm = (props) => {
 
   return(
     <Fragment>
-      <h1>Log in</h1>
-      <form>
+      <h1 className='login'>Log in</h1>
+      <form className='login'>
         <input type="email" onChange={(e)=>getEmail(e.target.value)} placeholder="enter email" />
         <input type="password" onChange={(e)=>getPassword(e.target.value)} placeholder="Enter password" />
         <button type="submit" onClick={(e) => props.logUserIn(e, email, password)} >Login</button>
