@@ -24,7 +24,6 @@ const App = ({loggedIn, user}) => {
   },[])
 
 
-  console.log(loggedIn)
     return (
 
       <div className='App'>
@@ -45,7 +44,7 @@ const App = ({loggedIn, user}) => {
           : (<Redirect  to="/login" exact />) )} 
         />
         <Route path="/profile" render ={props=>(
-          loggedIn ? (<ProfilePage {...props} />)
+          loggedIn ? (<ProfilePage {...props} user={user}/>)
           : (<Redirect to="/login" exact />)
         )} />
       </Switch>

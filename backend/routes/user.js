@@ -73,7 +73,7 @@ router.post('/', (req, res) => {
         error: `Sorry, ${email} already has an account, trying logging in!`
       })
     }else {
-      console.log('hello')
+
       const newUser = new User({
         email,
         password,

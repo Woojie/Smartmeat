@@ -1,9 +1,19 @@
 import React from 'react'
+import Results from './Results'
 
-const ProfilePage = ( props ) => {
 
+
+const ProfilePage = ( {user} ) => {
+  console.log(user)
+  let reports = user.reports.map((report, i) => (
+    <Results key={i} number={i} carbon = {report.carbon} petrol = {report.petrol} />
+))
   return(
-    <h1 className='container' id='mainBody'>hello</h1>
+
+    <div className='container' id='mainBody'>
+      <h1>Saved Reports</h1>
+      {reports}
+    </div>
   )
 }
 
