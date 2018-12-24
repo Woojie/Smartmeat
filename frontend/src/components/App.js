@@ -30,7 +30,7 @@ const App = ({loggedIn, user}) => {
       <Header />
 
       <Switch>
-        {/* <Redirect from="/" to="login" exact /> */}
+        <Redirect from="/" to="login" exact />
         <Route path="/login" exact render={props=>(
           !loggedIn ? <LoginForm {...props} />
           : <Redirect  to="/home" exact />)} 
