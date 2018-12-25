@@ -1,13 +1,18 @@
 import React from 'react'
+import { Link, Redirect } from 'react-router-dom'
+
 import DoughnutChart from './Charts/DoughnutChart'
 
 const Results = ({carbon, petrol, saveReport, userEmail, reports}) => {
+  let [modal, modalClose] = React.useState(false)
   let drive = Math.round(petrol * 9.9)
   let directHousehold = Math.round(carbon / 41)
   let globalCitizen = Math.round(carbon / 4400 * 100)
   let report =  reports.length === 0 ?{carbon, petrol,} : reports.concat({carbon, petrol,})
-  
+  console.log(modal)
   return(
+    modal ? <Redirect to="/community" exact /> 
+    :(
     <div className='row'>
     <div className='col'>
     <h3>Results</h3>
@@ -22,9 +27,30 @@ const Results = ({carbon, petrol, saveReport, userEmail, reports}) => {
 
     <h2>You vs the World</h2>
     <p>Per capita, a person produces 4.4 tonnes GHG emssion/year, your food consumption alone would make up {globalCitizen}% of that figure</p>
-    <button type="button" className="btn btn-info" onClick={() => saveReport(report, userEmail)}>Save Report</button>
+    <button type="button" className="btn btn-info" data-toggle="modal" data-target="#saveReportModal"  onClick={() => saveReport(report, userEmail)}>Save Report</button>
+    </div>
+
+    <div className="modal fade" id="saveReportModal" tabIndex="-1" role="dialog" aria-labelledby="saveReportModal" aria-hidden="true">
+  <div className="modal-dialog" role="document">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title" id="exampleModalLabel">Thank You!</h5>
+        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="modal-body">
+        Thank you for using the Carbon Emissions Calculator, now that you know just much emission is produced upon eating meat, would you like to try and ditch your consumption just a little bit to see how much difference it would make?
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+        <Link to="/community"><button data-dismiss="modal" type="button" className="btn btn-primary" onClick={() => modalClose(true)} >YES!</button></Link>
+      </div>
     </div>
   </div>
+</div>
+  </div>
+    )
   )
 }
 
