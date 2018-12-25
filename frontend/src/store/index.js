@@ -1,12 +1,11 @@
 import logger from 'redux-logger'
 import axios from 'axios'
 import { createStore, applyMiddleware } from 'redux'
-import jwt_decode from 'jwt-decode'
 
 import { startSignup, finishSignup, } from './actions'
 import { startLogin, finishLogin, startCheckForUser, checkForUser } from './actions/login'
 import { startCalculate, finishCalculate } from './actions/calculator'
-import { startReport, finishReport } from './actions/saveReport'
+import { startReport, finishReport, startAlterReport, startDeleteReport, finishDeleteReport, finishAlterReport } from './actions/saveReport'
 import { allReducers } from './reducers'
 import setAuthToken from '../setAuthToken'
 import func from './func'

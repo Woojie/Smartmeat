@@ -31,6 +31,7 @@ const DoughnutChart = ({data}) => {
         ]
     }]
   }
+  
 
   return(
     <Doughnut data={chartData} />

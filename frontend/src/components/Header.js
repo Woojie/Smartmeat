@@ -5,7 +5,7 @@ const Header = () => {
     return (
       <header >
 <nav className="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-  <a className="navbar-brand" href="#">SMARTMEAT</a>
+  <p className="navbar-brand">SMARTMEAT</p>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -19,10 +19,10 @@ const Header = () => {
         <Link to="/profile"><p className="nav-link">Profile</p></Link>
       </li>
       <li className="nav-item">
-        <p className="nav-link" href="#">Community</p>
+        <Link to="/community"><p className="nav-link">Community</p></Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">About</a>
+        <p className="nav-link">About</p>
       </li>
     </ul>
     <form className="form-inline my-2 my-lg-0">

@@ -6,7 +6,6 @@ const Results = ({carbon, petrol, saveReport, userEmail, reports}) => {
   let directHousehold = Math.round(carbon / 41)
   let globalCitizen = Math.round(carbon / 4400 * 100)
   let report =  reports.length === 0 ?{carbon, petrol,} : reports.concat({carbon, petrol,})
-  console.log(reports)
   
   return(
     <div className='row'>
