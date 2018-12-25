@@ -12,9 +12,8 @@ const Results = ({carbon, petrol, number}) => {
     <div className='col'>
     <h3>Report #{number+1}</h3>
     <h5><b>{carbon}kg</b> of GHG produced per year.</h5>
-    <br />
     <h4>In Comparison:</h4>
-    <br />
+
     <h5><b>{drive}km</b> travelled by car </h5>
     <h5>Heat, cool and travel Canadian household for {directHousehold}days. </h5>
     <h5>{globalCitizen}% of an average human's yearly GHG emssion.</h5>

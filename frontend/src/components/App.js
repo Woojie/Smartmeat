@@ -8,7 +8,9 @@ import HomePage from './HomePage'
 import Header from './Header';
 import Footer from './Footer'
 import ProfilePage from './ProfilePage'
+import CommunityPage from './CommunityPage'
 import { searchForUser } from '../store/'
+
 
 
 
@@ -45,6 +47,10 @@ const App = ({loggedIn, user}) => {
         />
         <Route path="/profile" render ={props=>(
           loggedIn ? (<ProfilePage {...props} user={user}/>)
+          : (<Redirect to="/login" exact />)
+        )} />
+        <Route path="/community" render ={props=>(
+          loggedIn ? (<CommunityPage {...props} user={user}/>)
           : (<Redirect to="/login" exact />)
         )} />
       </Switch>
