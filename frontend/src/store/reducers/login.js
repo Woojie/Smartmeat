@@ -2,7 +2,8 @@
 const loggedIn = {
   user: {},
   loading: false,
-  loggedIn: false
+  loggedIn: false,
+  loginError: false,
 }
 
 export const loginReducer = (state=loggedIn, action) => {
@@ -17,10 +18,17 @@ export const loginReducer = (state=loggedIn, action) => {
       ...state,
       loading: false,
       loggedIn: true,
+      loginError: false,
       user: action.payload.user
 
     }
-  }else if(action.type === "START_CHECK_USER"){
+  }else if(action.type ==="VALIDATE_LOGIN") {
+    return {
+      ...state,
+      loading: false,
+      loginError: true,
+    }
+  }else if(action.type === "START_CHECK_USER") {
 
     return {
       ...state,

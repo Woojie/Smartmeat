@@ -3,7 +3,7 @@ import axios from 'axios'
 import { createStore, applyMiddleware } from 'redux'
 
 import { startSignup, finishSignup, } from './actions'
-import { startLogin, finishLogin, startCheckForUser, checkForUser } from './actions/login'
+import { startLogin, finishLogin, startCheckForUser, checkForUser, validateLogin } from './actions/login'
 import { startCalculate, finishCalculate } from './actions/calculator'
 import { startReport, finishReport, startAlterReport, startDeleteReport, finishDeleteReport, finishAlterReport } from './actions/saveReport'
 import { allReducers } from './reducers'
@@ -18,6 +18,7 @@ export const logUserIn = (e, email, password) => {
   .then((res)=>{
 
     if(res.data.message){
+      store.dispatch(validateLogin())
       console.log(res.data.message)
     }else{
     const {token, user} = res.data
