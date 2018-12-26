@@ -63,7 +63,6 @@ export const getCalculation = (e, order, quantity, frequency) => {
 }
 
 export const saveReport = (report, email) => {
-  console.log(email)
   store.dispatch(startReport())
   axios.put('http://localhost:3030/user/report', {report, email})
   .then((res)=>{

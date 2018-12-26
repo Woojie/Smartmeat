@@ -8,6 +8,7 @@ import Results from './Results'
 
 
 const HomePage = ({carbon, petrol, dispatch, userEmail, reports}) => {
+  
   let results = carbon === 0  ? "" : (
     <Results carbon={carbon} petrol={petrol} saveReport={saveReport} userEmail={userEmail} reports={reports} />
   )

@@ -1,5 +1,5 @@
 
-const loggedIn = {
+export const loggedIn = {
   user: {},
   loading: false,
   loggedIn: false,
