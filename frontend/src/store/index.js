@@ -57,10 +57,12 @@ export const searchForUser = (token) => {
 export const getCalculation = (e, order, quantity, frequency) => {
   e.preventDefault()
   store.dispatch(startCalculate())
-  
-  store.dispatch(finishCalculate(func.calculate(order, quantity, frequency), func.calculate(order, quantity, frequency) * 0.43))
+  let result = func.calculate(order, quantity, frequency)
+  let carbonCost = func.calculate(order, quantity, frequency) * 0.43
+  store.dispatch(finishCalculate(result, carbonCost, order, quantity, frequency))
 
 }
+
 
 export const saveReport = (report, email) => {
   store.dispatch(startReport())

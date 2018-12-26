@@ -4,12 +4,15 @@ export const startCalculate = () => {
   }
 }
 
-export const finishCalculate = (result, carbonCost) => {
+export const finishCalculate = (result, carbonCost, order, quantity, frequency) => {
   return{
     type: "FINISH_CALCULATE",
     payload: {
       result,
       carbonCost,
+      order, 
+      quantity,
+      frequency,
     }
   }
 }
