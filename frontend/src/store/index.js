@@ -72,6 +72,8 @@ export const saveReport = (report, email) => {
   })
 }
 
+// export const alterReort = ()
+
 const store = createStore(
   allReducers,
   applyMiddleware(logger)

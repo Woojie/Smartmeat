@@ -4,14 +4,29 @@ import uuidv4 from 'uuid/v4'
 
 import DoughnutChart from './Charts/DoughnutChart'
 
-const Results = ({carbon, petrol, saveReport, userEmail, reports}) => {
+const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEmail, reports}) => {
   let [modal, modalClose] = React.useState(false)
   let drive = Math.round(petrol * 9.9)
   let directHousehold = Math.round(carbon / 41)
   let globalCitizen = Math.round(carbon / 4400 * 100)
-  let report =  reports.length === 0 ?{carbon, petrol, id:uuidv4()} : reports.concat({carbon, petrol, id:uuidv4()})
+  let report =  reports.length === 0 ? {
+    carbon, 
+    petrol, 
+    order,  
+    quantity,
+    frequency,
+    id:uuidv4()
+  } : reports.concat({
+    carbon, 
+    petrol, 
+    order, 
+    quantity,
+    frequency,
+    id:uuidv4()
+  })
   
   return(
+
     modal ? <Redirect to="/community" exact /> 
     :(
     <div className='row'>
