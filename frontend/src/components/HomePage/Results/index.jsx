@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
+import uuidv4 from 'uuid/v4'
 
 import DoughnutChart from './Charts/DoughnutChart'
 
@@ -8,7 +9,7 @@ const Results = ({carbon, petrol, saveReport, userEmail, reports}) => {
   let drive = Math.round(petrol * 9.9)
   let directHousehold = Math.round(carbon / 41)
   let globalCitizen = Math.round(carbon / 4400 * 100)
-  let report =  reports.length === 0 ?{carbon, petrol,} : reports.concat({carbon, petrol,})
+  let report =  reports.length === 0 ?{carbon, petrol, id:uuidv4()} : reports.concat({carbon, petrol, id:uuidv4()})
   console.log(modal)
   return(
     modal ? <Redirect to="/community" exact /> 

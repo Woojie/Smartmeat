@@ -42,7 +42,6 @@ router.post('/login', function (req, res, next) {
 
 router.put('/report', (req, res) => {
   const { report, email} = req.body
-  console.log("report:", report, "email:", email)
   User.findOneAndUpdate({email:email}, {reports: report}, {new:true},
     (err, user) => {
       if(err){
