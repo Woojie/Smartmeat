@@ -6,84 +6,100 @@ const jwt_decode = require('jwt-decode')
 const User = require('../database/models/user')
 const passport = require('../passport')
 
-
-
-
 router.get('/', (req, res, next) => {
-  let token = jwt_decode(req.headers.authorization)
-  console.log(token)
-  User.findOne({email:token.email}, (err, user) => {
-    res.json(user)
-  })
-  
+    let token = jwt_decode(req.headers.authorization)
+
+    User.findOne({
+        email: token.email
+    }, (err, user) => {
+        res.json(user)
+    })
+
+})
+
+router.get('/allReports', (req, res, next) => {
+  let reports = []
+  User.find({}, (err, user)=> {
+    user.forEach((user)=>{
+      reports = reports.concat(user.reports)
+    })
+    res.send(reports)
+  }) 
+
 })
 
 router.post('/login', function (req, res, next) {
-  passport.authenticate('local', {session: false}, (err, user, info) => {
-      if (err || !user) {
-          return res.json({
-              message: info ? info.message : 'Login failed',
-              user   : user
-          });
-      }
+    passport.authenticate('local', {
+        session: false
+    }, (err, user, info) => {
+        if (err || !user) {
+            return res.json({
+                message: info
+                    ? info.message
+                    : 'Login failed',
+                user: user
+            });
+        }
 
-      req.login(user, {session: false}, (err) => {
-          if (err) {
-              res.send(err);
-          }
+        req.login(user, {
+            session: false
+        }, (err) => {
+            if (err) {
+                res.send(err);
+            }
 
-          const token = jwt.sign(user.toJSON(), 'your_jwt_secret');
-          return res.json({user, token});
-      });
-  })
-  (req, res);
+            const token = jwt.sign(user.toJSON(), 'your_jwt_secret');
+            return res.json({user, token});
+        });
+    })(req, res);
 
 });
 
 router.put('/report', (req, res) => {
-  const { report, email} = req.body
-  User.findOneAndUpdate({email:email}, {reports: report}, {new:true},
-    (err, user) => {
-      if(err){
-        return res.status(5000.).send(err)
-      }
-      console.log(user)
-      res.send(user)
+    const {report, email} = req.body
+    User.findOneAndUpdate({
+        email: email
+    }, {
+        reports: report
+    }, {
+        new: true
+    }, (err, user) => {
+        if (err) {
+            return res
+                .status(5000.)
+                .send(err)
+        }
+
+        res.send(user)
     })
 })
 
 router.get('/check', passport.authenticate('jwt', {session: false}), (req, res) => {
 
-  return res.json({
-    user: req.user
-  })
+    return res.json({user: req.user})
 })
 
-
-
 router.post('/', (req, res) => {
-  const { email, password } = req.body
+    const {email, password} = req.body
 
-  User.findOne({ email }, (err, user) => {
-    if (err) {
-      console.log('User.js post error: ', err)
-    } else if (user) {
-      res.json({
-        error: `Sorry, ${email} already has an account, trying logging in!`
-      })
-    }else {
+    User.findOne({
+        email
+    }, (err, user) => {
+        if (err) {
+            console.log('User.js post error: ', err)
+        } else if (user) {
+            res.json({error: `Sorry, ${email} already has an account, trying logging in!`})
+        } else {
 
-      const newUser = new User({
-        email,
-        password,
-      })
+            const newUser = new User({email, password})
 
-      newUser.save((err, savedUser) => {
-        if (err) return res.json(err)
-        res.json(savedUser)
-      })
-    }
-  })
+            newUser.save((err, savedUser) => {
+                if (err) 
+                    return res.json(err)
+                res.json(savedUser)
+            })
+        }
+    })
 })
 
 module.exports = router

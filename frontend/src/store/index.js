@@ -6,6 +6,7 @@ import { startSignup, finishSignup, } from './actions'
 import { startLogin, finishLogin, startCheckForUser, checkForUser, validateLogin } from './actions/login'
 import { startCalculate, finishCalculate } from './actions/calculator'
 import { startReport, finishReport, startAlterReport, startDeleteReport, finishDeleteReport, finishAlterReport } from './actions/saveReport'
+import { getAllReports, finishGettingReports } from './actions/globalReport'
 import { allReducers } from './reducers'
 import setAuthToken from '../setAuthToken'
 import func from './func'
@@ -72,7 +73,11 @@ export const saveReport = (report, email) => {
   })
 }
 
-// export const alterReort = ()
+export const grabAllReports = () => {
+  store.dispatch(getAllReports())
+  axios.get('http://localhost:3030/user/allReports')
+  .then((res)=>store.dispatch(finishGettingReports(res.data)))
+}
 
 const store = createStore(
   allReducers,

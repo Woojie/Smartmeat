@@ -20,12 +20,12 @@ const DoughnutChart = ({data}) => {
     datasets: [{
       data:[foodProduction, wsAndRetail, finalDelivery, supplyChain],
       backgroundColor: [
-        '#FF6384',
+        '#80B641',
         '#36A2EB',
         '#FFCE56'
         ],
         hoverBackgroundColor: [
-        '#FF6384',
+        '#ABD038',
         '#36A2EB',
         '#FFCE56'
         ]
