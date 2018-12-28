@@ -11,7 +11,7 @@ import ProfilePage from './ProfilePage'
 import CommunityPage from './CommunityPage'
 import { searchForUser } from '../store/'
 
-
+import '../styles/css/app.css'
 
 
 const App = ({loggedIn, user}) => {

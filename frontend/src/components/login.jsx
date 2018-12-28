@@ -11,14 +11,23 @@ const LoginForm = ({loginError, logUserIn}) => {
 
   return(
     <Fragment>
-      <h1 className='login'>Log in</h1>
-      <form className='login'>
-        <input type="email" onChange={(e)=>getEmail(e.target.value)} placeholder="enter email" />
-        <input type="password" onChange={(e)=>getPassword(e.target.value)} placeholder="Enter password" />
-        <button type="submit" onClick={(e) => logUserIn(e, email, password)} >Login</button>
-        {errorMessage}
-      </form>
-      <h4>Not a user? Sign up <a href="/signup">here</a>.</h4>
+      <header>
+        <div id="showcase-overlay"></div>
+
+        <div id="showcase-info" className="container d-flex flex-column align-items-center justify-content-center">
+          <h1 className='login'>Log in</h1>
+          <form className='login'>
+            <input type="email" onChange={(e) => getEmail(e.target.value)} placeholder="enter email" />
+            <input type="password" onChange={(e) => getPassword(e.target.value)} placeholder="Enter password" />
+            <button type="submit" onClick={(e) => logUserIn(e, email, password)} >Login</button>
+            {errorMessage}
+          </form>
+          <h4>Not a user? Sign up <a href="/signup">here</a>.</h4>
+        </div>
+      </header>
+
+      
+
     </Fragment>
   )
 }

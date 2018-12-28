@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  color: #6b4b35;
+  overflow-x: hidden;
+}
+
+header {
+  height: 100vh;
+  background: url("../../resources/showcase.jpg") center fixed;
+}
+
+.secondary-section {
+  color: white;
+  background-color: #2A281C;
+}
+
+#showcase-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  opacity: 0.08;
+  z-index: 1;
+}
+
+#showcase-info {
+  color: white;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+.login {
+  z-index: 10;
+}
+
+/*# sourceMappingURL=app.css.map */
