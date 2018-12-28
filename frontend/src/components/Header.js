@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
+import logo from '../resources/logo/logo-header.png'
+
 const Header = () => {
     return (
       <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-white">
         <a className="navbar-brand" href="#">
-          <img src="../img/logo/logo-header.png" alt="logo" width="20"/>
+          <img src={logo} alt="logo" width="20"/>
           SmartMeat
         </a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">

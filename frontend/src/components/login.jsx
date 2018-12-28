@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 
 import { logUserIn } from '../store'
 
+import video from '../resources/video/main.mp4'
+
 const LoginForm = ({loginError, logUserIn}) => {
   const [email, getEmail] = useState(""),
   [password, getPassword] = useState("")
@@ -14,26 +16,38 @@ const LoginForm = ({loginError, logUserIn}) => {
       <header>
         <div id="showcase-overlay"></div>
 
-        <div id="showcase-info" className="container d-flex flex-column align-items-center justify-content-center">
-          <h1 className='login'>Log in</h1>
-          <form className='login'>
-            <input type="email" onChange={(e) => getEmail(e.target.value)} placeholder="enter email" />
-            <input type="password" onChange={(e) => getPassword(e.target.value)} placeholder="Enter password" />
-            <button type="submit" onClick={(e) => logUserIn(e, email, password)} >Login</button>
-            {errorMessage}
+        <div id="showcase-info" className="d-flex flex-column align-items-center justify-content-center">
+          <form className="login">
+            <p className="text-center h4">Log In</p>
+
+            <div className="form-group">
+              <input className="form-control" type="email" onChange={(e) => getEmail(e.target.value)} placeholder="Email" />
+            </div>
+
+            <div className="form-group">
+              <input className="form-control" type="password" onChange={(e) => getPassword(e.target.value)} placeholder="Password" />
+            </div>
+
+            <button className="btn btn-secondary mb-2" type="submit" onClick={(e) => logUserIn(e, email, password)} >Login</button>
+
+            <p>Not a user? Sign up <a href="/signup">here</a>.</p>
           </form>
-          <h4>Not a user? Sign up <a href="/signup">here</a>.</h4>
+          {errorMessage}
         </div>
       </header>
 
-      <section class="container my-5">
-        <div class="row">
-          <div class="col-12 col-md-6 my-5">
+      <section className="container my-5">
+        <div className="row">
+          <div className="col-12 text-center">
+            <h3>"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, ipsa!"</h3>
+          </div>
+
+          <div className="col-12 col-md-6 my-5">
             <h3>Title</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi quaerat asperiores culpa eum, autem amet. Sed rem quae accusamus? Tempore laborum minima eveniet officiis consequuntur deserunt quisquam neque tenetur pariatur?</p>
           </div>
 
-          <div class="col-12 col-md-6 my-5">
+          <div className="col-12 col-md-6 my-5">
             <h3>Title</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi quaerat asperiores culpa eum, autem amet. Sed rem quae accusamus? Tempore laborum minima eveniet officiis consequuntur deserunt quisquam neque tenetur pariatur?</p>
           </div>
@@ -44,7 +58,9 @@ const LoginForm = ({loginError, logUserIn}) => {
         <div class="col-10 col-md-6">
           <h3 class="text-center">Video Showcase</h3>
           <div class="embed-responsive embed-responsive-16by9 rounded shadow-lg my-4">
-            <video id="showcase-video" src="./resources/video/main.mp4" controls></video>
+            <video id="showcase-video" controls>
+              <source src={video}/>
+            </video>
           </div>
               </div>
               <div class="col-10 col-md-5">

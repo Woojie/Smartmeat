@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
     return (
-      <footer >
-
+      <footer class="secondary-section py-5">
+        <div class="text-center">&copy;2018 Copyright</div>
       </footer>
     )
   }
