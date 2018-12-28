@@ -17,7 +17,6 @@ const Results = ({carbon, petrol, number}) => {
     <h5><b>{drive}km</b> travelled by car </h5>
     <h5>Heat, cool and travel Canadian household for {directHousehold}days. </h5>
     <h5>{globalCitizen}% of an average human's yearly GHG emssion.</h5>
-    <button>Alter Report</button>
     <button>Delete Report</button>
 
 

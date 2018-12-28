@@ -28,7 +28,7 @@ const FoodDistribution = ({totalHamburger, totalSteak, totalBeef}) => {
 
   return(
     <React.Fragment>
-      <h5> Total Carbon Emission Breakup</h5>
+      <h5> Types of Food Consumed</h5>
       <Bar data={chartData} />
     </React.Fragment>
   )

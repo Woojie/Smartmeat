@@ -19,11 +19,19 @@ router.get('/', (req, res, next) => {
 
 router.get('/allReports', (req, res, next) => {
   let reports = []
+  let altReports = []
   User.find({}, (err, user)=> {
+
     user.forEach((user)=>{
+        
       reports = reports.concat(user.reports)
+      altReports = altReports.concat(user.alteredReports)
     })
-    res.send(reports)
+    let allReports = {
+        reports,
+        altReports
+    }
+    res.send(allReports)
   }) 
 
 })
@@ -74,6 +82,25 @@ router.put('/report', (req, res) => {
     })
 })
 
+router.put('/alterReport', (req, res) => {
+    const {oldReport, newAlteredReports, email, } = req.body
+    User.findOneAndUpdate({
+        email: email
+    }, {
+        alteredReports: newAlteredReports
+    }, {
+        new: true
+    }, (err, user) => {
+        if (err) {
+            return res
+                .status(5000.)
+                .send(err)
+        }
+
+        res.send(user)
+    })
+})
+
 router.get('/check', passport.authenticate('jwt', {session: false}), (req, res) => {
 
     return res.json({user: req.user})
@@ -90,9 +117,7 @@ router.post('/', (req, res) => {
         } else if (user) {
             res.json({error: `Sorry, ${email} already has an account, trying logging in!`})
         } else {
-
             const newUser = new User({email, password})
-
             newUser.save((err, savedUser) => {
                 if (err) 
                     return res.json(err)

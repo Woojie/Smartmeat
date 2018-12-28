@@ -20,7 +20,7 @@ const App = ({loggedIn, user}) => {
       if(localStorage.token === undefined){
 
       }else{
-      console.log('hello')
+
       searchForUser(localStorage.token)
     }
   },[])

@@ -67,6 +67,7 @@ export const getCalculation = (e, order, quantity, frequency) => {
 
 export const saveReport = (report, email) => {
   store.dispatch(startReport())
+  report.email = email
   axios.put('http://localhost:3030/user/report', {report, email})
   .then((res)=>{
     store.dispatch(finishReport(res.data))
@@ -77,6 +78,17 @@ export const grabAllReports = () => {
   store.dispatch(getAllReports())
   axios.get('http://localhost:3030/user/allReports')
   .then((res)=>store.dispatch(finishGettingReports(res.data)))
+}
+
+export const alterReport = (oldReport, newReport, alteredReports, email) => {
+    store.dispatch(startAlterReport())
+    let newAlteredReports = alteredReports.concat(newReport)
+    newAlteredReports.id = oldReport.id
+    newAlteredReports.email = email
+    axios.put('http://localhost:3030/user/alterReport', {email, oldReport, newAlteredReports})
+    .then((res)=> {
+      store.dispatch(finishAlterReport(res.data))
+    })
 }
 
 const store = createStore(

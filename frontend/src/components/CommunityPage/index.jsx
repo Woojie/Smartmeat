@@ -3,23 +3,24 @@ import { connect } from 'react-redux'
 
 import Report from './Report'
 import GlobalChart from './GlobalChart'
-import { getCalculation, grabAllReports } from '../../store'
+import { getCalculation, grabAllReports, alterReport } from '../../store'
 
 
-const CommunityPage = ({user, reports}) => {
+const CommunityPage = ({user, reports, calculator}) => {
 
   return (
     <div  className='container' id='mainBody'>
-      <h1>Community</h1>
       <br />
-      <Report getCalculation={getCalculation}  user={user}/>
+      <Report alterReport={alterReport} getCalculation={getCalculation} calculator={calculator} user={user}/>
+      <br />
       <GlobalChart grabAllReports={grabAllReports} reports={reports.reports} />
     </div>
   )
 }
-const mapStateToProps = ({reports}) => {
+const mapStateToProps = ({reports, calculator}) => {
   return {
     reports,
+    calculator
   }
 }
 
