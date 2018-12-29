@@ -10,6 +10,7 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
   let directHousehold = Math.round(carbon / 41)
   let globalCitizen = Math.round(carbon / 4400 * 100)
   let report =  reports.length === 0 ? {
+    email: userEmail,
     carbon, 
     petrol, 
     order,  
@@ -17,6 +18,7 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
     frequency,
     id:uuidv4()
   } : reports.concat({
+    email: userEmail,
     carbon, 
     petrol, 
     order, 
@@ -24,7 +26,6 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
     frequency,
     id:uuidv4()
   })
-  
   return(
 
     modal ? <Redirect to="/community" exact /> 

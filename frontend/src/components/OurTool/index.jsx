@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { logout } from '../../store/actions/login'
+
 import { getCalculation, saveReport } from '../../store'
 import Calculator from './Calculator'
 import Results from './Results'
 
 
-const HomePage = ({carbon, petrol, dispatch, userEmail, reports, order, quantity, frequency}) => {
+const OurTool = ({carbon, petrol,  userEmail, reports, order, quantity, frequency}) => {
   
   let results = carbon === 0  ? "" : (
     <Results 
@@ -42,4 +42,4 @@ const mapStatetoProps = ({calculator:{result, carbonCost, order, quantity, frequ
   }
 }
 
-export default connect(mapStatetoProps)(HomePage)
+export default connect(mapStatetoProps)(OurTool)

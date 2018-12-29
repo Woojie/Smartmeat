@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 import LoginForm from './login'
 import Signup from './Signup'
-import HomePage from './HomePage'
+import OurTool from './OurTool'
 import Header from './Header';
 import Footer from './Footer'
 import ProfilePage from './ProfilePage'
@@ -43,7 +43,7 @@ const App = ({loggedIn, user, logout}) => {
           : <Redirect to="/home" exact />)} 
         />
         <Route path="/home" render={props=>(
-          loggedIn ? (<HomePage {...props} />) 
+          loggedIn ? (<OurTool {...props} />) 
           : (<Redirect  to="/login" exact />) )} 
         />
         <Route path="/profile" render ={props=>(
