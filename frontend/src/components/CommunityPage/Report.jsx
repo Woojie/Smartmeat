@@ -3,6 +3,13 @@ import ModalAlterReport from './ModalAlterReport'
 
 const Report = ( {user:{email, reports, alteredReports}, getCalculation, calculator, alterReport} ) => {
   
+  if (reports.id === undefined) {
+    return (
+      <div>
+
+      </div>
+    )
+  } else {
   return (
     <div className='accordion'>
       <div className="card">
@@ -30,10 +37,9 @@ const Report = ( {user:{email, reports, alteredReports}, getCalculation, calcula
       </div>
     </div>
   </div>
-</div>
-
-    
+</div>    
   )
+  }
 }
 
 export default Report

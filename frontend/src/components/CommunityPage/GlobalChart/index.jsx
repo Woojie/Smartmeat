@@ -1,6 +1,5 @@
 import React from 'react'
 import Breakup from './Breakup'
-import FoodDistribution from './FoodDistribution'
 
 class GlobalChart extends React.Component {
   componentDidMount() {
@@ -13,19 +12,9 @@ class GlobalChart extends React.Component {
     let carbon = 0
     let alteredCarbon = 0
     let petrol = 0
-    let totalHamburger = 0
-    let totalSteak = 0
-    let totalBeef = 0
     reports.forEach((report)=> {
       carbon += report.carbon
       petrol += report.petrol
-      if(report.order === "hamburger") {
-        totalHamburger += report.quantity + report.frequency
-      }else if(report.order === "steak") {
-        totalSteak += report.quantity + report.frequency 
-      }else {
-        totalBeef += report.quantity + report.frequency 
-      }
     })
     altReports.forEach((report)=> {
       alteredCarbon += report.result
@@ -36,11 +25,6 @@ class GlobalChart extends React.Component {
       <h4>Total: {carbon}kg</h4>
       <br />
       <Breakup carbon={carbon} alteredCarbon={alteredCarbon} />
-      <FoodDistribution 
-        totalBeef={totalBeef} 
-        totalHamburger={totalHamburger} 
-        totalSteak={totalSteak} 
-      />
       </div>
     )
   }
