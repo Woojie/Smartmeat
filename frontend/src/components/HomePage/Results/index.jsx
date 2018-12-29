@@ -29,16 +29,19 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
 
     modal ? <Redirect to="/community" exact /> 
     :(
-    <div className='row'>
+    <div className='row' id='results'>
     <div className='col'>
     <h3>Results</h3>
     <span>In total, your consumption produced <b>{carbon}kg</b> of greenhouse gas emissions per year. </span>
-    <h3>In Comparison:</h3>
-    <span>This is the equivalent of driving <b>{drive}km</b> on a standard vehicle in the city in Canada. </span>
+    <h3 className='comparisonHeaders'>In Comparison:</h3>
+    <img src='./images/car.svg' />
+    <span>This is the equivalent of driving <b>{drive}km</b> on a standard vehicle in the city in Canada. </span> 
     <br />
-    <span>You can heat, cool and drive an average Canadian household for {directHousehold}days. </span>
 
-    <h2>Breakdown of how the emission is produced:</h2>
+    <span>You can heat, cool and drive an average Canadian household for {directHousehold}days. </span>
+    <img src='./images/house.svg' />
+    
+    <h2 className='comparisonHeaders'>Breakdown of how the emission is produced:</h2>
     <DoughnutChart data={carbon} />
 
     <h2>You vs the World</h2>

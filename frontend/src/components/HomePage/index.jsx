@@ -25,7 +25,7 @@ const HomePage = ({carbon, petrol, dispatch, userEmail, reports, order, quantity
   <div className='container' id='mainBody' data-spy="scroll"> 
     <Calculator getCalculation={getCalculation} />
     {results} <br />
-    <button type="button" className="btn btn-dark" onClick={()=>dispatch(logout())}>Logout </button>
+    {/* <button type="button" className="btn btn-dark" onClick={()=>dispatch(logout())}>Logout </button> */}
   </div>
   )
 }

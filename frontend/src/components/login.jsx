@@ -54,16 +54,16 @@ const LoginForm = ({loginError, logUserIn}) => {
         </div>
       </section>
 
-      <section class="row d-flex align-items-center justify-content-center secondary-section py-5">
-        <div class="col-10 col-md-6">
-          <h3 class="text-center">Video Showcase</h3>
-          <div class="embed-responsive embed-responsive-16by9 rounded shadow-lg my-4">
+      <section className="row d-flex align-items-center justify-content-center secondary-section py-5">
+        <div className="col-10 col-md-6">
+          <h3 className="text-center">Video Showcase</h3>
+          <div className="embed-responsive embed-responsive-16by9 rounded shadow-lg my-4">
             <video id="showcase-video" controls>
               <source src={video}/>
             </video>
           </div>
               </div>
-              <div class="col-10 col-md-5">
+              <div className="col-10 col-md-5">
                 <h4>Description</h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde fugit maiores quidem, dolorem illum laudantium consectetur consequuntur nobis delectus expedita!</p>
 
@@ -71,20 +71,20 @@ const LoginForm = ({loginError, logUserIn}) => {
               </div>
       </section>
 
-        <section class="container my-5">
-          <h3 class="text-center my-5">Our Sponsors</h3>
-          <div class="row space-between">
-            <div class="col-6 col-md-3">
-              <img class="img-fluid" src="https://diylogodesigns.com/wp-content/uploads/2016/04/Mcdonalds-logo-png-Transparent-768x538.png" />
+        <section className="container my-5">
+          <h3 className="text-center my-5">Our Sponsors</h3>
+          <div className="row space-between" id='sponsorsLogos'>
+            <div className="col-6 col-md-3">
+              <img className="img-fluid" src="https://diylogodesigns.com/wp-content/uploads/2016/04/Mcdonalds-logo-png-Transparent-768x538.png" alt='logo1' />
             </div>
-            <div class="col-6 col-md-3">
-              <img class="img-fluid" src="https://diylogodesigns.com/wp-content/uploads/2016/04/Mcdonalds-logo-png-Transparent-768x538.png" />
+            <div className="col-6 col-md-3">
+              <img className="img-fluid" src="https://diylogodesigns.com/wp-content/uploads/2016/04/Mcdonalds-logo-png-Transparent-768x538.png" alt='logo2' />
             </div>
-            <div class="col-6 col-md-3">
-              <img class="img-fluid" src="https://diylogodesigns.com/wp-content/uploads/2016/04/Mcdonalds-logo-png-Transparent-768x538.png" />
+            <div className="col-6 col-md-3">
+              <img className="img-fluid" src="https://diylogodesigns.com/wp-content/uploads/2016/04/Mcdonalds-logo-png-Transparent-768x538.png" alt='logo3' />
             </div>
-            <div class="col-6 col-md-3">
-              <img class="img-fluid" src="https://diylogodesigns.com/wp-content/uploads/2016/04/Mcdonalds-logo-png-Transparent-768x538.png" />
+            <div className="col-6 col-md-3">
+              <img className="img-fluid" src="https://diylogodesigns.com/wp-content/uploads/2016/04/Mcdonalds-logo-png-Transparent-768x538.png" alt='logo4'/>
             </div>
           </div>
         </section>

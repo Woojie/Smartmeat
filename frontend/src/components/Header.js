@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-
 import logo from '../resources/logo/logo-header.png'
+import { logout } from '../store/actions/login'
 
-const Header = () => {
+const Header = ( {dispatch} ) => {
     return (
       <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-white">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/home">
           <img src={logo} alt="logo" width="20"/>
           SmartMeat
         </a>
@@ -17,15 +16,18 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="#">Home</a>
+              <a className="nav-link" href="/home">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Calculator</a>
+              <a className="nav-link" href="community">Calculator</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Meet The Team</a>
+              <a className="nav-link" href="/about">Meet The Team</a>
             </li>
           </ul>
+          <button type="button" className="btn btn-dark my-2 my-sm-0" 
+          onClick={()=>dispatch(logout())}
+          >Logout </button>
         </div>
       </nav>
     )
