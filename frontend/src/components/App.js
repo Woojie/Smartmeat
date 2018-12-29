@@ -10,11 +10,12 @@ import Footer from './Footer'
 import ProfilePage from './ProfilePage'
 import CommunityPage from './CommunityPage'
 import { searchForUser } from '../store/'
+import { logout } from '../store/actions/login'
 
 import '../styles/css/app.css'
 
 
-const App = ({loggedIn, user}) => {
+const App = ({loggedIn, user, logout}) => {
 
     useEffect(()=>{
       if(localStorage.token === undefined){
@@ -29,7 +30,7 @@ const App = ({loggedIn, user}) => {
     return (
 
       <div className='App'>
-      <Header />
+      <Header logout={logout} loggedIn={loggedIn} />
 
       <Switch>
         <Redirect from="/" to="login" exact />
@@ -72,7 +73,8 @@ const mapStatetoProps = ({login:{loggedIn, user}}) => {
 
 const mapFuncToProps = dispatch => {
   return {
-    searchForUser: (token) => dispatch(searchForUser(token))
+    searchForUser: (token) => dispatch(searchForUser(token)),
+    logout: () => dispatch(logout())
   }
 }
 

@@ -1,8 +1,17 @@
 import React from 'react';
 import logo from '../resources/logo/logo-header.png'
-import { logout } from '../store/actions/login'
+import { Link } from 'react-router-dom'
 
-const Header = ( {dispatch} ) => {
+
+const Header = ( {logout, loggedIn} ) => {
+  
+  let loginButton = loggedIn ? (
+    <button type="button" className="btn btn-dark my-2 my-sm-0" 
+    onClick={()=>logout()}
+    >Logout </button>
+  ): <Link to="/login"><button type="button" className="btn btn-dark my-2 my-sm-0" >
+      Login 
+    </button></Link>
     return (
       <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-white">
         <a className="navbar-brand" href="/home">
@@ -19,15 +28,17 @@ const Header = ( {dispatch} ) => {
               <a className="nav-link" href="/home">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="community">Calculator</a>
+              <Link to="community">
+                <p className="nav-link" href="community">Community</p>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/about">Meet The Team</a>
+              <Link to="profile">
+                <p className="nav-link">Profile</p>
+              </Link>
             </li>
           </ul>
-          <button type="button" className="btn btn-dark my-2 my-sm-0" 
-          onClick={()=>dispatch(logout())}
-          >Logout </button>
+          {loginButton}
         </div>
       </nav>
     )

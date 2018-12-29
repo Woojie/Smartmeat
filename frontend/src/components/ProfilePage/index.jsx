@@ -6,7 +6,9 @@ import Results from './Results'
 const ProfilePage = ( {user} ) => {
   
   let reports = user.reports.map((report, i) => (
+    <div className='accordion'>
     <Results key={i} number={i} carbon = {report.carbon} petrol = {report.petrol} />
+    </div>
 ))
   return(
 

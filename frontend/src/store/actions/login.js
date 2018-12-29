@@ -19,6 +19,7 @@ export const startCheckForUser = () =>
 })
 
 
+
 export const checkForUser = (token, decodedToken) => 
 ({
   type: "CHECK_USER",
