@@ -30,15 +30,4 @@ header {
   z-index: 1;
 }
 
-#showcase-info {
-  color: white;
-  height: 100%;
-  width: 100%;
-  z-index: 10;
-}
-
-.login {
-  z-index: 10;
-}
-
 /*# sourceMappingURL=app.css.map */
