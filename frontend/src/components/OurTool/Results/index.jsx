@@ -9,6 +9,11 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
   let drive = Math.round(petrol * 9.9)
   let directHousehold = Math.round(carbon / 41)
   let globalCitizen = Math.round(carbon / 4400 * 100)
+  let modalText = reports === undefined ? "In order to save reports, you must log in!" 
+  : "Thank you for using the Carbon Emissions Calculator, now that you know just much emission is produced upon eating meat, would you like to try and ditch your consumption just a little bit to see how much difference it would make?" 
+  let hiddenButton = {
+    display: reports === undefined ? "none" : ""
+  }
 
   let report = reports === undefined ? "" : [reports.length === 0 ? {
     email: userEmail,
@@ -62,14 +67,18 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
         </button>
       </div>
       <div className="modal-body">
-        Thank you for using the Carbon Emissions Calculator, now that you know just much emission is produced upon eating meat, would you like to try and ditch your consumption just a little bit to see how much difference it would make?
+        {modalText}
       </div>
       <div className="modal-footer">
         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-        <Link to="/community"><button data-dismiss="modal" type="button" className="btn btn-primary" onClick={() => modalClose(true)} >YES!</button></Link>
+        <Link to="/community">
+          <button style={hiddenButton}  data-dismiss="modal" type="button" className="btn btn-primary" onClick={() => modalClose(true)}> 
+            YES!
+          </button>
+        </Link>
       </div>
     </div>
-  </div>
+  </div>w
 </div>
   </div>
     )
