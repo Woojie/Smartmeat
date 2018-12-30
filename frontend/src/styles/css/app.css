@@ -9,16 +9,22 @@ html, body {
   overflow-x: hidden;
 }
 
-header {
+a {
+  color: black;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+#showcase {
   height: 100vh;
-  background: url("../../resources/showcase.jpg") center fixed;
+  background: url("../../resources/showcase.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-.secondary-section {
-  color: white;
-  background-color: #2A281C;
-}
-
 #showcase-overlay {
   position: absolute;
   top: 0;
@@ -26,8 +32,20 @@ header {
   height: 100%;
   width: 100%;
   background-color: white;
-  opacity: 0.08;
+  opacity: 0.1;
   z-index: 1;
+}
+#showcase-video {
+  height: 100%;
+  z-index: 2;
+}
+
+.light {
+  background-color: white;
+}
+
+.dark {
+  background-color: grey;
 }
 
 /*# sourceMappingURL=app.css.map */
