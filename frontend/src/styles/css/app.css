@@ -9,6 +9,14 @@ html, body {
   overflow-x: hidden;
 }
 
+a {
+  color: black;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
 #showcase {
   height: 100vh;
   background: url("../../resources/showcase.jpg");
@@ -32,36 +40,12 @@ html, body {
   z-index: 2;
 }
 
-form, h1 {
-  margin-left: auto;
-  margin-right: auto;
+.light {
+  background-color: white;
 }
 
-.login {
-  margin-top: 6rem;
-}
-
-#mainBody {
-  height: 100%;
-  margin-top: 8rem;
-  margin-bottom: 8rem;
-}
-
-.App {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#results {
-  margin-top: 3rem;
-}
-
-#sponsorsLogos {
-  margin-bottom: 9rem;
-}
-
-.comparisonHeaders {
-  margin-top: 2rem;
+.dark {
+  background-color: grey;
 }
 
 /*# sourceMappingURL=app.css.map */

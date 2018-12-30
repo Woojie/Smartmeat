@@ -18,7 +18,41 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </header>
 
+      <section className="light">
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-md-6">
+              <h3 className="text-center">Vision</h3>
+              <p>"Green communities with green thinkers that aims for less meat, less heat and more life!"</p>
+            </div>
+
+            <div className="col-12 col-md-6">
+              <h3 className="text-center">Mission</h3>
+              <p>"To raise eConsciousness and empower our generation on how we can positively contribute to the environment for daily life choices."</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="dark">
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-md-6">
+              <h3 className="text-center">Vision</h3>
+              <p>"Green communities with green thinkers that aims for less meat, less heat and more life!"</p>
+            </div>
+
+            <div className="col-12 col-md-6">
+              <h3 className="text-center">Mission</h3>
+              <p>"To raise eConsciousness and empower our generation on how we can positively contribute to the environment for daily life choices."</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <header id="showcase">
       </header>
 
       {/* <section className="container my-5">
