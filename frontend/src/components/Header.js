@@ -25,7 +25,7 @@ const Header = ( {logout, loggedIn} ) => {
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="/home">Our Tool</a>
+              <a className="nav-link" href="/ourTool">Our Tool</a>
             </li>
             <li className="nav-item">
               <Link to="community">

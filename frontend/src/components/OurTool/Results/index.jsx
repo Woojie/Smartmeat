@@ -35,13 +35,14 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
     <h3>Results</h3>
     <span>In total, your consumption produced <b>{carbon}kg</b> of greenhouse gas emissions per year. </span>
     <h3 className='comparisonHeaders'>In Comparison:</h3>
-    <img src='./images/car.svg' />
+    <img src='./images/car.svg' alt="car" />
+    <br />
     <span>This is the equivalent of driving <b>{drive}km</b> on a standard vehicle in the city in Canada. </span> 
     <br />
 
     <span>You can heat, cool and drive an average Canadian household for {directHousehold}days. </span>
-    <img src='./images/house.svg' />
-    
+    <img src='./images/house.svg' alt="house" />
+    <br />
     <h2 className='comparisonHeaders'>Breakdown of how the emission is produced:</h2>
     <DoughnutChart data={carbon} />
 

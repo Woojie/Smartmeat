@@ -22,7 +22,7 @@ class GlobalChart extends React.Component {
     return(
       <div>
       <h1>Global Community</h1>
-      <h4>Total: {carbon}kg</h4>
+      <h4>Total: {carbon}kg of greenhouse gas emissions created by SmartMeat users.</h4>
       <br />
       <Breakup carbon={carbon} alteredCarbon={alteredCarbon} />
       </div>

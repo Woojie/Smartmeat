@@ -36,23 +36,22 @@ const App = ({loggedIn, user, logout}) => {
         <Redirect from="/" to="login" exact />
         <Route path="/login" exact render={props=>(
           !loggedIn ? <LoginForm {...props} />
-          : <Redirect  to="/home" exact />)} 
+          : <Redirect  to="/ourTool" exact />)} 
         />
         <Route path="/signup" render={props=>(
           !loggedIn ? <Signup {...props} /> 
-          : <Redirect to="/home" exact />)} 
+          : <Redirect to="/ourTool" exact />)} 
         />
-        <Route path="/home" render={props=>(
-          loggedIn ? (<OurTool {...props} />) 
-          : (<Redirect  to="/login" exact />) )} 
+        <Route path="/ourTool" render={props=>(
+          <OurTool {...props} />)
+          } 
         />
         <Route path="/profile" render ={props=>(
           loggedIn ? (<ProfilePage {...props} user={user}/>)
           : (<Redirect to="/login" exact />)
         )} />
         <Route path="/community" render ={props=>(
-          loggedIn ? (<CommunityPage {...props} user={user}/>)
-          : (<Redirect to="/login" exact />)
+          <CommunityPage {...props} user={user}/>
         )} />
       </Switch>
       
