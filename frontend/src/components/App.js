@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import LoginForm from './login'
 import Signup from './Signup'
 import OurTool from './OurTool'
-import Header from './Header';
+import Nav from './Nav';
 import Home from './Home'
 import Footer from './Footer'
 import ProfilePage from './ProfilePage'
@@ -31,7 +31,7 @@ const App = ({loggedIn, user, logout}) => {
     return (
 
       <div className='App'>
-      <Header logout={logout} loggedIn={loggedIn} />
+      <Nav logout={logout} loggedIn={loggedIn} />
 
       <Switch>
         <Route path="/" exact component={Home}/>

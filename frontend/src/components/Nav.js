@@ -3,7 +3,7 @@ import logo from '../resources/logo/logo-header.png'
 import { Link } from 'react-router-dom'
 
 
-const Header = ( {logout, loggedIn} ) => {
+const Nav = ( {logout, loggedIn} ) => {
   
   let loginButton = loggedIn ? (
     <button type="button" className="btn btn-dark my-2 my-sm-0" 
@@ -44,4 +44,4 @@ const Header = ( {logout, loggedIn} ) => {
     )
   }
 
-export default Header;
+export default Nav;
