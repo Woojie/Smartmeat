@@ -14,7 +14,7 @@ const Header = ( {logout, loggedIn} ) => {
     </button></Link>
     return (
       <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-white">
-        <a className="navbar-brand" href="/home">
+        <a className="navbar-brand" href="/">
           <img src={logo} alt="logo" width="20"/>
           SmartMeat
         </a>

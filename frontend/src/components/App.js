@@ -6,6 +6,7 @@ import LoginForm from './login'
 import Signup from './Signup'
 import OurTool from './OurTool'
 import Header from './Header';
+import Home from './Home'
 import Footer from './Footer'
 import ProfilePage from './ProfilePage'
 import CommunityPage from './CommunityPage'
@@ -33,11 +34,11 @@ const App = ({loggedIn, user, logout}) => {
       <Header logout={logout} loggedIn={loggedIn} />
 
       <Switch>
-        <Redirect from="/" to="login" exact />
+        <Route path="/" exact component={Home}/>
+        
         <Route path="/login" exact render={props=>(
           !loggedIn ? <LoginForm {...props} />
-          : <Redirect  to="/ourTool" exact />)} 
-        />
+          : <Redirect  to="/ourTool" exact />)} />
         <Route path="/signup" render={props=>(
           !loggedIn ? <Signup {...props} /> 
           : <Redirect to="/ourTool" exact />)} 
