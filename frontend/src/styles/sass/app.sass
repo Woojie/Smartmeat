@@ -11,20 +11,51 @@ html,body
   color: $secondaryColor
   overflow-x: hidden
 
-header
+
+#showcase
   height: 100vh
-  background: url('../../resources/showcase.jpg') center fixed
+  background: url('../../resources/showcase.jpg')
+  background-attachment: fixed
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
 
-.secondary-section
-  color: white
-  background-color: $primaryColor
+  &-overlay
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    background-color: white
+    opacity: 0.1
+    z-index: 1
 
-#showcase-overlay
-  position: absolute
-  top: 0
-  left: 0
+  &-video
+    height: 100%
+    z-index: 2
+
+form, h1 
+  margin-left: auto
+  margin-right: auto
+
+.login 
+  margin-top: 6rem
+
+
+#mainBody 
   height: 100%
-  width: 100%
-  background-color: white
-  opacity: 0.08
-  z-index: 1
+  margin-top: 8rem
+  margin-bottom: 8rem
+
+.App
+  margin-left: auto
+  margin-right: auto
+
+#results
+  margin-top: 3rem
+
+#sponsorsLogos 
+  margin-bottom: 9rem
+
+.comparisonHeaders
+  margin-top: 2rem
