@@ -5,7 +5,7 @@
 
 html, body {
   font-family: Georgia, "Times New Roman", Times, serif;
-  color: #6b4b35;
+  color: black;
   overflow-x: hidden;
   line-height: 1.6;
 }
@@ -38,16 +38,24 @@ blockquote:before {
 }
 
 #showcase {
-  height: 75vh;
+  height: 79vh;
   background: url("../../resources/showcase.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-#showcase-video {
+#showcase-title {
+  font-size: 4vh;
+  max-width: 65%;
+  height: auto;
+}
+#showcase-container {
   height: 100%;
-  z-index: 2;
+}
+#showcase-video {
+  max-width: 65%;
+  height: auto;
 }
 
 form {

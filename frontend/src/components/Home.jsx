@@ -9,15 +9,9 @@ const Home = () => {
   return (
     <div>
       <header id="showcase">
-        <div id="showcase-video" className="row d-flex align-items-center justify-content-center">
-          <div className="col-8 col-lg-8 col-xl-6">
-            <h3 className="text-center bg-light col-12">Less Meat, Less Heat, More Life...</h3>
-            <div className="embed-responsive embed-responsive-16by9 rounded shadow-lg my-4">
-              <video id="showcase-video" controls>
-                <source src={video} />
-              </video>
-            </div>
-          </div>
+        <div id="showcase-container" className="d-flex flex-column justify-content-center align-items-center">
+          <h3 id="showcase-title" className="bg-light">Less Meat, Less Heat, More Life...</h3>
+          <video id="showcase-video" className="rounded" src={video} controls></video>
         </div>
       </header>
 

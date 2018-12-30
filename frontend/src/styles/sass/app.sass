@@ -6,7 +6,7 @@ $secondaryColor: #6b4b35
 
 html,body 
   font-family: Georgia, 'Times New Roman', Times, serif
-  color: $secondaryColor
+  color: black
   overflow-x: hidden
   line-height: 1.6
 
@@ -35,16 +35,25 @@ blockquote:before
   font-size: 3em
 
 #showcase
-  height: 75vh
+  height: 79vh
   background: url('../../resources/showcase.jpg')
   background-attachment: fixed
   background-position: center
   background-repeat: no-repeat
   background-size: cover
 
-  &-video
+  &-title
+    font-size: 4vh
+    max-width: 65%
+    height: auto
+
+  &-container
     height: 100%
-    z-index: 2
+
+  &-video
+    max-width: 65%
+    height: auto
+
 
 form
   margin-left: auto
