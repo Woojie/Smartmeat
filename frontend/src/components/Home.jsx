@@ -1,6 +1,9 @@
 import React from 'react';
 
 import video from '../resources/video/main.mp4'
+import communityIcon from '../resources/icon/community.svg'
+import awarenessIcon from '../resources/icon/awareness.svg'
+import calculateIcon from '../resources/icon/calculate.svg'
 
 const Home = () => {
   return (
@@ -18,15 +21,15 @@ const Home = () => {
         </div>
       </header>
 
-      <section className="light">
+      <section className="py-5">
         <div className="container">
           <div className="row">
-            <div className="col-12 col-md-6 py-4">
+            <div className="col-12 col-md-6 mb-5 mb-md-0">
               <h3 className="text-center">Vision</h3>
               <blockquote><p className="quotation">Green communities with green thinkers that aims for less meat, less heat and more life!</p></blockquote>
             </div>
 
-            <div className="col-12 col-md-6 py-4">
+            <div className="col-12 col-md-6">
               <h3 className="text-center">Mission</h3>
               <blockquote><p className="quotation">To raise eConsciousness and empower our generation on how we can positively contribute to the environment for daily life choices.</p></blockquote>
             </div>
@@ -34,76 +37,29 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="light">
-        <div className="container">
+      <section className="bg-light py-5">
+        <div className="mx-5">
           <div className="row">
-            <div className="col-12 col-md-6">
-              <h3 className="text-center">Vision</h3>
-              <p>"Green communities with green thinkers that aims for less meat, less heat and more life!"</p>
+            <div className="col-12 col-md-4">
+              <img className="d-block mx-auto" src={awarenessIcon} alt="awareness icon" height="100px " />
+              <h3 className="text-center">Raise Awareness</h3>
+              <p>Raising awareness of climate change by showing the impact of food production and livestock.</p>
             </div>
 
-            <div className="col-12 col-md-6">
-              <h3 className="text-center">Mission</h3>
-              <p>"To raise eConsciousness and empower our generation on how we can positively contribute to the environment for daily life choices."</p>
+            <div className="col-12 col-md-4 my-5 my-md-0">
+              <img className="d-block mx-auto" src={calculateIcon} alt="calculate icon" height="100px " />
+              <h3 className="text-center">Calculate and Track</h3>
+              <p>With a couple of generic questions, the carbon calculator will estimate in annual average projectionof potential emission.</p>
+            </div>
+
+            <div className="col-12 col-md-4">
+              <img className="d-block mx-auto" src={communityIcon} alt="community icon" height="100px "/>
+              <h3 className="text-center">Join our community</h3>
+              <p>Coming together to reduce our CO2 emmisions by building a community of green thinkers.</p>
             </div>
           </div>
         </div>
       </section>
-
-      
-
-      {/* <section className="container my-5">
-        <div className="row">
-          <div className="col-12 text-center">
-            <h3>"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, ipsa!"</h3>
-          </div>
-
-          <div className="col-12 col-md-6 my-5">
-            <h3>Title</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi quaerat asperiores culpa eum, autem amet. Sed rem quae accusamus? Tempore laborum minima eveniet officiis consequuntur deserunt quisquam neque tenetur pariatur?</p>
-          </div>
-
-          <div className="col-12 col-md-6 my-5">
-            <h3>Title</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi quaerat asperiores culpa eum, autem amet. Sed rem quae accusamus? Tempore laborum minima eveniet officiis consequuntur deserunt quisquam neque tenetur pariatur?</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="row d-flex align-items-center justify-content-center secondary-section py-5">
-        <div className="col-10 col-md-6">
-          <h3 className="text-center">Video Showcase</h3>
-          <div className="embed-responsive embed-responsive-16by9 rounded shadow-lg my-4">
-            <video id="showcase-video" controls>
-              <source src={video} />
-            </video>
-          </div>
-        </div>
-        <div className="col-10 col-md-5">
-          <h4>Description</h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde fugit maiores quidem, dolorem illum laudantium consectetur consequuntur nobis delectus expedita!</p>
-
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut consequatur rem hic ipsa aliquid quod expedita officiis dolorum officia cum quo facere minima, voluptatem necessitatibus unde quas dicta deleniti illo!</p>
-        </div>
-      </section>
-
-      <section className="container my-5">
-        <h3 className="text-center my-5">Our Sponsors</h3>
-        <div className="row space-between" id='sponsorsLogos'>
-          <div className="col-6 col-md-3">
-            <img className="img-fluid" src="https://diylogodesigns.com/wp-content/uploads/2016/04/Mcdonalds-logo-png-Transparent-768x538.png" alt='logo1' />
-          </div>
-          <div className="col-6 col-md-3">
-            <img className="img-fluid" src="https://diylogodesigns.com/wp-content/uploads/2016/04/Mcdonalds-logo-png-Transparent-768x538.png" alt='logo2' />
-          </div>
-          <div className="col-6 col-md-3">
-            <img className="img-fluid" src="https://diylogodesigns.com/wp-content/uploads/2016/04/Mcdonalds-logo-png-Transparent-768x538.png" alt='logo3' />
-          </div>
-          <div className="col-6 col-md-3">
-            <img className="img-fluid" src="https://diylogodesigns.com/wp-content/uploads/2016/04/Mcdonalds-logo-png-Transparent-768x538.png" alt='logo4' />
-          </div>
-        </div>
-      </section> */}
     </div>
   )
 }
