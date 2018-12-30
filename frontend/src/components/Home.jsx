@@ -6,10 +6,8 @@ const Home = () => {
   return (
     <div>
       <header id="showcase">
-        <div id="showcase-overlay"></div>
-
         <div id="showcase-video" className="row d-flex align-items-center justify-content-center">
-          <div className="col-10 col-lg-8 col-xl-6">
+          <div className="col-8 col-lg-8 col-xl-6">
             <h3 className="text-center bg-light col-12">Less Meat, Less Heat, More Life...</h3>
             <div className="embed-responsive embed-responsive-16by9 rounded shadow-lg my-4">
               <video id="showcase-video" controls>
@@ -19,6 +17,22 @@ const Home = () => {
           </div>
         </div>
       </header>
+
+      <section className="light">
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-md-6 py-4">
+              <h3 className="text-center">Vision</h3>
+              <blockquote><p className="quotation">Green communities with green thinkers that aims for less meat, less heat and more life!</p></blockquote>
+            </div>
+
+            <div className="col-12 col-md-6 py-4">
+              <h3 className="text-center">Mission</h3>
+              <blockquote><p className="quotation">To raise eConsciousness and empower our generation on how we can positively contribute to the environment for daily life choices.</p></blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="light">
         <div className="container">
@@ -36,24 +50,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="dark">
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-md-6">
-              <h3 className="text-center">Vision</h3>
-              <p>"Green communities with green thinkers that aims for less meat, less heat and more life!"</p>
-            </div>
-
-            <div className="col-12 col-md-6">
-              <h3 className="text-center">Mission</h3>
-              <p>"To raise eConsciousness and empower our generation on how we can positively contribute to the environment for daily life choices."</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <header id="showcase">
-      </header>
+      
 
       {/* <section className="container my-5">
         <div className="row">

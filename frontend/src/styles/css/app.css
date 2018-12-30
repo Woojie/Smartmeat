@@ -1,12 +1,13 @@
-@import url("https://fonts.googleapis.com/css?family=Oswald");
+@charset "UTF-8";
 * {
   box-sizing: border-box;
 }
 
 html, body {
-  font-family: "Oswald", sans-serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   color: #6b4b35;
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
 a {
@@ -17,23 +18,32 @@ a:hover {
   text-decoration: none;
 }
 
+blockquote {
+  font-size: 1rem;
+  border-left: 10px solid #ccc;
+  margin: 0.5em 10px;
+  quotes: "“" "”";
+  padding: 10px 20px;
+}
+
+blockquote:before {
+  content: open-quote;
+  display: inline;
+  line-height: 0;
+  left: -10px;
+  position: relative;
+  top: 20px;
+  color: #666;
+  font-size: 3em;
+}
+
 #showcase {
-  height: 100vh;
+  height: 70vh;
   background: url("../../resources/showcase.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-#showcase-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: white;
-  opacity: 0.1;
-  z-index: 1;
 }
 #showcase-video {
   height: 100%;
@@ -46,6 +56,38 @@ a:hover {
 
 .dark {
   background-color: grey;
+}
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login {
+  margin-top: 6rem;
+}
+
+#mainBody {
+  height: 100%;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+.App {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#results {
+  margin-top: 3rem;
+}
+
+#sponsorsLogos {
+  margin-bottom: 9rem;
+}
+
+.comparisonHeaders {
+  margin-top: 2rem;
 }
 
 /*# sourceMappingURL=app.css.map */
