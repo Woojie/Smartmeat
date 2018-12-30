@@ -9,7 +9,8 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
   let drive = Math.round(petrol * 9.9)
   let directHousehold = Math.round(carbon / 41)
   let globalCitizen = Math.round(carbon / 4400 * 100)
-  let report =  reports.length === 0 ? {
+
+  let report = reports === undefined ? "" : [reports.length === 0 ? {
     email: userEmail,
     carbon, 
     petrol, 
@@ -25,7 +26,7 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
     quantity,
     frequency,
     id:uuidv4()
-  })
+  })]
   return(
 
     modal ? <Redirect to="/community" exact /> 
