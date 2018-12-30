@@ -67,10 +67,14 @@ export const getCalculation = (e, order, quantity, frequency) => {
 
 export const saveReport = (report, email) => {
   store.dispatch(startReport())
-  axios.put('http://localhost:3030/user/report', {report, email})
-  .then((res)=>{
-    store.dispatch(finishReport(res.data))
-  })
+  if (report === "") {
+    console.log("Not Logged In")
+  }else {
+    axios.put('http://localhost:3030/user/report', {report, email})
+    .then((res)=>{
+      store.dispatch(finishReport(res.data))
+    })
+  }
 }
 
 export const grabAllReports = () => {
