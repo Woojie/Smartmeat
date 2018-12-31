@@ -46,6 +46,7 @@ blockquote:before {
   background-size: cover;
 }
 .showcase-title {
+  background: rgba(255, 255, 255, 0.5);
   font-size: 4vh;
   width: 60vh;
   height: auto;
@@ -56,6 +57,14 @@ blockquote:before {
 .showcase-video {
   width: 60vh;
   height: auto;
+}
+
+.primary {
+  color: #abd038;
+}
+
+.secondary {
+  color: #6b4b35;
 }
 
 .light {

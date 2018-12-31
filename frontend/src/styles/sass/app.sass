@@ -1,4 +1,4 @@
-$primaryColor: #2A281C
+$primaryColor: rgb(171, 208, 56)
 $secondaryColor: #6b4b35
 
 *
@@ -43,6 +43,7 @@ blockquote:before
   background-size: cover
 
   &-title
+    background: rgba(255,255,255,0.5)
     font-size: 4vh
     width: 60vh
     height: auto
@@ -54,6 +55,11 @@ blockquote:before
     width: 60vh
     height: auto
 
+.primary
+  color: $primaryColor
+
+.secondary
+  color: $secondaryColor
 
 .light
   background-color: gainsboro

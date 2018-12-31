@@ -15,7 +15,7 @@ const Home = () => {
     <div>
       <header className="showcase">
         <div className="showcase-container d-flex flex-column justify-content-center align-items-center">
-          <h3 className="showcase-title bg-light">Less Meat, Less Heat, More Life...</h3>
+          <h3 className="showcase-title">Less Meat, Less Heat, More Life...</h3>
           <video className="showcase-video rounded" src={video} controls></video>
         </div>
       </header>
@@ -49,12 +49,14 @@ const Home = () => {
               <img className="d-block mx-auto" src={calculateIcon} alt="calculate icon" height="100px " />
               <h3 className="text-center">Calculate and Track</h3>
               <p>With a couple of generic questions, the carbon calculator will estimate in annual average projectionof potential emission.</p>
+              <button type="button" className="btn btn-outline-dark d-block mx-auto">Calculate</button>
             </div>
 
             <div className="col-12 col-md-4">
               <img className="d-block mx-auto" src={communityIcon} alt="community icon" height="100px "/>
               <h3 className="text-center">Join our community</h3>
               <p>Coming together to reduce our CO2 emmisions by building a community of green thinkers.</p>
+              <button type="button" className="btn btn-outline-dark d-block mx-auto">Sign Up</button>
             </div>
           </div>
         </div>
@@ -70,25 +72,25 @@ const Home = () => {
 
           <div className="row">
             <div className="col-12 col-md-6 col-lg-3 mb-5">
-              <img className="d-block mx-auto img-fluid" src={munifa} alt="munifa_ahmad"/>
+              <img className="d-block mx-auto img-fluid mb-2" src={munifa} alt="munifa_ahmad"/>
               <h4 className="text-center">Munifa Ahmad</h4>
               <h5 className="text-center">Product Owner</h5>
             </div>
 
             <div className="col-12 col-md-6 col-lg-3 mb-5">
-              <img className="d-block mx-auto img-fluid" src={wooj} alt="wooj_chung"/>
+              <img className="d-block mx-auto img-fluid mb-2" src={wooj} alt="wooj_chung"/>
               <h4 className="text-center">Woo Jae Chung</h4>
               <h5 className="text-center">Full-Stack Lead Developer</h5>
             </div>
 
             <div className="col-12 col-md-6 col-lg-3 mb-5">
-              <img className="d-block mx-auto img-fluid" src={roman} alt="roman_iudin"/>
+              <img className="d-block mx-auto img-fluid mb-2" src={roman} alt="roman_iudin"/>
               <h4 className="text-center">Roman Iudin</h4>
-              <h5 className="text-center">Web Developer</h5>
+              <h5 className="text-center">Front-End Web Developer</h5>
             </div>
 
             <div className="col-12 col-md-6 col-lg-3 ">
-              <img className="d-block mx-auto img-fluid" src={kary} alt="kary_ma"/>
+              <img className="d-block mx-auto img-fluid mb-2" src={kary} alt="kary_ma" width="500px"/>
               <h4 className="text-center">Kary Ma</h4>
               <h5 className="text-center">Front-End Web Developer</h5>
             </div>
@@ -101,21 +103,13 @@ const Home = () => {
           <div className="row">
             <h3 className="text-center col-12">Our Partners</h3>
           </div>
-          <div className="row">
-            <div className="col-3">
-              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" alt="sfu" height="100px"/>
+          <div className="row my-5">
+            <div className="col-6">
+              <img className="d-block ml-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" alt="sfu" height="100px"/>
             </div>
 
-            <div className="col-3">
-              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" alt="sfu" height="100px"/>
-            </div>
-
-            <div className="col-3">
-              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" alt="sfu" height="100px"/>
-            </div>
-
-            <div className="col-3">
-              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" alt="sfu" height="100px"/>
+            <div className="col-6">
+              <img className="d-block mr-auto" src="https://media.licdn.com/dms/image/C560BAQGlGnqBiZBfLw/company-logo_200_200/0?e=2159024400&v=beta&t=wuVOB5WyeFSbbyw3OFV8SA7eVXL6hVga4DC1anjla6Y" alt="radius" height="100px"/>
             </div>
           </div>
         </div>
