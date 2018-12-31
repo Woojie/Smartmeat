@@ -62,7 +62,11 @@ blockquote:before {
   background-color: gainsboro;
 }
 
-form {
+.dark {
+  background-color: dimgray;
+}
+
+form, h1 {
   margin-left: auto;
   margin-right: auto;
 }

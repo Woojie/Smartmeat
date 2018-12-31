@@ -60,7 +60,7 @@ const Home = () => {
         </div>
       </section>
 
-      <header class="showcase" style={{height: '20vh'}}></header>
+      <header class="showcase" style={{height: '30vh'}}></header>
 
       <section className="py-5">
         <div className="mx-5">
@@ -70,27 +70,52 @@ const Home = () => {
 
           <div className="row">
             <div className="col-12 col-md-6 col-lg-3 mb-5">
-              <img className="d-block mx-auto img-fluid" src={munifa} alt="awareness icon" height="200px " />
+              <img className="d-block mx-auto img-fluid" src={munifa} alt="munifa_ahmad"/>
               <h4 className="text-center">Munifa Ahmad</h4>
               <h5 className="text-center">Product Owner</h5>
             </div>
 
             <div className="col-12 col-md-6 col-lg-3 mb-5">
-              <img className="d-block mx-auto img-fluid" src={wooj} alt="calculate icon" height="200px " />
+              <img className="d-block mx-auto img-fluid" src={wooj} alt="wooj_chung"/>
               <h4 className="text-center">Woo Jae Chung</h4>
               <h5 className="text-center">Full-Stack Web Developer</h5>
             </div>
 
             <div className="col-12 col-md-6 col-lg-3 mb-5">
-              <img className="d-block mx-auto img-fluid" src={roman} alt="community icon" height="200px "/>
+              <img className="d-block mx-auto img-fluid" src={roman} alt="roman_iudin"/>
               <h4 className="text-center">Roman Iudin</h4>
               <h5 className="text-center">Web Developer</h5>
             </div>
 
-            <div className="col-12 col-md-6 col-lg-3 mb-5">
-              <img className="d-block mx-auto img-fluid" src={kary} alt="community icon" height="200px "/>
+            <div className="col-12 col-md-6 col-lg-3 ">
+              <img className="d-block mx-auto img-fluid" src={kary} alt="kary_ma"/>
               <h4 className="text-center">Kary Ma</h4>
               <h5 className="text-center">Front-End Web Developer</h5>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="light py-5">
+        <div className="mx-5">
+          <div className="row">
+            <h3 className="text-center col-12">Our Partners</h3>
+          </div>
+          <div className="row">
+            <div className="col-3">
+              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" height="100px"/>
+            </div>
+
+            <div className="col-3">
+              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" height="100px"/>
+            </div>
+
+            <div className="col-3">
+              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" height="100px"/>
+            </div>
+
+            <div className="col-3">
+              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" height="100px"/>
             </div>
           </div>
         </div>
