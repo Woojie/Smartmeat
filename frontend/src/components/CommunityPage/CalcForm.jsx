@@ -30,7 +30,7 @@ class CalcForm extends Component {
     return(
 
     <form 
-      onClick={()=> {this.setState({
+      onSumbit={()=> {this.setState({
         loading: true
         }, ()=>{
           setTimeout(()=>{

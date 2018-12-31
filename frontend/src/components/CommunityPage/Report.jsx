@@ -3,7 +3,7 @@ import ModalAlterReport from './ModalAlterReport'
 
 const Report = ( {user:{email, reports, alteredReports}, getCalculation, calculator, alterReport} ) => {
   
-  if (reports === undefined || reports.id === undefined ) {
+  if (reports === undefined || reports[0] === undefined ) {
     return (
       <div>
 
