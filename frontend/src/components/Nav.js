@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom'
 const Nav = ( {logout, loggedIn} ) => {
   
   let loginButton = loggedIn ? (
-    <button type="button" className="btn btn-dark my-2 my-sm-0" 
+    <button type="button" className="btn btn-dark my-2 my-sm-0 mainColor" 
     onClick={()=>logout()}
     >Logout </button>
-  ): <Link to="/login"><button type="button" className="btn btn-dark my-2 my-sm-0" >
+  ): <Link to="/login"><button type="button" className="btn btn-dark my-2 my-sm-0 mainColor" >
       Login 
     </button></Link>
     return (
@@ -17,7 +17,7 @@ const Nav = ( {logout, loggedIn} ) => {
         <span className="navbar-brand">
           <Link to="/">
             <img src={logo} alt="logo" width="20"/>
-            Smart<span id='meatColor'>Meat</span>
+            Smart<span className='mainColor'>Meat</span>
             {/* SmartMeat */}
           </Link>
         </span>

@@ -11,7 +11,7 @@ const LoginForm = ({loginError, logUserIn}) => {
 
   return(
     <Fragment>
-          <form className="login">
+          <form className="login col-4">
             <p className="text-center h4">Log In</p>
 
             <div className="form-group">
@@ -22,9 +22,9 @@ const LoginForm = ({loginError, logUserIn}) => {
               <input className="form-control" type="password" onChange={(e) => getPassword(e.target.value)} placeholder="Password" />
             </div>
 
-            <button className="btn btn-secondary mb-2" type="submit" onClick={(e) => logUserIn(e, email, password)} >Login</button>
+            <button className="btn btn-secondary mb-2 mainColor" type="submit" onClick={(e) => logUserIn(e, email, password)} >Login</button>
 
-            <p>Not a user? Sign up <a href="/signup">here</a>.</p>
+            <p>Not a user? Sign up <a href="/signup"><b className='mainColor'>here</b></a>.</p>
           </form>
           {errorMessage}
     </Fragment>
