@@ -37,28 +37,36 @@ blockquote:before {
   font-size: 3em;
 }
 
-#showcase {
-  height: 79vh;
+.showcase {
+  height: 80vh;
   background: url("../../resources/showcase.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-#showcase-title {
+.showcase-title {
   font-size: 4vh;
-  max-width: 65%;
+  width: 60vh;
   height: auto;
 }
-#showcase-container {
+.showcase-container {
   height: 100%;
 }
-#showcase-video {
-  max-width: 65%;
+.showcase-video {
+  width: 60vh;
   height: auto;
 }
 
-form {
+.light {
+  background-color: gainsboro;
+}
+
+.dark {
+  background-color: dimgray;
+}
+
+form, h1 {
   margin-left: auto;
   margin-right: auto;
 }
