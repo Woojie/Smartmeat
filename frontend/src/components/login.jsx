@@ -11,7 +11,7 @@ const LoginForm = ({loginError, logUserIn}) => {
 
   return(
     <Fragment>
-          <form className="login col-4">
+          <form className="login col-3">
             <p className="text-center h4">Log In</p>
 
             <div className="form-group">
