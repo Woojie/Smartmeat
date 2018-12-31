@@ -9,13 +9,20 @@ const LoginForm = () => {
 
   return(
     <Fragment>
-      <h1 className='login'>Sign Up</h1>
-      <form className='login'>
-        <input type="email" onChange={(e)=>getEmail(e.target.value)} placeholder="enter email" />
-        <input type="password" onChange={(e)=>getPassword(e.target.value)} placeholder="Enter password" />
-        <button type="submit" onClick={(e)=>signUserUp(e, email, password)}  >Sign Up</button>
+      <form className='login col-3'>
+      <p className="text-center h4">Sign Up</p>
+      {/* <h1 className='login'>Sign Up</h1> */}
+        <div className="form-group">
+          <input className="form-control" type="email" onChange={(e)=>getEmail(e.target.value)} placeholder="Enter your email" />
+        </div>
+
+        <div className="form-group">
+          <input className="form-control" type="password" onChange={(e)=>getPassword(e.target.value)} placeholder="Enter your password" />
+        </div>
+
+        <button className="btn btn-secondary mb-2 mainColor" type="submit" onClick={(e)=>signUserUp(e, email, password)}  >Sign Up</button>
+        <p>Already a user? Login <a href="/login"> <b className='mainColor'>here</b></a>.</p>
       </form>
-      <h4>Already a user? Login<a href="/login">here</a>.</h4>
     </Fragment>
   )
 }
