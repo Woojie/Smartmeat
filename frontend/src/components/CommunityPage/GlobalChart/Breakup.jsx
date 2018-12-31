@@ -2,7 +2,8 @@ import React from 'react'
 import { Bar } from 'react-chartjs-2'
 
 
-const Breakup = ({carbon, alteredCarbon}) => {
+const Breakup = ({ carbon, alteredCarbon, userCarbon, userCarbonDitched }) => {
+  
   carbon = carbon - alteredCarbon
   const percent = {
     foodProduction: Math.round(carbon * 0.83),
@@ -32,12 +33,14 @@ const Breakup = ({carbon, alteredCarbon}) => {
       backgroundColor: [
         '#80B641',
         '#36A2EB',
-        '#FFCE56'
+        '#FFCE56',
+        '#4286f4'
         ],
         hoverBackgroundColor: [
         '#ABD038',
         '#36A2EB',
-        '#FFCE56'
+        '#FFCE56',
+        '#5690ef'
         ]
     },
     {
@@ -46,9 +49,12 @@ const Breakup = ({carbon, alteredCarbon}) => {
       backgroundColor: [
         '#980101',
         '#980101',
+        '#980101',
         '#980101'
+
         ],
         hoverBackgroundColor: [
+        '#f90000',
         '#f90000',
         '#f90000',
         '#f90000'

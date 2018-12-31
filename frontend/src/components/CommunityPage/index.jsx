@@ -10,10 +10,11 @@ const CommunityPage = ({user, reports, calculator}) => {
 
   return (
     <div  className='container' id='mainBody'>
+    
       <br />
       <Report alterReport={alterReport} getCalculation={getCalculation} calculator={calculator} user={user}/>
       <br />
-      <GlobalChart grabAllReports={grabAllReports} reports={reports.reports} />
+      <GlobalChart grabAllReports={grabAllReports} reports={reports.reports} email={user.email} />
     </div>
   )
 }
