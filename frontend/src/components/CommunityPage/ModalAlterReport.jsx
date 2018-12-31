@@ -20,6 +20,7 @@ const ModalAlterReport = ({report, getCalculation, email, alterReport, calculato
             <Calcform 
               email={email}
               getCalculation={getCalculation}
+              result = {calculator.result}
               carbon={carbon}
               petrol={petrol}
               frequency = {frequency}

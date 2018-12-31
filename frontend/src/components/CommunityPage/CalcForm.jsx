@@ -17,6 +17,7 @@ class CalcForm extends Component {
       oldQuantity: quantity,
       oldFrequency: frequency
     })
+    this.props.getCalculation(0, '', 0, 0)
   }
 
   handleOrderSelect = (e) => {this.setState({order:e.target.value})}
@@ -25,8 +26,8 @@ class CalcForm extends Component {
 
   render(){
     let { order, quantity, frequency, oldFrequency, oldOrder, oldQuantity, loading } = this.state
-    let calc = loading ? <label>Calculation Complete.. Click on the button below to see results!</label>
-    : ""
+    let calc = this.props.result === 0 ? "" : `You will save ${this.props.result}kg of GHG!`
+  
     return(
 
     <form 
@@ -66,6 +67,7 @@ class CalcForm extends Component {
       </select>
       </div>
       <button type='button' className='btn btn-success' onClick={(e)=>this.props.getCalculation(e, order, quantity, frequency)}>Calculate</button>
+      
       {calc}
     </form>
 

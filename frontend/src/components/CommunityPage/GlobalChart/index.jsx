@@ -4,7 +4,6 @@ import Breakup from './Breakup'
 class GlobalChart extends React.Component {
   componentDidMount() {
     this.props.grabAllReports()
-    console.log('hello')
   }
 
 
@@ -18,13 +17,12 @@ class GlobalChart extends React.Component {
     let alteredCarbon = 0
     let userCarbon = 0
     let userCarbonDitched = 0
-    let petrol = 0
+  
     reports.forEach((report)=> {
       if (email === report.email) {
         userCarbon += report.carbon
       }else {
       carbon += report.carbon
-      petrol += report.petrol
   
       }
 
@@ -32,10 +30,9 @@ class GlobalChart extends React.Component {
     altReports.forEach((report)=> {
       if (email  === report.email) {
         userCarbonDitched += report.result
-        console.log('user', userCarbonDitched)
+        
       } else {
       alteredCarbon += report.result
-      console.log('all', alteredCarbon)
       }
 
     })

@@ -56,7 +56,9 @@ export const searchForUser = (token) => {
 }
 
 export const getCalculation = (e, order, quantity, frequency) => {
-  e.preventDefault()
+  if (e !== 0) {
+    e.preventDefault()
+  }
   store.dispatch(startCalculate())
   let result = func.calculate(order, quantity, frequency)
   let carbonCost = func.calculate(order, quantity, frequency) * 0.43

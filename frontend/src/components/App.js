@@ -20,12 +20,11 @@ const App = ({loggedIn, user, logout}) => {
 
     useEffect(()=>{
       if(localStorage.token === undefined){
-
       }else{
-
       searchForUser(localStorage.token)
     }
   },[])
+  
 
 
     return (

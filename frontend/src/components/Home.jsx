@@ -78,7 +78,7 @@ const Home = () => {
             <div className="col-12 col-md-6 col-lg-3 mb-5">
               <img className="d-block mx-auto img-fluid" src={wooj} alt="wooj_chung"/>
               <h4 className="text-center">Woo Jae Chung</h4>
-              <h5 className="text-center">Full-Stack Web Developer</h5>
+              <h5 className="text-center">Full-Stack Lead Developer</h5>
             </div>
 
             <div className="col-12 col-md-6 col-lg-3 mb-5">
@@ -103,19 +103,19 @@ const Home = () => {
           </div>
           <div className="row">
             <div className="col-3">
-              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" height="100px"/>
+              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" alt="sfu" height="100px"/>
             </div>
 
             <div className="col-3">
-              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" height="100px"/>
+              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" alt="sfu" height="100px"/>
             </div>
 
             <div className="col-3">
-              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" height="100px"/>
+              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" alt="sfu" height="100px"/>
             </div>
 
             <div className="col-3">
-              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" height="100px"/>
+              <img className="d-block mx-auto" src="https://give.sfu.ca/sites/default/files/give.jpg" alt="sfu" height="100px"/>
             </div>
           </div>
         </div>
