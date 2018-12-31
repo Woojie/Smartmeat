@@ -1,7 +1,7 @@
 const calculator = {
   result: 0,
   carbonCost: 0,
-  action: "",
+  order: "",
   quantity: 0,
   frequency: 0,
 }

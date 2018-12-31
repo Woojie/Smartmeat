@@ -4,6 +4,7 @@ import Breakup from './Breakup'
 class GlobalChart extends React.Component {
   componentDidMount() {
     this.props.grabAllReports()
+    console.log('hello')
   }
 
   render() {

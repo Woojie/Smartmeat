@@ -14,24 +14,31 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
   let hiddenButton = {
     display: reports === undefined ? "none" : ""
   }
-
-  let report = reports === undefined ? "" : [reports.length === 0 ? {
-    email: userEmail,
-    carbon, 
-    petrol, 
-    order,  
-    quantity,
-    frequency,
-    id:uuidv4()
-  } : reports.concat({
-    email: userEmail,
-    carbon, 
-    petrol, 
-    order, 
-    quantity,
-    frequency,
-    id:uuidv4()
-  })]
+  let report;
+  if (reports === undefined) {
+    report = ""
+  }else if (reports.length === 0) {
+    report = {
+      email: userEmail,
+      carbon, 
+      petrol, 
+      order,  
+      quantity,
+      frequency,
+      id:uuidv4()
+    }
+  }else {
+    report = reports.concat({
+      email: userEmail,
+      carbon, 
+      petrol, 
+      order, 
+      quantity,
+      frequency,
+      id:uuidv4()
+    })
+  }
+  console.log(report)
   return(
 
     modal ? <Redirect to="/community" exact /> 

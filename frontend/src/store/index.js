@@ -60,7 +60,7 @@ export const getCalculation = (e, order, quantity, frequency) => {
   store.dispatch(startCalculate())
   let result = func.calculate(order, quantity, frequency)
   let carbonCost = func.calculate(order, quantity, frequency) * 0.43
-  store.dispatch(finishCalculate(result, carbonCost, order, quantity, frequency))
+  store.dispatch(finishCalculate(result, carbonCost, order, Number(quantity), Number(frequency)))
 
 }
 
@@ -73,6 +73,7 @@ export const saveReport = (report, email) => {
     axios.put('http://localhost:3030/user/report', {report, email})
     .then((res)=>{
       store.dispatch(finishReport(res.data))
+    
     })
   }
 }
