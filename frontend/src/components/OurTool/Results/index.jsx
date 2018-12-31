@@ -38,7 +38,7 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
       id:uuidv4()
     })
   }
-  console.log(report)
+
   return(
 
     modal ? <Redirect to="/community" exact /> 
@@ -85,7 +85,7 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
         </Link>
       </div>
     </div>
-  </div>w
+  </div>
 </div>
   </div>
     )

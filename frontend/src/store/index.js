@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { startSignup, finishSignup, } from './actions'
 import { startLogin, finishLogin, startCheckForUser, checkForUser, validateLogin } from './actions/login'
 import { startCalculate, finishCalculate } from './actions/calculator'
-import { startReport, finishReport, startAlterReport, startDeleteReport, finishDeleteReport, finishAlterReport } from './actions/saveReport'
+import { startReport, finishReport, startAlterReport,  finishAlterReport } from './actions/saveReport'
 import { getAllReports, finishGettingReports } from './actions/globalReport'
 import { allReducers } from './reducers'
 import setAuthToken from '../setAuthToken'
@@ -61,7 +61,6 @@ export const getCalculation = (e, order, quantity, frequency) => {
   let result = func.calculate(order, quantity, frequency)
   let carbonCost = func.calculate(order, quantity, frequency) * 0.43
   store.dispatch(finishCalculate(result, carbonCost, order, Number(quantity), Number(frequency)))
-
 }
 
 
@@ -73,7 +72,6 @@ export const saveReport = (report, email) => {
     axios.put('http://localhost:3030/user/report', {report, email})
     .then((res)=>{
       store.dispatch(finishReport(res.data))
-    
     })
   }
 }
@@ -94,6 +92,11 @@ export const alterReport = (oldReport, newReport, alteredReports, email) => {
     .then((res)=> {
       store.dispatch(finishAlterReport(res.data))
     })
+    .then(  
+      axios.get('http://localhost:3030/user/allReports')
+      .then((res)=>store.dispatch(finishGettingReports(res.data))
+    ))
+    
 }
 
 const store = createStore(
