@@ -31,9 +31,11 @@ class GlobalChart extends React.Component {
     })
     altReports.forEach((report)=> {
       if (email  === report.email) {
-        userCarbonDitched += report.carbon
+        userCarbonDitched += report.result
+        console.log('user', userCarbonDitched)
       } else {
       alteredCarbon += report.result
+      console.log('all', alteredCarbon)
       }
 
     })
@@ -46,7 +48,12 @@ class GlobalChart extends React.Component {
       <h1>Global Community</h1>
       <h4>Total: {carbon + userCarbon}kg of greenhouse gas emissions created by SmartMeat users.</h4>
       <br />
-      <Breakup carbon={carbon} alteredCarbon={alteredCarbon} userCarbon = {userCarbon} userCarbonDitched = {userCarbonDitched} />
+      <Breakup 
+        email={email}
+        carbon={carbon} 
+        alteredCarbon={alteredCarbon} 
+        userCarbon = {userCarbon} 
+        userCarbonDitched = {userCarbonDitched} />
       </div>
     )
   }
