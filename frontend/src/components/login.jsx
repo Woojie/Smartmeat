@@ -11,22 +11,24 @@ const LoginForm = ({loginError, logUserIn}) => {
 
   return(
     <Fragment>
-          <form className="login col-3">
-            <p className="text-center h4">Log In</p>
+      <div className="main-body">
+        <form className="d-flex flex-column align-items-center justify-content-center h-100">
+          <p className="text-center h4">Log In</p>
 
-            <div className="form-group">
-              <input className="form-control" type="email" onChange={(e) => getEmail(e.target.value)} placeholder="Email" />
-            </div>
+          <div className="form-group">
+            <input className="form-control" type="email" onChange={(e) => getEmail(e.target.value)} placeholder="Email" />
+          </div>
 
-            <div className="form-group">
-              <input className="form-control" type="password" onChange={(e) => getPassword(e.target.value)} placeholder="Password" />
-            </div>
+          <div className="form-group">
+            <input className="form-control" type="password" onChange={(e) => getPassword(e.target.value)} placeholder="Password" />
+          </div>
 
-            <button className="btn btn-secondary mb-2 mainColor" type="submit" onClick={(e) => logUserIn(e, email, password)} >Login</button>
+          <button className="btn btn-secondary mb-2 primary" type="submit" onClick={(e) => logUserIn(e, email, password)} >Login</button>
 
-            <p>Not a user? Sign up <a href="/signup"><b className='mainColor'>here</b></a>.</p>
-          </form>
-          {errorMessage}
+          <p>Not a user? Sign up <a href="/signup"><b className="primary">here</b></a>.</p>
+        </form>
+        {errorMessage}
+      </div>
     </Fragment>
   )
 }

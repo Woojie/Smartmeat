@@ -13,7 +13,7 @@ const Nav = ( {logout, loggedIn} ) => {
       Login 
     </button></Link>
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-white">
+      <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <span className="navbar-brand">
           <Link to="/">
             <img src={logo} alt="logo" width="20"/>

@@ -121,8 +121,8 @@ const Breakup = ({ email, carbon, alteredCarbon, userCarbon, userCarbonDitched }
 
   return(
     <React.Fragment>
-      <h5> Total Carbon Emission Breakup</h5>
-      <Bar data={chartData} options={chartOptions} />
+        <p className="h5 text-center"> Total Carbon Emission Breakup</p>
+        <Bar data={chartData} options={chartOptions} />
     </React.Fragment>
   )
 }

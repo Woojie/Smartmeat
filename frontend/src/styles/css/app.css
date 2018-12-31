@@ -75,36 +75,8 @@ blockquote:before {
   background-color: dimgray;
 }
 
-form, h1 {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.login {
-  margin-top: 6rem;
-}
-
-#mainBody {
-  height: 100%;
-  margin-top: 8rem;
-  margin-bottom: 8rem;
-}
-
-.App {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#results {
-  margin-top: 3rem;
-}
-
-#sponsorsLogos {
-  margin-bottom: 9rem;
-}
-
-.comparisonHeaders {
-  margin-top: 2rem;
+.main-body {
+  height: 100vh;
 }
 
 /*# sourceMappingURL=app.css.map */

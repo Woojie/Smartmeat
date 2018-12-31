@@ -22,10 +22,9 @@ const OurTool = ({carbon, petrol,  userEmail, reports, order, quantity, frequenc
   )
 
   return(
-  <div className='container' id='mainBody' data-spy="scroll"> 
+  <div> 
     <Calculator getCalculation={getCalculation} />
     {results} <br />
-    
   </div>
   )
 }

@@ -42,21 +42,21 @@ class GlobalChart extends React.Component {
     
     
     return(
-      <div>
-      <h1>Global Community</h1>
-      <h5>Total: {carbon + userCarbon}kg of greenhouse gas emissions created by SmartMeat users.</h5>
-      <h5>{userCarbonDitched + alteredCarbon}kg of greenhouse gas emissions saved by SmartMeat Users!!</h5>
-      <span>With the amount saved, you can heat, cool and drive an average Canadian household for <b>{directHousehold}days!</b> </span>
-    <img src='./images/house.svg' alt="house" />
-      <br />
-      <br />
-      <Breakup 
-        email={email}
-        carbon={carbon} 
-        alteredCarbon={alteredCarbon} 
-        userCarbon = {userCarbon} 
-        userCarbonDitched = {userCarbonDitched} />
-      </div>
+        <div>
+          <p className="h1 text-center my-5">Global Community</p>
+          <p>Total: <strong>{carbon + userCarbon}kg</strong> of greenhouse gas emissions created by SmartMeat users.</p>
+          <p><strong>{userCarbonDitched + alteredCarbon}kg</strong> of greenhouse gas emissions saved by SmartMeat Users!!</p>
+          <p>With the amount saved, you can heat, cool and drive an average Canadian household for <strong>{directHousehold}days!</strong></p>
+          <img className="img-fluid my-5" src='./images/house.svg' alt="house" />
+
+          <Breakup 
+            email={email}
+            carbon={carbon} 
+            alteredCarbon={alteredCarbon} 
+            userCarbon = {userCarbon} 
+            userCarbonDitched = {userCarbonDitched} 
+          />
+        </div>
     )
   }
 }

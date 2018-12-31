@@ -26,9 +26,6 @@ const Results = ({carbon, petrol, number}) => {
       <button>Delete Report</button>
       </div>
     </div>
-  
-
-
   </div>
 
   </React.Fragment>

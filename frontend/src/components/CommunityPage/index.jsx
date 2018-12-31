@@ -9,12 +9,11 @@ import { getCalculation, grabAllReports, alterReport } from '../../store'
 const CommunityPage = ({user, reports, calculator}) => {
 
   return (
-    <div  className='container' id='mainBody'>
-    
-      <br />
-      <Report alterReport={alterReport} getCalculation={getCalculation} calculator={calculator} user={user}/>
-      <br />
-      <GlobalChart grabAllReports={grabAllReports} reports={reports.reports} email={user.email} />
+    <div  className="container">
+      <div className="pt-5">
+        <Report alterReport={alterReport} getCalculation={getCalculation} calculator={calculator} user={user}/>
+        <GlobalChart grabAllReports={grabAllReports} reports={reports.reports} email={user.email} />
+      </div>
     </div>
   )
 }
