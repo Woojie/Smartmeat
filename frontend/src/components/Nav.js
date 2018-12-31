@@ -17,7 +17,8 @@ const Nav = ( {logout, loggedIn} ) => {
         <span className="navbar-brand">
           <Link to="/">
             <img src={logo} alt="logo" width="20"/>
-            SmartMeat
+            Smart<span id='meatColor'>Meat</span>
+            {/* SmartMeat */}
           </Link>
         </span>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
