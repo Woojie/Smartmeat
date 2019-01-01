@@ -14,9 +14,19 @@ const Home = () => {
   return (
     <div>
       <header className="showcase">
-        <div className="showcase-container d-flex flex-column justify-content-center align-items-center">
-          <h3 className="showcase-title">Less Meat, Less Heat, More Life...</h3>
-          <video className="showcase-video rounded" src={video} controls></video>
+        <div className="showcase-title container d-flex flex-column justify-content-center h-100">
+          <div className="row">
+            <h1 className="col-12">SmartMeat</h1>
+            <h2 className="col-12"><em>"Less Meat, Less Heat, More Life..."</em></h2>
+            <div class="embed-responsive embed-responsive-16by9 col-12 col-md-10 col-lg-8 h-auto">
+              <iframe
+                className=""
+                src="https://www.youtube.com/embed/q_1dp0LSyhA" 
+                frameborder="0"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -62,7 +72,7 @@ const Home = () => {
         </div>
       </section>
 
-      <header class="showcase" style={{height: '30vh'}}></header>
+      {/* <header class="showcase" style={{height: '30vh'}}></header> */}
 
       <section className="py-5">
         <div className="mx-5">

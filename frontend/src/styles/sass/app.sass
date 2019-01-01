@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins')
 $primaryColor: rgb(171, 208, 56)
 $secondaryColor: #6b4b35
 
@@ -5,7 +6,7 @@ $secondaryColor: #6b4b35
   box-sizing: border-box
 
 html,body 
-  font-family: Georgia, 'Times New Roman', Times, serif
+  font-family: 'Poppins', sans-serif
   color: black
   overflow-x: hidden
   line-height: 1.6
@@ -36,25 +37,15 @@ blockquote:before
   font-size: 3em
 
 .showcase
-  height: 80vh
+  height: 100vh
   background: url('../../resources/showcase.jpg')
-  background-attachment: fixed
+  // background-attachment: fixed
   background-position: center
   background-repeat: no-repeat
   background-size: cover
 
   &-title
-    background: rgba(255,255,255,0.5)
-    font-size: 4vh
-    width: 60vh
-    height: auto
-
-  &-container
-    height: 100%
-
-  &-video
-    width: 60vh
-    height: auto
+    color: white
 
 .primary
   color: $primaryColor

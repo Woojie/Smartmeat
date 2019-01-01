@@ -1,10 +1,11 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Poppins");
 * {
   box-sizing: border-box;
 }
 
 html, body {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Poppins", sans-serif;
   color: black;
   overflow-x: hidden;
   line-height: 1.6;
@@ -38,25 +39,14 @@ blockquote:before {
 }
 
 .showcase {
-  height: 80vh;
+  height: 100vh;
   background: url("../../resources/showcase.jpg");
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .showcase-title {
-  background: rgba(255, 255, 255, 0.5);
-  font-size: 4vh;
-  width: 60vh;
-  height: auto;
-}
-.showcase-container {
-  height: 100%;
-}
-.showcase-video {
-  width: 60vh;
-  height: auto;
+  color: white;
 }
 
 .primary {
