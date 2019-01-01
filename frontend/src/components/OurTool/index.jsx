@@ -9,7 +9,7 @@ import Results from './Results'
 
 const OurTool = ({carbon, petrol,  userEmail, reports, order, quantity, frequency}) => {
   
-  let results = carbon === 0  ? "" : (
+  let results = carbon === 0  ? "" : 
     <Results 
       carbon={carbon} 
       petrol={petrol}
@@ -19,12 +19,12 @@ const OurTool = ({carbon, petrol,  userEmail, reports, order, quantity, frequenc
       saveReport={saveReport} 
       userEmail={userEmail} 
       reports={reports} />
-  )
+  
 
   return(
-  <div> 
+  <div > 
     <Calculator getCalculation={getCalculation} />
-    {results} <br />
+    {results}
   </div>
   )
 }

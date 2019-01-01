@@ -41,7 +41,7 @@ const DoughnutChart = ({data}) => {
       <div className="row">
         <div className="col" />
         <div className="col-6">
-          <Doughnut data={chartData} options={chartOptions} />
+          <Doughnut data={chartData}  />
         </div>
         <div className="col" />
       </div>
