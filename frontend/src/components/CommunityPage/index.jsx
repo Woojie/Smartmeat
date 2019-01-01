@@ -11,6 +11,7 @@ const CommunityPage = ({user, reports, calculator}) => {
   return (
     <div  className="container">
       <div className="pt-5">
+        <h3>Alter the report below to see how much you save!</h3>
         <Report alterReport={alterReport} getCalculation={getCalculation} calculator={calculator} user={user}/>
         <GlobalChart grabAllReports={grabAllReports} reports={reports.reports} email={user.email} />
       </div>

@@ -116,13 +116,23 @@ const Breakup = ({ email, carbon, alteredCarbon, userCarbon, userCarbonDitched }
         stacked: true
     }]
 
-    }
+    },
+
   }
 
   return(
     <React.Fragment>
-        <p className="h5 text-center"> Total Carbon Emission Breakup</p>
-        <Bar data={chartData} options={chartOptions} />
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col" />
+            <div className="col-10">
+              <p className="h5 text-center"> Total Carbon Emission Breakup</p>
+              <Bar data={chartData} options={chartOptions} />
+            </div>
+            <div className="col" />
+          </div>
+        </div>
+
     </React.Fragment>
   )
 }

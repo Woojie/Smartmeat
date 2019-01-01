@@ -31,10 +31,21 @@ const DoughnutChart = ({data}) => {
         ]
     }]
   }
-  
+  const chartOptions = {
+    maintainAspectRatio: false
+
+  }
 
   return(
-    <Doughnut data={chartData} />
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col" />
+        <div className="col-6">
+          <Doughnut data={chartData}  />
+        </div>
+        <div className="col" />
+      </div>
+    </div>
   )
 }
 

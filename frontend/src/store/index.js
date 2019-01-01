@@ -62,7 +62,7 @@ export const getCalculation = (e, order, quantity, frequency) => {
   store.dispatch(startCalculate())
   let result = func.calculate(order, quantity, frequency)
   let carbonCost = func.calculate(order, quantity, frequency) * 0.43
-  store.dispatch(finishCalculate(result, carbonCost, order, Number(quantity), Number(frequency)))
+  store.dispatch(finishCalculate(Number(result), carbonCost, order, Number(quantity), Number(frequency)))
 }
 
 

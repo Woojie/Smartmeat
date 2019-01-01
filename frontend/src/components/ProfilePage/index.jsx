@@ -13,6 +13,7 @@ const ProfilePage = ( {user} ) => {
   return(
 
     <div className='container' id='mainBody'>
+      <h1>{user.email}'s Profile Page</h1>
       <h1>Saved Reports</h1>
       {reports}
     </div>
