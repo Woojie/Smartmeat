@@ -47,7 +47,6 @@ class GlobalChart extends React.Component {
           <p>Total: <strong>{carbon + userCarbon}kg</strong> of greenhouse gas emissions created by SmartMeat users.</p>
           <p><strong>{userCarbonDitched + alteredCarbon}kg</strong> of greenhouse gas emissions saved by SmartMeat Users!!</p>
           <p>With the amount saved, you can heat, cool and drive an average Canadian household for <strong>{directHousehold}days!</strong></p>
-          <img className="img-fluid my-5" src='./images/house.svg' alt="house" />
 
           <Breakup 
             email={email}
