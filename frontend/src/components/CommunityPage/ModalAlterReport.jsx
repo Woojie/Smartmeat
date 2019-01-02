@@ -6,6 +6,8 @@ import './CommunitPage.css'
 const ModalAlterReport = ({report, getCalculation, email, alterReport, calculator, alteredReports}) => {
     
     let { carbon, petrol, frequency, quantity, order} = report
+    let alert = calculator.result > carbon ? <div className="alert alert-danger" role="alert">You can only alter your report below your previous order!s</div> 
+    : ""
     return (
       <div className="modal fade" id="saveReportModal" tabIndex="-1" role="dialog" aria-labelledby="saveReportModal" aria-hidden="true">
       <div className="modal-dialog " role="document">
@@ -27,15 +29,18 @@ const ModalAlterReport = ({report, getCalculation, email, alterReport, calculato
               quantity = {quantity}
               order = {order}  
             />
+
           </div>
           <div className="modal-footer">
+          {alert}
             <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
             <button 
-              disabled={calculator.result === 0 ? true : false} 
+              disabled={calculator.result === 0 || calculator.result > carbon ? true : false} 
               data-dismiss="modal" type="button" className="btn btn-primary" 
               onClick={()=>alterReport( report, calculator, alteredReports, email )}
             >
-              {calculator.result === 0 ? "Calculate First!" : "See the Results!"}
+
+              {calculator.result === 0  ? "Calculate First!" : "See the Results!"}
             </button>
           </div>
         </div>

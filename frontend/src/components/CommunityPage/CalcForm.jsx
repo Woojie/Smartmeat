@@ -20,6 +20,7 @@ class CalcForm extends Component {
     this.props.getCalculation(0, '', 0, 0)
   }
 
+  
   handleOrderSelect = (e) => {this.setState({order:e.target.value})}
   handleQuantitySelect = (e) => {this.setState({quantity:e.target.value})}
   handleFrequencySelect = (e) => {this.setState({frequency:e.target.value})}
