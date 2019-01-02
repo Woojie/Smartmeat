@@ -22,7 +22,7 @@ const OurTool = ({carbon, petrol,  userEmail, reports, order, quantity, frequenc
   
 
   return(
-  <div > 
+  <div className="light"> 
     <Calculator getCalculation={getCalculation} />
     {results}
   </div>

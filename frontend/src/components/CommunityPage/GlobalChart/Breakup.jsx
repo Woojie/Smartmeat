@@ -114,25 +114,18 @@ const Breakup = ({ email, carbon, alteredCarbon, userCarbon, userCarbonDitched }
     }],
     yAxes: [{
         stacked: true
-    }]
+    }]},
 
-    },
-
+    maintainAspectRatio: false
   }
 
   return(
     <React.Fragment>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col" />
-            <div className="col-10">
-              <p className="h5 text-center"> Total Carbon Emission Breakup</p>
-              <Bar data={chartData} options={chartOptions} />
+          <div class="row">
+            <div className="col-12">
+              <Bar data={chartData} height={450} options={chartOptions}/>
             </div>
-            <div className="col" />
           </div>
-        </div>
-
     </React.Fragment>
   )
 }
