@@ -18,12 +18,12 @@ const Home = () => {
           <div className="row">
             <h1 className="col-12">SmartMeat</h1>
             <h2 className="col-12"><em>"Less Meat, Less Heat, More Life..."</em></h2>
-            <div class="embed-responsive embed-responsive-16by9 col-12 col-md-10 col-lg-8 h-auto">
+            <div className="embed-responsive embed-responsive-16by9 col-12 col-md-10 col-lg-8 h-auto">
               <iframe
                 className=""
                 src="https://www.youtube.com/embed/q_1dp0LSyhA" 
-                frameborder="0"
-                allowfullscreen>
+                frameBorder="0"
+                allowFullScreen>
               </iframe>
             </div>
           </div>
