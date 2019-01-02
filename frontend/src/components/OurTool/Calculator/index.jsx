@@ -5,18 +5,10 @@ import CalcForm from './CalcForm'
 
 const Calculator = (props) => {
   return(
-    <div className="main-body">
-      <div className="d-flex flex-column align-items-center justify-content-center h-75">
-        <div className="row">
-          <p className="h1 d-block mx-auto">Instant Calculator</p>
-        </div>
-
-        <div className="row">
-          <CalcForm getCalculation = {props.getCalculation} />
-        </div>
+      <div className="py-5 d-flex flex-column align-items-center">
+        <p className="pt-5 h1 d-block mx-auto">Instant Calculator</p>
+        <CalcForm getCalculation = {props.getCalculation} />
       </div>
-    </div>
-    
   )
 
 }
