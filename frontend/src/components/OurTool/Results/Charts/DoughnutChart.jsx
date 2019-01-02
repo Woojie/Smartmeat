@@ -37,13 +37,9 @@ const DoughnutChart = ({data}) => {
   }
 
   return(
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col" />
-        <div className="col-6">
-          <Doughnut data={chartData}  />
-        </div>
-        <div className="col" />
+    <div className="row justify-content-center">
+      <div className="col-lg-8">
+        <Doughnut data={chartData} />
       </div>
     </div>
   )
