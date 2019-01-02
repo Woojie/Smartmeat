@@ -13,6 +13,16 @@ module.exports.calculate = (order, quantity, frequency) => {
     case 'beef':
       result = Math.round(quantity * frequency * weeksInYear * 3)
       break;
+    case 'cheeseburger':
+      result = Math.round(quantity * frequency * weeksInYear * 8.7)
+      break;
+    case 'chickenburger':
+      result = Math.round(quantity * frequency * weeksInYear * 1.36)
+      break;
+    case 'eggs': 
+      result = Math.round(quantity * frequency * weeksInYear * 0.55)
+      break;
+      
     default:
       result = '0';
   }

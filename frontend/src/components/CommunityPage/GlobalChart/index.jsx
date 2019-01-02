@@ -21,12 +21,23 @@ class GlobalChart extends React.Component {
       alteredCarbon += report.result
     })
     return(
-      <div>
-      <h1>Global Community</h1>
-      <h4>Total: {carbon}kg of greenhouse gas emissions created by SmartMeat users.</h4>
-      <br />
-      <Breakup carbon={carbon} alteredCarbon={alteredCarbon} />
-      </div>
+        <div>
+          <p className="h1 text-center my-5">Global Community</p>
+
+          <p>Total: <strong>{carbon + userCarbon}kg</strong> of greenhouse gas emissions created by SmartMeat users.</p>
+
+          <p><strong>{userCarbonDitched + alteredCarbon}kg</strong> of greenhouse gas emissions saved by SmartMeat Users!!</p>
+          
+          <p>With the amount saved, you can heat, cool and drive an average Canadian household for <strong>{directHousehold}days!</strong></p>
+
+          <Breakup 
+            email={email}
+            carbon={carbon} 
+            alteredCarbon={alteredCarbon} 
+            userCarbon = {userCarbon} 
+            userCarbonDitched = {userCarbonDitched} 
+          />
+        </div>
     )
   }
 }

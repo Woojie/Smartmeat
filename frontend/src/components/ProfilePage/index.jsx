@@ -11,11 +11,12 @@ const ProfilePage = ( {user} ) => {
     </div>
 ))
   return(
-
-    <div className='container' id='mainBody'>
-      <h1>{user.email}'s Profile Page</h1>
-      <h1>Saved Reports</h1>
-      {reports}
+    <div className="light main-body">
+      <div className="container py-5">
+        <p className="h1 py-5">{user.email}'s Profile Page</p>
+        <p className="h2">Saved Reports:</p>
+        {reports}
+      </div>
     </div>
   )
 }

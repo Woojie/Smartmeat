@@ -43,51 +43,55 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
 
     modal ? <Redirect to="/community" exact /> 
     :(
-    <div className='row' id='results'>
-    <div className='col'>
-    <h3>Results</h3>
-    <span>In total, your consumption produced <b>{carbon}kg</b> of greenhouse gas emissions per year. </span>
-    <h3 className='comparisonHeaders'>In Comparison:</h3>
-    <img src='./images/car.svg' alt="car" />
-    <br />
-    <span>This is the equivalent of driving <b>{drive}km</b> on a standard vehicle in the city in Canada. </span> 
-    <br />
+    <div className="container pb-5">
+      <p className="h3">Results:</p>
 
-    <span>You can heat, cool and drive an average Canadian household for <b>{directHousehold}days.</b> </span>
-    <img src='./images/house.svg' alt="house" />
-    <br />
-    <h2 className='comparisonHeaders'>Breakdown of how the emission is produced:</h2>
-    <DoughnutChart data={carbon} />
+      <p>In total, your consumption produced <strong>{carbon}kg</strong> of greenhouse gas emissions per year. </p>
+      
+      <p className="h3">In Comparison:</p>
 
-    <h2>You vs the World</h2>
-    <p>Per capita, a person produces 4.4 tonnes GHG emssion/year, your food consumption alone would make up {globalCitizen}% of that figure</p>
-    <button type="button" className="btn btn-info" data-toggle="modal" data-target="#saveReportModal"  onClick={() => saveReport(report, userEmail)}>Save Report</button>
+      <p>This is the equivalent of driving <strong>{drive}km</strong> on a standard vehicle in the city in Canada. </p> 
+
+      <p>You can heat, cool and drive an average Canadian household for <strong>{directHousehold}</strong> days.</p>
+      
+      <p className="h4">Breakdown of how the emission is produced:</p>
+
+      <DoughnutChart data={carbon} />
+      
+      <p className="h5 text-center">You vs the World</p>
+
+      <p>Per capita, a person produces 4.4 tonnes GHG emssion/year, your food consumption alone would make up {globalCitizen}% of that figure</p>
+
+      <button type="button" className="btn btn-info mx-auto d-block" data-toggle="modal" data-target="#saveReportModal"  onClick={() => saveReport(report, userEmail)}>Save Report</button>
+
+      <div className="modal fade" id="saveReportModal" tabIndex="-1" role="dialog" aria-labelledby="saveReportModal" aria-hidden="true">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Thank You!</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div className="modal-body">
+              {modalText}
+            </div>
+
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              <Link to="/community">
+                <button style={hiddenButton}  data-dismiss="modal" type="button" className="btn btn-primary" onClick={() => modalClose(true)}> 
+                  YES!
+                </button>
+              </Link>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <div className="modal fade" id="saveReportModal" tabIndex="-1" role="dialog" aria-labelledby="saveReportModal" aria-hidden="true">
-  <div className="modal-dialog" role="document">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h5 className="modal-title" id="exampleModalLabel">Thank You!</h5>
-        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div className="modal-body">
-        {modalText}
-      </div>
-      <div className="modal-footer">
-        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-        <Link to="/community">
-          <button style={hiddenButton}  data-dismiss="modal" type="button" className="btn btn-primary" onClick={() => modalClose(true)}> 
-            YES!
-          </button>
-        </Link>
-      </div>
-    </div>
-  </div>
-</div>
-  </div>
     )
   )
 }
