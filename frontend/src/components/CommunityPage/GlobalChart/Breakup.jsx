@@ -121,7 +121,7 @@ const Breakup = ({ email, carbon, alteredCarbon, userCarbon, userCarbonDitched }
 
   return(
     <React.Fragment>
-          <div class="row">
+          <div className="row">
             <div className="col-12">
               <Bar data={chartData} height={450} options={chartOptions}/>
             </div>
