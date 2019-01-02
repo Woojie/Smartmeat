@@ -52,8 +52,9 @@ export const searchForUser = (token) => {
   setAuthToken(token)
   axios.get('http://localhost:3030/user/')
   .then((res)=>{
+    console.log(res.data)
     if(res.data.error) {
-      console.log(res.data.error)
+
       localStorage.removeItem('token')
     }
     store.dispatch(checkForUser(token, res.data))

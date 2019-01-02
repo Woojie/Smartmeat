@@ -3,7 +3,6 @@ import { Bar } from 'react-chartjs-2'
 
 
 const Breakup = ({ email, carbon, alteredCarbon, userCarbon, userCarbonDitched }) => {
-  
   carbon = carbon - alteredCarbon
   const percent = {
     foodProduction: Math.round(carbon * 0.83),
@@ -106,6 +105,49 @@ const Breakup = ({ email, carbon, alteredCarbon, userCarbon, userCarbonDitched }
     }
     ]
   }
+
+  const noUserChartData = {
+    labels: [
+      `Food Production`,
+      `Whole Sale and retail`,
+      `Final delivery transport`,
+      `Supply chain transport`
+    ],
+    datasets: [{
+      label: ["Carbon Emissions produced per year/kg"],
+      data:[foodProduction, wsAndRetail, finalDelivery, supplyChain],
+      backgroundColor: [
+        '#4286f4',
+        '#4286f4',
+        '#4286f4',
+        '#4286f4'
+        ],
+        hoverBackgroundColor: [
+        '#5690ef',
+        '#5690ef',
+        '#5690ef',
+        '#5690ef'
+        ]
+    },
+    {
+      label: ["Total User Ditched"],
+      data:[altFoodProduction, altWsAndRetail, altFinalDelivery, altSupplyChain],
+      backgroundColor: [
+        '#980101',
+        '#980101',
+        '#980101',
+        '#980101'
+
+        ],
+        hoverBackgroundColor: [
+        '#f90000',
+        '#f90000',
+        '#f90000',
+        '#f90000'
+        ]
+    }
+    ]
+  }
   
   const chartOptions = {
     scales: {
@@ -123,7 +165,7 @@ const Breakup = ({ email, carbon, alteredCarbon, userCarbon, userCarbonDitched }
     <React.Fragment>
           <div className="row">
             <div className="col-12">
-              <Bar data={chartData} height={450} options={chartOptions}/>
+              <Bar data={email === undefined ? noUserChartData : chartData} height={450} options={chartOptions}/>
             </div>
           </div>
     </React.Fragment>

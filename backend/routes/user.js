@@ -12,9 +12,9 @@ router.get('/', (req, res, next) => {
     User.findOne({
         email: token.email
     }, (err, user) => {
-        if (err) {
-        res.json({error:err})
-        }
+        if (user === null) {
+        res.json({error:"incorrect token exists"})
+        }   
         res.json(user)
     })
 
