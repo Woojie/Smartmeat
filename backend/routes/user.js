@@ -12,6 +12,9 @@ router.get('/', (req, res, next) => {
     User.findOne({
         email: token.email
     }, (err, user) => {
+        if (err) {
+        res.json({error:err})
+        }
         res.json(user)
     })
 
@@ -108,6 +111,7 @@ router.get('/check', passport.authenticate('jwt', {session: false}), (req, res) 
 
 router.post('/', (req, res) => {
     const {email, password} = req.body
+    const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
     User.findOne({
         email
@@ -116,8 +120,11 @@ router.post('/', (req, res) => {
             console.log('User.js post error: ', err)
         } else if (user) {
             res.json({error: `Sorry, ${email} already has an account, trying logging in!`})
+        } else if (!emailRegex.test(email)) {
+
+            res.json({emailError: `Sorry ${email} is not an email`})
         } else {
-            const newUser = new User({email, password})
+             const newUser = new User({email, password})
             newUser.save((err, savedUser) => {
                 if (err) 
                     return res.json(err)

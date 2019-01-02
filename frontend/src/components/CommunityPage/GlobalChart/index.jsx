@@ -6,20 +6,41 @@ class GlobalChart extends React.Component {
     this.props.grabAllReports()
   }
 
-  
+
   render() {
     let reports = this.props.reports.reports === undefined ? [] : this.props.reports.reports
     let altReports = this.props.reports.altReports === undefined ? [] : this.props.reports.altReports
+    let email = this.props.email
+
+
     let carbon = 0
     let alteredCarbon = 0
-    let petrol = 0
+    let userCarbon = 0
+    let userCarbonDitched = 0
+  
     reports.forEach((report)=> {
+      if (email === report.email) {
+        userCarbon += report.carbon
+      }else {
       carbon += report.carbon
-      petrol += report.petrol
+  
+      }
+
     })
     altReports.forEach((report)=> {
+      if (email  === report.email) {
+        userCarbonDitched += report.result
+        
+      } else {
       alteredCarbon += report.result
+      }
+
     })
+  
+    let directHousehold = Math.round((alteredCarbon+userCarbonDitched) / 41)
+
+    
+    
     return(
         <div>
           <p className="h1 text-center my-5">Global Community</p>

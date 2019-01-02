@@ -2,7 +2,7 @@ import logger from 'redux-logger'
 import axios from 'axios'
 import { createStore, applyMiddleware } from 'redux'
 
-import { startSignup, finishSignup, } from './actions'
+import { startSignup, finishSignup, validateError, userExists } from './actions'
 import { startLogin, finishLogin, startCheckForUser, checkForUser, validateLogin } from './actions/login'
 import { startCalculate, finishCalculate } from './actions/calculator'
 import { startReport, finishReport, startAlterReport,  finishAlterReport } from './actions/saveReport'
@@ -17,7 +17,6 @@ export const logUserIn = (e, email, password) => {
   e.preventDefault()
   axios.post('http://localhost:3030/user/login', {email, password})
   .then((res)=>{
-
     if(res.data.message){
       store.dispatch(validateLogin())
       console.log(res.data.message)
@@ -37,9 +36,11 @@ export const signUserUp = (e, email, password) => {
   store.dispatch(startSignup())
   axios.post('http://localhost:3030/user/', {email, password})
   .then((res)=>{
-    if(res.data.error){
-      console.log(res.data.error)
-    }else{
+    if(res.data.error) {
+      store.dispatch(userExists())
+    }else if (res.data.emailError) {
+      store.dispatch(validateError())
+    }else {
     console.log("user signed up!")
     store.dispatch(finishSignup())
   }
@@ -48,10 +49,15 @@ export const signUserUp = (e, email, password) => {
 
 export const searchForUser = (token) => {
   store.dispatch(startCheckForUser())
-
   setAuthToken(token)
   axios.get('http://localhost:3030/user/')
-  .then((res)=>store.dispatch(checkForUser(token, res.data)))
+  .then((res)=>{
+    if(res.data.error) {
+      console.log(res.data.error)
+      localStorage.removeItem('token')
+    }
+    store.dispatch(checkForUser(token, res.data))
+  })
   
 }
 
