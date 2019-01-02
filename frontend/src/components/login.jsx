@@ -11,9 +11,9 @@ const LoginForm = ({loginError, logUserIn}) => {
 
   return(
     <Fragment>
-      <div className="main-body">
-        <form className="d-flex flex-column align-items-center justify-content-center h-100">
-          <p className="text-center h4">Log In</p>
+      <div className="main-body light pt-5">
+        <form className="d-flex flex-column align-items-center justify-content-center pt-5">
+          <p className="text-center h4 pt-5">Log In</p>
 
           <div className="form-group">
             <input className="form-control" type="email" onChange={(e) => getEmail(e.target.value)} placeholder="Email" />
