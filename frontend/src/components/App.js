@@ -46,10 +46,8 @@ const App = ({loggedIn, user, logout}) => {
           <OurTool {...props} />)
           } 
         />
-        <Route path="/profile" render ={props=>(
-          loggedIn ? (<ProfilePage {...props} user={user}/>)
-          : (<Redirect to="/login" exact />)
-        )} />
+        <Route path="/profile" render ={props=><ProfilePage {...props} loggedIn={loggedIn} user={user}/>} />
+        
         <Route path="/community" render ={props=>(
           <CommunityPage {...props} user={user}/>
         )} />
