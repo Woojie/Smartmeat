@@ -17,7 +17,7 @@ const Report = ( {user:{email, reports, alteredReports}, getCalculation, calcula
       </a>
       
       <div className="collapse" id="latest-report">
-          <p className="mt-2"><strong>{reports[reports.length - 1].carbon}kg</strong> of GHG produced per year.</p>
+          <p className="mt-2"><strong>{reports[reports.length - 1].carbon} kg</strong> of GHG produced per year.</p>
 
           <button type="button" className="btn btn-outline-info mr-2" data-toggle="modal" data-target="#saveReportModal">Alter Report</button>
 

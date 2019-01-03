@@ -18,11 +18,11 @@ const Results = ({carbon, petrol, number}) => {
     </div>
     <div id={`collapse${number}`} className="collapse" aria-labelledby={`heading${number}`} data-parent="#accordionExample">
       <div className="card-body">
-      <h5><b>{carbon}kg</b> of GHG produced per year.</h5>
+      <h5><b>{carbon} kg</b> of GHG produced per year.</h5>
       <h4>In Comparison:</h4>
-      <h5><b>{drive}km</b> travelled by car </h5>
-      <h5>Heat, cool and travel Canadian household for {directHousehold}days. </h5>
-      <h5>{globalCitizen}% of an average human's yearly GHG emssion.</h5>
+      <h5><b>{drive} km</b> travelled by car </h5>
+      <h5>Heat, cool and travel Canadian household for {directHousehold} days. </h5>
+      <h5><b>{globalCitizen}%</b> of an average human's yearly GHG emssion.</h5>
       <button>Delete Report</button>
       </div>
     </div>

@@ -12,8 +12,8 @@ const ProfilePage = ( {user, loggedIn} ) => {
 ))
   let profilePage = loggedIn ? (
     <div className="container py-5">
-      <p className="h1 py-5">{user.email}'s Profile Page</p>
-      <p className="h2">Saved Reports:</p>
+      <p className="h1 text-center my-5">{user.email}'s Profile Page</p>
+      <p className="h3">Saved Reports:</p>
       {reports}
     </div>)
   : (
