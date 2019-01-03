@@ -7,7 +7,7 @@ const LoginForm = ({loginError, logUserIn}) => {
   const [email, getEmail] = useState(""),
   [password, getPassword] = useState("")
   let errorMessage = !loginError ? "" 
-  : (<div className="alert alert-danger" role="alert">Login Failed, Email and Password does not match.</div>) 
+  : (<div className="alert alert-danger" id='alert' role="alert">Login Failed, Email and Password does not match.</div>) 
 
   return(
     <Fragment>

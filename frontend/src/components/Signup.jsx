@@ -36,9 +36,9 @@ const SignupForm = ({validateError, userExists, successfulLogin}) => {
             <input className="form-control" type="password" onChange={(e)=>getPassword(e.target.value)} placeholder="Enter your password" />
           </div>
           {userAlreadyExistError}
-          <button className="btn btn-secondary mb-2 mainColor" type="submit" onClick={(e)=>signUserUp(e, email, password)}  >Sign Up</button>
+          <button className="btn btn-secondary mb-2 mainColor primary" type="submit" onClick={(e)=>signUserUp(e, email, password)}  >Sign Up</button>
           {successfullyLogged}
-          <p>Already a user? Login <a href="/login"> <b className='mainColor'>here</b></a>.</p>
+          <p>Already a user? Login <a href="/login"> <b className='primary'>here</b></a>.</p>
         </form>
       </div>
     </Fragment>

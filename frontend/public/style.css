@@ -9,5 +9,8 @@
 
  #loginRequest {
    margin-top: 15rem;
-   text-align: center;
+ }
+
+ #loginRequest, #alert {
+  text-align: center;
  }
