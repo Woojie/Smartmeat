@@ -18,7 +18,11 @@ const ProfilePage = ( {user, loggedIn} ) => {
     </div>)
   : (
     <div className="container py-5">
+      <div className='row align-items-center justify-content-center'>
+      <div className='col align-self-center' id='loginRequest'>
       <p className="h1 py-5">You need to login before you can view the profile page!</p>
+      </div>
+      </div>
     </div>
   )
 

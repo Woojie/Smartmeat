@@ -6,3 +6,8 @@
   /* .chartjs-render-monitor {
     height: 100vh;
   } */
+
+ #loginRequest {
+   margin-top: 15rem;
+   text-align: center;
+ }
