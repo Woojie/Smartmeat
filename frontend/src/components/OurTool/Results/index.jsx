@@ -43,20 +43,19 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
 
     modal ? <Redirect to="/community" exact /> 
     :(
-    <div className="container pb-5">
+    <div className="container pb-5" id='calcResults'>
       <p className="h3">Results:</p>
 
       <p>In total, your consumption produced <strong>{carbon} kg</strong> of greenhouse gas emissions per year. </p>
       
       <p className="h3">In Comparison:</p>
+      <img src="./images/car2.svg" className="img-fluid" id='car' alt="Responsive image"/>
+      <p id='carText'>This is the equivalent of driving <strong>{drive} km</strong> on a standard vehicle in the city in Canada.  </p> 
 
-      <p>This is the equivalent of driving <strong>{drive} km</strong> on a standard vehicle in the city in Canada.  </p> 
-      <img src="./images/car.svg" className="img-fluid" alt="Responsive image"/>
-
-      <p>You can heat and cool an average Canadian household for <strong>{directHousehold}</strong> days.</p>
-      <img src="./images/house.svg" className="img-fluid" alt="Responsive image"/>
+      <img src="./images/house1.svg" className="img-fluid" id='house' alt="Responsive image"/>
+      <p id='householdText'>You can heat and cool an average Canadian household for <strong>{directHousehold}</strong> days.</p>
       
-      <p className="h4">Breakdown of how the emission is produced:</p>
+      <p className="h4" id='breakdown'>Breakdown of how the emission is produced:</p>
 
       <DoughnutChart data={carbon} />
       
