@@ -7,131 +7,155 @@ const User = require('../database/models/user')
 const passport = require('../passport')
 
 router.get('/', (req, res, next) => {
-    let token = jwt_decode(req.headers.authorization)
+  let token = jwt_decode(req.headers.authorization)
 
-    User.findOne({
-        email: token.email
-    }, (err, user) => {
-        if (user === null) {
-        res.json({error:"incorrect token exists"})
-        }   
-        res.json(user)
-    })
-
+  User.findOne({
+    email: token.email
+  }, (err, user) => {
+    if (user === null) {
+      res.json({
+        error: "incorrect token exists"
+      })
+    }
+    res.json(user)
+  })
 })
 
 router.get('/allReports', (req, res, next) => {
   let reports = []
   let altReports = []
-  User.find({}, (err, user)=> {
+  User.find({}, (err, user) => {
 
-    user.forEach((user)=>{
-        
+    user.forEach((user) => {
+
       reports = reports.concat(user.reports)
       altReports = altReports.concat(user.alteredReports)
     })
     let allReports = {
-        reports,
-        altReports
+      reports,
+      altReports
     }
     res.send(allReports)
-  }) 
+  })
 
 })
 
 router.post('/login', function (req, res, next) {
-    passport.authenticate('local', {
-        session: false
-    }, (err, user, info) => {
-        if (err || !user) {
-            return res.json({
-                message: info
-                    ? info.message
-                    : 'Login failed',
-                user: user
-            });
-        }
+  passport.authenticate('local', {
+    session: false
+  }, (err, user, info) => {
+    if (err || !user) {
+      return res.json({
+        message: info ?
+          info.message :
+          'Login failed',
+        user: user
+      });
+    }
 
-        req.login(user, {
-            session: false
-        }, (err) => {
-            if (err) {
-                res.send(err);
-            }
+    req.login(user, {
+      session: false
+    }, (err) => {
+      if (err) {
+        res.send(err);
+      }
 
-            const token = jwt.sign(user.toJSON(), 'your_jwt_secret');
-            return res.json({user, token});
-        });
-    })(req, res);
+      const token = jwt.sign(user.toJSON(), 'your_jwt_secret');
+      return res.json({
+        user,
+        token
+      });
+    });
+  })(req, res);
 
 });
 
 router.put('/report', (req, res) => {
-    const {report, email} = req.body
-    User.findOneAndUpdate({
-        email: email
-    }, {
-        reports: report
-    }, {
-        new: true
-    }, (err, user) => {
-        if (err) {
-            return res
-                .status(5000.)
-                .send(err)
-        }
+  const {
+    report,
+    email
+  } = req.body
+  User.findOneAndUpdate({
+    email: email
+  }, {
+    reports: report
+  }, {
+    new: true
+  }, (err, user) => {
+    if (err) {
+      return res
+        .status(5000.)
+        .send(err)
+    }
 
-        res.send(user)
-    })
+    res.send(user)
+  })
 })
 
 router.put('/alterReport', (req, res) => {
-    const {oldReport, newAlteredReports, email, } = req.body
-    User.findOneAndUpdate({
-        email: email
-    }, {
-        alteredReports: newAlteredReports
-    }, {
-        new: true
-    }, (err, user) => {
-        if (err) {
-            return res
-                .status(5000.)
-                .send(err)
-        }
+  const {
+    newAlteredReports,
+    email,
+  } = req.body
+  User.findOneAndUpdate({
+    email: email
+  }, {
+    alteredReports: newAlteredReports
+  }, {
+    new: true
+  }, (err, user) => {
+    if (err) {
+      return res
+        .status(5000.)
+        .send(err)
+    }
 
-        res.send(user)
-    })
+    res.send(user)
+  })
 })
 
-router.get('/check', passport.authenticate('jwt', {session: false}), (req, res) => {
+router.get('/check', passport.authenticate('jwt', {
+  session: false
+}), (req, res) => {
 
-    return res.json({user: req.user})
+  return res.json({
+    user: req.user
+  })
 })
 
 router.post('/', (req, res) => {
-    const {email, password} = req.body
-    const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  const {
+    email,
+    password
+  } = req.body
+  const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-    User.findOne({
-        email
-    }, (err, user) => {
-        if (err) {
-            console.log('User.js post error: ', err)
-        } else if (user) {
-            res.json({error: `Sorry, ${email} already has an account, trying logging in!`})
-        } else if (!emailRegex.test(email)) {
+  User.findOne({
+    email
+  }, (err, user) => {
+    if (err) {
+      console.log('User.js post error: ', err)
+    } else if (user) {
+      res.json({
+        error: `Sorry, ${email} already has an account, trying logging in!`
+      })
+    } else if (!emailRegex.test(email)) {
 
-            res.json({emailError: `Sorry ${email} is not an email`})
-        } else {
-             const newUser = new User({email, password})
-            newUser.save((err, savedUser) => {
-                if (err) 
-                    return res.json(err)
-                res.json(savedUser)
-            })
-        }
-    })
+      res.json({
+        emailError: `Sorry ${email} is not an email`
+      })
+    } else {
+      const newUser = new User({
+        email,
+        password
+      })
+      newUser.save((err, savedUser) => {
+        if (err)
+          return res.json(err)
+        res.json(savedUser)
+      })
+    }
+  })
 })
 
 module.exports = router

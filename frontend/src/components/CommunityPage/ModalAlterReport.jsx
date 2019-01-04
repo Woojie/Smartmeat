@@ -5,8 +5,10 @@ import './CommunitPage.css'
 
 const ModalAlterReport = ({report, getCalculation, email, alterReport, calculator, alteredReports}) => {
     
-    let { carbon, petrol, frequency, quantity, order} = report
-    let alert = calculator.result > carbon ? <div className="alert alert-danger" role="alert">You can only alter your report below your previous order!</div> 
+  let ifReportExists = alteredReports.filter((reports)=>report.id===reports.id)  
+
+  let { carbon, petrol, frequency, quantity, order} = ifReportExists.length === 0 ?  report : ifReportExists[0]
+  let alert = calculator.result > carbon ? <div className="alert alert-danger" role="alert">You can only alter your report below your previous order!</div> 
     : ""
     return (
       <div className="modal fade" id="saveReportModal" tabIndex="-1" role="dialog" aria-labelledby="saveReportModal" aria-hidden="true">

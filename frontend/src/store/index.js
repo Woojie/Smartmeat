@@ -19,7 +19,7 @@ export const logUserIn = (e, email, password) => {
   .then((res)=>{
     if(res.data.message){
       store.dispatch(validateLogin())
-      console.log(res.data.message)
+
     }else{
     const {token, user} = res.data
     setAuthToken(token)
@@ -41,7 +41,7 @@ export const signUserUp = (e, email, password) => {
     }else if (res.data.emailError) {
       store.dispatch(validateError())
     }else {
-    console.log("user signed up!")
+
     store.dispatch(finishSignup())
   }
   })
@@ -52,7 +52,6 @@ export const searchForUser = (token) => {
   setAuthToken(token)
   axios.get('http://localhost:3030/user/')
   .then((res)=>{
-    console.log(res.data)
     if(res.data.error) {
 
       localStorage.removeItem('token')
@@ -72,11 +71,10 @@ export const getCalculation = (e, order, quantity, frequency) => {
   store.dispatch(finishCalculate(Number(result), carbonCost, order, Number(quantity), Number(frequency)))
 }
 
-
 export const saveReport = (report, email) => {
   store.dispatch(startReport())
   if (report === "") {
-    console.log("Not Logged In")
+
   }else {
     axios.put('http://localhost:3030/user/report', {report, email})
     .then((res)=>{
@@ -93,9 +91,17 @@ export const grabAllReports = () => {
 
 export const alterReport = (oldReport, newReport, alteredReports, email) => {
     store.dispatch(startAlterReport())
+    console.log(email)
     newReport.email = email
     newReport.id = oldReport.id
-    let newAlteredReports = alteredReports.concat(newReport)
+    let ifReportExists = alteredReports.filter((report)=> report.id !== oldReport.id)
+    let newAlteredReports
+    if(ifReportExists.length !== alteredReports.length) {
+      newAlteredReports =  ifReportExists.concat(newReport)
+
+    }else {
+      newAlteredReports = alteredReports.concat(newReport)
+    }
     
     axios.put('http://localhost:3030/user/alterReport', {email, oldReport, newAlteredReports})
     .then((res)=> {
@@ -105,7 +111,7 @@ export const alterReport = (oldReport, newReport, alteredReports, email) => {
       axios.get('http://localhost:3030/user/allReports')
       .then((res)=>store.dispatch(finishGettingReports(res.data))
     ))
-    
+  
 }
 
 const store = createStore(
