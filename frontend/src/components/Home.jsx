@@ -59,14 +59,14 @@ const Home = () => {
               <img className="d-block mx-auto" src={calculateIcon} alt="calculate icon" height="100px " />
               <h3 className="text-center">Calculate and Track</h3>
               <p>With a couple of generic questions, the carbon calculator will estimate in annual average projectionof potential emission.</p>
-              <button type="button" className="btn btn-outline-dark d-block mx-auto">Calculate</button>
+              <button onclick={()=>window.location.href="/ourTool"} type="button" className="btn btn-outline-dark d-block mx-auto">Calculate</button>
             </div>
 
             <div className="col-12 col-md-4">
               <img className="d-block mx-auto" src={communityIcon} alt="community icon" height="100px "/>
               <h3 className="text-center">Join our community</h3>
               <p>Coming together to reduce our CO2 emmisions by building a community of green thinkers.</p>
-              <button type="button" className="btn btn-outline-dark d-block mx-auto">Sign Up</button>
+              <button type="button" onClick={()=>window.location.href="/signup"} className="btn btn-outline-dark d-block mx-auto">Sign Up</button>
             </div>
           </div>
         </div>
