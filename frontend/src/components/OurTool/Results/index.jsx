@@ -46,13 +46,15 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
     <div className="container pb-5">
       <p className="h3">Results:</p>
 
-      <p>In total, your consumption produced <strong>{carbon}kg</strong> of greenhouse gas emissions per year. </p>
+      <p>In total, your consumption produced <strong>{carbon} kg</strong> of greenhouse gas emissions per year. </p>
       
       <p className="h3">In Comparison:</p>
 
-      <p>This is the equivalent of driving <strong>{drive}km</strong> on a standard vehicle in the city in Canada. </p> 
+      <p>This is the equivalent of driving <strong>{drive} km</strong> on a standard vehicle in the city in Canada.  </p> 
+      <img src="./images/car.svg" className="img-fluid" alt="Responsive image"/>
 
-      <p>You can heat, cool and drive an average Canadian household for <strong>{directHousehold}</strong> days.</p>
+      <p>You can heat and cool an average Canadian household for <strong>{directHousehold}</strong> days.</p>
+      <img src="./images/house.svg" className="img-fluid" alt="Responsive image"/>
       
       <p className="h4">Breakdown of how the emission is produced:</p>
 
