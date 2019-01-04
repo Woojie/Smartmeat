@@ -1,6 +1,6 @@
 import React from 'react';
 
-import video from '../resources/video/main.mp4'
+
 import communityIcon from '../resources/icon/community.svg'
 import awarenessIcon from '../resources/icon/awareness.svg'
 import calculateIcon from '../resources/icon/calculate.svg'
@@ -20,6 +20,7 @@ const Home = () => {
             <h2 className="col-12"><em>"Less Meat, Less Heat, More Life..."</em></h2>
             <div className="embed-responsive embed-responsive-16by9 col-12 col-md-10 col-lg-8 h-auto">
               <iframe
+                title="reduce meat consumption"
                 className=""
                 src="https://www.youtube.com/embed/q_1dp0LSyhA" 
                 frameBorder="0"
@@ -59,7 +60,7 @@ const Home = () => {
               <img className="d-block mx-auto" src={calculateIcon} alt="calculate icon" height="100px " />
               <h3 className="text-center">Calculate and Track</h3>
               <p>With a couple of generic questions, the carbon calculator will estimate in annual average projectionof potential emission.</p>
-              <button onclick={()=>window.location.href="/ourTool"} type="button" className="btn btn-outline-dark d-block mx-auto">Calculate</button>
+              <button onClick={()=>window.location.href="/ourTool"} type="button" className="btn btn-outline-dark d-block mx-auto">Calculate</button>
             </div>
 
             <div className="col-12 col-md-4">

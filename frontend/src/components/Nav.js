@@ -28,17 +28,17 @@ const Nav = ( {logout, loggedIn} ) => {
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <Link to="/ourTool">
+              <Link to="/ourTool#">
                 <span className="nav-link">Our Tool</span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/community">
+              <Link to="/community#">
                 <span className="nav-link">Community</span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/profile">
+              <Link to="/profile#">
                 <span className="nav-link">Profile</span>
               </Link>
             </li>

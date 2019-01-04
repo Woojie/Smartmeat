@@ -26,7 +26,7 @@ class CalcForm extends Component {
   handleFrequencySelect = (e) => {this.setState({frequency:e.target.value})}
 
   render(){
-    let { order, quantity, frequency, oldFrequency, oldOrder, oldQuantity, loading } = this.state
+    let { order, quantity, frequency, oldFrequency, oldOrder, oldQuantity } = this.state
     let calc = this.props.result === 0 ? "" : `You will save ${this.props.result}kg of GHG!`
   
     return(
@@ -53,18 +53,18 @@ class CalcForm extends Component {
     
       <label>How many you ordering<i>Old quantity: {oldQuantity}</i></label>
       <select className="form-control" name="quantity" value={quantity} onChange={this.handleQuantitySelect}>
-        <option value='1'>1</option>
-        <option value='2'>2</option>
-        <option value='3'>3</option>
-        <option value='4'> 4</option>
-        </select>
+        <option value={1}>1</option>
+        <option value={2}>2</option>
+        <option value={3}>3</option>
+        <option value={4}> 4</option>
+      </select>
   
       <label>How many times per week <i>Old frequency {oldFrequency}</i></label>
       <select className="form-control" name="frequency" value={frequency} onChange={this.handleFrequencySelect}> 
-        <option value='1'>1</option>
-        <option value='2'>2</option>
-        <option value='3'>3</option>
-        <option value='4'>4</option>
+        <option value={1}>Once a week</option>
+        <option value={2}>Twice a week</option>
+        <option value={3}>Three times a week</option>
+        <option value={7}>Every day</option>
       </select>
       </div>
       <button type='button' className='btn btn-success' onClick={(e)=>this.props.getCalculation(e, order, quantity, frequency)}>Calculate</button>
