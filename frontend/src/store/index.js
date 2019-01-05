@@ -108,6 +108,7 @@ export const deleteReport = (user, id) => {
  store.dispatch(startDeleteReport())
  let alteredUser = func.deleteReport(user, id)
  let email = user.email
+ console.log(alteredUser)
     axios.put('http://localhost:3030/user/deleteReport', {email, alteredUser})
   .then((res)=> store.dispatch(finishDeleteReport(res.data)))
 }

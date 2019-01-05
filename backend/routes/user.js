@@ -93,12 +93,12 @@ router.put('/report', (req, res) => {
 })
 
 router.put('/deleteReport', (req, res) => {
-  console.log('hello')
   const {email, alteredUser} = req.body
-  User.findOneAndUpdate({email}, {user:alteredUser}, {new:true}, (err, user)=> {
+  User.findOneAndUpdate({email}, alteredUser, {new:true}, (err, user)=> {
     if (err) {
       return res.status(5000).send(err)
     }
+    console.log(user)
     res.send(user)
   })
 })
