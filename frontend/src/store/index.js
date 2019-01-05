@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { startSignup, finishSignup, validateError, userExists } from './actions'
 import { startLogin, finishLogin, startCheckForUser, checkForUser, validateLogin } from './actions/login'
 import { startCalculate, finishCalculate } from './actions/calculator'
-import { startReport, finishReport, startAlterReport,  finishAlterReport } from './actions/saveReport'
+import { startReport, finishReport, startAlterReport,  finishAlterReport, startDeleteReport, finishDeleteReport } from './actions/saveReport'
 import { getAllReports, finishGettingReports } from './actions/globalReport'
 import { allReducers } from './reducers'
 import setAuthToken from '../setAuthToken'
@@ -91,17 +91,7 @@ export const grabAllReports = () => {
 
 export const alterReport = (oldReport, newReport, alteredReports, email) => {
     store.dispatch(startAlterReport())
-    console.log(email)
-    newReport.email = email
-    newReport.id = oldReport.id
-    let ifReportExists = alteredReports.filter((report)=> report.id !== oldReport.id)
-    let newAlteredReports
-    if(ifReportExists.length !== alteredReports.length) {
-      newAlteredReports =  ifReportExists.concat(newReport)
-
-    }else {
-      newAlteredReports = alteredReports.concat(newReport)
-    }
+    let newAlteredReports = func.alterReport(oldReport, newReport, alteredReports, email)
     
     axios.put('http://localhost:3030/user/alterReport', {email, oldReport, newAlteredReports})
     .then((res)=> {
@@ -112,6 +102,14 @@ export const alterReport = (oldReport, newReport, alteredReports, email) => {
       .then((res)=>store.dispatch(finishGettingReports(res.data))
     ))
   
+}
+
+export const deleteReport = (user, id) => {
+ store.dispatch(startDeleteReport())
+ let alteredUser = func.deleteReport(user, id)
+ let email = user.email
+    axios.put('http://localhost:3030/user/deleteReport', {email, alteredUser})
+  .then((res)=> store.dispatch(finishDeleteReport(res.data)))
 }
 
 const store = createStore(

@@ -1,3 +1,25 @@
+module.exports.alterReport = (oldReport, newReport, alteredReports, email) => {
+  newReport.email = email
+  newReport.id = oldReport.id
+  let ifReportExists = alteredReports.filter((report)=> report.id !== oldReport.id)
+  let newAlteredReports;
+  if(ifReportExists.length !== alteredReports.length) {
+    newAlteredReports =  ifReportExists.concat(newReport)
+
+  }else {
+    newAlteredReports = alteredReports.concat(newReport)
+  }
+  return newAlteredReports
+}
+
+module.exports.deleteReport = (user, id) => {
+  let newReport = user.reports.filter(report=>report.id !== id) 
+  let alterdReport = user.alteredReports.filter(report=>id !== report.id)
+  user.reports = newReport
+  user.alteredReports = alterdReport
+  return user
+}
+
 module.exports.calculate = (order, quantity, frequency) => {
   let weeksInYear = 52
   let result;
@@ -22,7 +44,10 @@ module.exports.calculate = (order, quantity, frequency) => {
     case 'eggs': 
       result = Math.round(quantity * frequency * weeksInYear * 0.55)
       break;
-      
+    case 'beer':
+      result = Math.round(quantity * frequency * weeksInYear * 0.66)
+      break;
+  
     default:
       result = '0';
   }

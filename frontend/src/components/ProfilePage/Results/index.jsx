@@ -1,7 +1,8 @@
 import React from 'react'
+import { deleteReport } from '../../../store/index'
 
 
-const Results = ({carbon, petrol, number}) => {
+const Results = ({carbon, petrol, number, user, id}) => {
   let drive = Math.round(petrol * 9.9)
   let directHousehold = Math.round(carbon / 41)
   let globalCitizen = Math.round(carbon / 4400 * 100)
@@ -23,7 +24,7 @@ const Results = ({carbon, petrol, number}) => {
       <h5><b>{drive} km</b> travelled by car </h5>
       <h5>Heat, cool and travel Canadian household for {directHousehold} days. </h5>
       <h5><b>{globalCitizen}%</b> of an average human's yearly GHG emssion.</h5>
-      <button>Delete Report</button>
+      <button onClick={()=>deleteReport(user, id)}>Delete Report</button>
       </div>
     </div>
   </div>

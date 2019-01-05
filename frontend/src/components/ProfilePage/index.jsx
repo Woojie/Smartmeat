@@ -7,7 +7,7 @@ const ProfilePage = ( {user, loggedIn} ) => {
   
   let reports = user.reports === undefined ? "" : user.reports.map((report, i) => (
     <div className='accordion'>
-    <Results key={i} number={i} carbon = {report.carbon} petrol = {report.petrol} />
+    <Results key={i} number={i} user={user} carbon = {report.carbon} petrol = {report.petrol} email={report.email} id={report.id}/>
     </div>
 ))
   let profilePage = loggedIn ? (
