@@ -17,6 +17,7 @@ const Results = ({carbon, petrol, number, user, id}) => {
         </button>
       </h5>
     </div>
+
     <div id={`collapse${number}`} className="collapse" aria-labelledby={`heading${number}`} data-parent="#accordionExample">
       <div className="card-body">
       <h5><b>{carbon} kg</b> of GHG produced per year.</h5>
@@ -24,7 +25,7 @@ const Results = ({carbon, petrol, number, user, id}) => {
       <h5><b>{drive} km</b> travelled by car </h5>
       <h5>Heat, cool and travel Canadian household for {directHousehold} days. </h5>
       <h5><b>{globalCitizen}%</b> of an average human's yearly GHG emssion.</h5>
-      <button onClick={()=>deleteReport(user, id)}>Delete Report</button>
+      <button className="btn btn-outline-danger" onClick={()=>deleteReport(user, id)}>Delete Report</button>
       </div>
     </div>
   </div>
