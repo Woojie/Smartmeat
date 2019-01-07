@@ -3,7 +3,7 @@ import { Bar } from 'react-chartjs-2'
 
 
 const Breakup = ({ email, carbon, alteredCarbon, userCarbon, userCarbonDitched }) => {
-  carbon = carbon - alteredCarbon
+  
   const percent = {
     foodProduction: Math.round(carbon * 0.83),
     wsAndRetail: Math.round(carbon * 0.05),

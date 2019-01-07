@@ -17,28 +17,27 @@ class GlobalChart extends React.Component {
     let alteredCarbon = 0
     let userCarbon = 0
     let userCarbonDitched = 0
-  
-    reports.forEach((report)=> {
-      if (email === report.email) {
+
+    reports.forEach((report) => {
+      
+      let findAlteration = altReports.filter((altReport)=>report.id === altReport.id)
+      if (findAlteration.length === 0 && email === report.email) {
         userCarbon += report.carbon
-      }else {
-      carbon += report.carbon
+      } else if (findAlteration.length !== 0 && email === findAlteration[0].email) {
+        let alteredUserResult = report.carbon - findAlteration[0].result
+        userCarbonDitched += alteredUserResult
+        userCarbon += (report.carbon - alteredUserResult )
+      } else if (findAlteration.length === 0 && email !==report.email) {
+        carbon += report.carbon
+      } else if (findAlteration.length !== 0 && email !==findAlteration[0].email) {
+        let alteredResult = report.carbon - findAlteration[0].result
+        alteredCarbon += alteredResult
+        carbon += (report.carbon - alteredResult)
       }
+
     })
 
-    altReports.forEach((report)=> {
-      if (email  === report.email) {
-        userCarbonDitched += report.result
-        
-      } else {
-      alteredCarbon += report.result
-      }
-    })
-    let totalCarbonDitched = carbon - alteredCarbon
-    let totalUserCarbonDitched = userCarbon - userCarbonDitched 
-
-
-    let directHousehold = Math.round((totalCarbonDitched+totalUserCarbonDitched) / 41)
+    let directHousehold = Math.round((userCarbonDitched+alteredCarbon) / 31)
 
     
     
@@ -55,9 +54,9 @@ class GlobalChart extends React.Component {
           <Breakup 
             email={email}
             carbon={carbon} 
-            alteredCarbon={totalCarbonDitched} 
+            alteredCarbon={alteredCarbon} 
             userCarbon = {userCarbon} 
-            userCarbonDitched = {totalUserCarbonDitched} 
+            userCarbonDitched = {userCarbonDitched} 
           />
         </div>
     )

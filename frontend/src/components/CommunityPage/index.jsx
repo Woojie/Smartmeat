@@ -7,7 +7,6 @@ import { getCalculation, grabAllReports, alterReport } from '../../store'
 
 
 const CommunityPage = ({user, reports, calculator}) => {
-  console.log(user)
   return (
     <div className="py-5 light">
       <div className="pt-5 container">

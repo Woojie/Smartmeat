@@ -25,6 +25,7 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
       order,  
       quantity,
       frequency,
+      date: new Date(),
       id:uuidv4()
     }
   }else {
@@ -35,6 +36,7 @@ const Results = ({carbon, petrol, order, quantity, frequency, saveReport, userEm
       order, 
       quantity,
       frequency,
+      date: new Date(),
       id:uuidv4()
     })
   }

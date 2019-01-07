@@ -28,26 +28,34 @@ module.exports.calculate = (order, quantity, frequency) => {
   switch (order) {
     case 'hamburger':
       result = Math.round(quantity * frequency * weeksInYear * 3.7)
-      break;
+      break
     case 'steak':
       result = Math.round(quantity * frequency * weeksInYear * 3.5)
-      break;
+      break
     case 'beef':
       result = Math.round(quantity * frequency * weeksInYear * 3)
-      break;
+      break
     case 'cheeseburger':
       result = Math.round(quantity * frequency * weeksInYear * 8.7)
-      break;
+      break
     case 'chickenburger':
       result = Math.round(quantity * frequency * weeksInYear * 1.36)
-      break;
+      break
     case 'eggs': 
       result = Math.round(quantity * frequency * weeksInYear * 0.55)
-      break;
+      break
     case 'beer':
       result = Math.round(quantity * frequency * weeksInYear * 0.66)
-      break;
-  
+      break
+    case 'tunasandwich':
+      result = Math.round(quantity * frequency * weeksInYear  *.942)
+      break
+    case 'coffee':
+      result = Math.round(quantity * frequency * weeksInYear * 0.42)
+      break
+    case 'blt':
+      result = Math.round(quantity * frequency * weeksInYear * 1.007)
+      break
     default:
       result = '0';
   }

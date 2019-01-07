@@ -11,7 +11,9 @@ export const signinReducer = (state=signIn, action) => {
   if (action.type === "START_SIGNUP") {
     return {
       ...state,
-      loading: true
+      loading: true,
+      validateError: false,
+      userExists: false, 
     }
   }else if(action.type === "FINISH_SIGNUP") {
     return {

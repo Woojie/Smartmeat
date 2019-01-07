@@ -23,6 +23,12 @@ class CalcForm extends Component {
           <option value='hamburger'>Hamburger</option>
           <option value='steak'>Steak</option>
           <option value='beef'>Beef, per serving</option>
+          <option value='cheeseburger'>Cheeseburger</option>
+          <option value='chickenburger'>Chicken burger</option>
+          <option value='eggs'>Beef, per serving</option>
+          <option value='tunasandwich'>Tuna sandwich</option>
+          <option value='coffee'>Coffee</option>
+          <option value='blt'>BLT</option>
         </select>
         {/* <br /> */}
         <label>How many you ordering</label>

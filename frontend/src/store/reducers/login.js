@@ -1,7 +1,7 @@
 
 export const loggedIn = {
   user: {},
-  loading: false,
+  loading: undefined,
   loggedIn: false,
   loginError: false,
   reportError: false,
