@@ -15,7 +15,7 @@ const Home = () => {
     <div>
       <header className="showcase">
         <div className="container d-flex flex-column justify-content-center align-items-center h-100">
-          <div className="row text-center">
+          <div className="test row text-center">
             <h1 className="col-12">SmartMeat</h1>
             <h2 className="col-12"><em>"Less Meat, Less Heat, More Life..."</em></h2>
             <div className="embed-responsive embed-responsive-16by9 col-12">
@@ -52,57 +52,55 @@ const Home = () => {
           <div className="row">
             <div className="col-12 col-md-4">
               <img className="d-block mx-auto" src={awarenessIcon} alt="awareness icon" height="100px " />
-              <h3 className="text-center">Raise Awareness</h3>
-              <p>Raising awareness of climate change by showing the impact of food production and livestock.</p>
+              <h3 className="text-center my-3">Raise Awareness</h3>
+              <p className="my-4">Raising awareness of climate change by showing the impact of food production and livestock.</p>
             </div>
 
-            <div className="col-12 col-md-4 my-5 my-md-0">
+            <div className="col-12 col-md-4 my-3 my-md-0 py-3">
               <img className="d-block mx-auto" src={calculateIcon} alt="calculate icon" height="100px " />
-              <h3 className="text-center">Calculate and Track</h3>
-              <p>With a couple of generic questions, the carbon calculator will estimate in annual average projectionof potential emission.</p>
-              <button onClick={()=>window.location.href="/ourTool"} type="button" className="btn btn-outline-dark d-block mx-auto">Calculate</button>
+              <h3 className="text-center my-3">Calculate and Track</h3>
+              <p className="my-4">With a couple of generic questions, the carbon calculator will estimate in annual average projectionof potential emission.</p>
+              <button onClick={()=>window.location.href="/ourTool"} type="button" className="btn btn-brown d-block mx-auto">Calculate</button>
             </div>
 
             <div className="col-12 col-md-4">
               <img className="d-block mx-auto" src={communityIcon} alt="community icon" height="100px "/>
-              <h3 className="text-center">Join our community</h3>
-              <p>Coming together to reduce our CO2 emmisions by building a community of green thinkers.</p>
-              <button type="button" onClick={()=>window.location.href="/signup"} className="btn btn-outline-dark d-block mx-auto">Sign Up</button>
+              <h3 className="text-center my-3">Join our community</h3>
+              <p className="my-4">Coming together to reduce our CO2 emmisions by building a community of green thinkers.</p>
+              <button type="button" onClick={()=>window.location.href="/signup"} className="btn btn-brown d-block mx-auto">Sign Up</button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* <header class="showcase" style={{height: '30vh'}}></header> */}
-
-      <section className="py-5">
+      <section className="lighter py-5">
         <div className="mx-5">
           <div className="row">
-            <h3 className="text-center col-12 mb-5">Our Team</h3>
+            <h3 className="text-center col-12 mb-5 primary">Our Team</h3>
           </div>
 
           <div className="row">
             <div className="col-12 col-md-6 col-lg-3 mb-5">
               <img className="d-block mx-auto img-fluid mb-2" src={munifa} alt="munifa_ahmad"/>
-              <h4 className="text-center">Munifa Ahmad</h4>
+              <h4 className="text-center primary">Munifa Ahmad</h4>
               <h5 className="text-center">Product Owner</h5>
             </div>
 
             <div className="col-12 col-md-6 col-lg-3 mb-5">
               <img className="d-block mx-auto img-fluid mb-2" src={wooj} alt="wooj_chung"/>
-              <h4 className="text-center">Woo Jae Chung</h4>
-              <h5 className="text-center">Full-Stack Lead Developer</h5>
+              <h4 className="text-center primary">Woo Jae Chung</h4>
+              <h5 className="text-center">Lead Full-Stack Developer</h5>
             </div>
 
             <div className="col-12 col-md-6 col-lg-3 mb-5">
               <img className="d-block mx-auto img-fluid mb-2" src={roman} alt="roman_iudin"/>
-              <h4 className="text-center">Roman Iudin</h4>
+              <h4 className="text-center primary">Roman Iudin</h4>
               <h5 className="text-center">Front-End Web Developer</h5>
             </div>
 
             <div className="col-12 col-md-6 col-lg-3 ">
               <img className="d-block mx-auto img-fluid mb-2" src={kary} alt="kary_ma" width="500px"/>
-              <h4 className="text-center">Kary Ma</h4>
+              <h4 className="text-center primary">Kary Ma</h4>
               <h5 className="text-center">Front-End Web Developer</h5>
             </div>
           </div>
