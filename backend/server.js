@@ -3,7 +3,7 @@ app = express(),
 bodyParser = require('body-parser'),
 cors = require('cors'),
 cookieParser = require('cookie-parser'),
-logger = require('morgan')
+logger = require('morgan'),
 
 
 
@@ -11,7 +11,7 @@ port = process.env.PORT || 3030
 dbConnection = require('./database') ,
 user = require('./routes/user'),
 report = require('./routes/report'),
-passport = require('./passport'),
+passport = require('./passport')
 
 
 
@@ -26,8 +26,8 @@ app.use(bodyParser.json())
 
 
 app.use('/user', user)
-// app.use('/report', report)
 
+app.use('/report', report)
 
 
 app.listen(port, ()=>{
