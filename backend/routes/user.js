@@ -21,24 +21,7 @@ router.get('/', (req, res, next) => {
   })
 })
 
-router.get('/allReports', (req, res, next) => {
-  let reports = []
-  let altReports = []
-  User.find({}, (err, user) => {
 
-    user.forEach((user) => {
-
-      reports = reports.concat(user.reports)
-      altReports = altReports.concat(user.alteredReports)
-    })
-    let allReports = {
-      reports,
-      altReports
-    }
-    res.send(allReports)
-  })
-
-})
 
 router.post('/login', function (req, res, next) {
   passport.authenticate('local', {
@@ -70,60 +53,8 @@ router.post('/login', function (req, res, next) {
 
 });
 
-router.put('/report', (req, res) => {
-  const {
-    report,
-    email
-  } = req.body
-  User.findOneAndUpdate({
-    email: email
-  }, {
-    reports: report
-  }, {
-    new: true
-  }, (err, user) => {
-    if (err) {
-      return res
-        .status(5000.)
-        .send(err)
-    }
 
-    res.send(user)
-  })
-})
 
-router.put('/deleteReport', (req, res) => {
-  const {email, alteredUser} = req.body
-  User.findOneAndUpdate({email}, alteredUser, {new:true}, (err, user)=> {
-    if (err) {
-      return res.status(5000).send(err)
-    }
-    console.log(user)
-    res.send(user)
-  })
-})
-
-router.put('/alterReport', (req, res) => {
-  const {
-    newAlteredReports,
-    email,
-  } = req.body
-  User.findOneAndUpdate({
-    email: email
-  }, {
-    alteredReports: newAlteredReports
-  }, {
-    new: true
-  }, (err, user) => {
-    if (err) {
-      return res
-        .status(5000.)
-        .send(err)
-    }
-
-    res.send(user)
-  })
-})
 
 router.get('/check', passport.authenticate('jwt', {
   session: false
@@ -143,7 +74,7 @@ router.post('/', (req, res) => {
 
   const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   const passwordRegex = /(.*[a-z0-9]){5}/i
-  const namesRegex = /[^\s]*/
+  const namesRegex = /^[^]+$/
 
   User.findOne({
     email
@@ -155,14 +86,14 @@ router.post('/', (req, res) => {
       res.json({
         error: `Sorry, ${email} already has an account, trying logging in!`
       })
-    } else if (!emailRegex.test(email) || !passwordRegex.test(password) || !namesRegex.test(firstName) || !namesRegex.text(lastName)) {
-
+    } else if (!emailRegex.test(email) || !passwordRegex.test(password) || !namesRegex.test(firstName) || !namesRegex.test(lastName)) {
       res.json({
-        emailError: `Sorry ${email} is not an email`,
+        emailError: emailRegex.test(email) ? undefined : `Sorry ${email} is not an email`,
         passwordError: passwordRegex.test(password) ? undefined : `Password must be at least 5 charcters`,
-        namesError: !namesRegex.test(firstName) || !namesRegex.test(lastName) ? undefined : 'You must fill both name spaces!'
+        namesError: namesRegex.test(firstName) && namesRegex.test(lastName) ? undefined : 'You must fill both name spaces!'
       })
     } else {
+
       const newUser = new User({
         email,
         password,

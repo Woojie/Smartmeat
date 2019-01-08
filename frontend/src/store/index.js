@@ -86,7 +86,7 @@ export const saveReport = (report, email) => {
   if (report === "") {
 
   }else {
-    axios.put('http://localhost:3030/user/report', {report, email})
+    axios.put('http://localhost:3030/report/report', {report, email})
     .then((res)=>{
       store.dispatch(finishReport(res.data))
     })
@@ -95,7 +95,7 @@ export const saveReport = (report, email) => {
 
 export const grabAllReports = () => {
   store.dispatch(getAllReports())
-  axios.get('http://localhost:3030/user/allReports')
+  axios.get('http://localhost:3030/report/allReports')
   .then((res)=>store.dispatch(finishGettingReports(res.data)))
 }
 
@@ -103,12 +103,12 @@ export const alterReport = (oldReport, newReport, alteredReports, email) => {
     store.dispatch(startAlterReport())
     let newAlteredReports = func.alterReport(oldReport, newReport, alteredReports, email)
     
-    axios.put('http://localhost:3030/user/alterReport', {email, oldReport, newAlteredReports})
+    axios.put('http://localhost:3030/report/alterReport', {email, oldReport, newAlteredReports})
     .then((res)=> {
       store.dispatch(finishAlterReport(res.data))
     })
     .then(  
-      axios.get('http://localhost:3030/user/allReports')
+      axios.get('http://localhost:3030/report/allReports')
       .then((res)=>store.dispatch(finishGettingReports(res.data))
     ))
   
@@ -119,7 +119,7 @@ export const deleteReport = (user, id) => {
  let alteredUser = func.deleteReport(user, id)
  let email = user.email
  console.log(alteredUser)
-    axios.put('http://localhost:3030/user/deleteReport', {email, alteredUser})
+    axios.put('http://localhost:3030/report/deleteReport', {email, alteredUser})
   .then((res)=> store.dispatch(finishDeleteReport(res.data)))
 }
 
