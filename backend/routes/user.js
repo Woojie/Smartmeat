@@ -128,7 +128,6 @@ router.put('/alterReport', (req, res) => {
 router.get('/check', passport.authenticate('jwt', {
   session: false
 }), (req, res) => {
-
   return res.json({
     user: req.user
   })
@@ -137,7 +136,9 @@ router.get('/check', passport.authenticate('jwt', {
 router.post('/', (req, res) => {
   const {
     email,
-    password
+    password,
+    firstName,
+    lastName
   } = req.body
   const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -158,7 +159,9 @@ router.post('/', (req, res) => {
     } else {
       const newUser = new User({
         email,
-        password
+        password,
+        firstName,
+        lastName
       })
       newUser.save((err, savedUser) => {
         if (err)

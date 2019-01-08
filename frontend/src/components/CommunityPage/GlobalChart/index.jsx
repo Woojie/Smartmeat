@@ -12,7 +12,7 @@ class GlobalChart extends React.Component {
     let altReports = this.props.reports.altReports === undefined ? [] : this.props.reports.altReports
     let email = this.props.email
 
-    
+
     let carbon = 0
     let alteredCarbon = 0
     let userCarbon = 0
@@ -52,7 +52,7 @@ class GlobalChart extends React.Component {
           <p>With the amount saved, you can heat, cool and drive an average Canadian household for <strong>{directHousehold} days!</strong></p>
 
           <Breakup 
-            email={email}
+            firstName = {this.props.firstName}
             carbon={carbon} 
             alteredCarbon={alteredCarbon} 
             userCarbon = {userCarbon} 

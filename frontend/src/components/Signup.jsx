@@ -17,7 +17,11 @@ const SignupForm = ({validateError, userExists, successfulLogin}) => {
     .then(()=>window.location.href="/login")
   }
   const [email, getEmail] = useState(""),
-  [password, getPassword] = useState("")
+  [password, getPassword] = useState(""),
+  [firstName, getFirstName] = useState(""),
+  [lastName, getLastName] = useState("")
+
+
   const signUpError = validateError ? <div className="alert alert-danger" role="alert">Please use a valid email address</div> : ""
   const userAlreadyExistError = userExists ? <div className="alert alert-danger" role="alert">This email is already signed up! Please use another or proceed to the login page.</div>
   : ""
@@ -36,7 +40,13 @@ const SignupForm = ({validateError, userExists, successfulLogin}) => {
             <input className="form-control" type="password" onChange={(e)=>getPassword(e.target.value)} placeholder="Enter your password" />
           </div>
           {userAlreadyExistError}
-          <button className="btn btn-secondary mb-2 mainColor primary" type="submit" onClick={(e)=>signUserUp(e, email, password)}  >Sign Up</button>
+          <div className="form-group">
+            <input className="form-control" type="text" onChange={(e)=>getFirstName(e.target.value)} placeholder="Enter your first name" />
+          </div>
+          <div className="form-group">
+            <input className="form-control" type="text" onChange={(e)=>getLastName(e.target.value)} placeholder="Enter your last name" />
+          </div>
+          <button className="btn btn-secondary mb-2 mainColor primary" type="submit" onClick={(e)=>signUserUp( e, email, password, firstName, lastName )}  >Sign Up</button>
           {successfullyLogged}
           <p>Already a user? Login <a href="/login"> <b className='primary'>here</b></a>.</p>
         </form>

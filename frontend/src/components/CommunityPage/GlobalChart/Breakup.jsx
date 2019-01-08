@@ -2,7 +2,7 @@ import React from 'react'
 import { Bar } from 'react-chartjs-2'
 
 
-const Breakup = ({ email, carbon, alteredCarbon, userCarbon, userCarbonDitched }) => {
+const Breakup = ({ firstName, carbon, alteredCarbon, userCarbon, userCarbonDitched }) => {
   
   const percent = {
     foodProduction: Math.round(carbon * 0.83),
@@ -53,7 +53,7 @@ const Breakup = ({ email, carbon, alteredCarbon, userCarbon, userCarbonDitched }
         ]
     },
     {
-      label: [`${email}'s Carbon Emission`],
+      label: [`${firstName}'s Carbon Emission`],
       data:[userFoodProduction, userWsAndRetail, userFinalDelivery, userSupplyChain],
       backgroundColor: [
         '#1aad13',
@@ -70,7 +70,7 @@ const Breakup = ({ email, carbon, alteredCarbon, userCarbon, userCarbonDitched }
         ]
     },
     {
-      label: [`${email}'s total Carbon Ditched`],
+      label: [`${firstName}'s total Carbon Ditched`],
       data:[userDitchedAltFoodProduction, userDitchedAltWsAndRetail, userDitchedAltFinalDelivery, userDitchedAltSupplyChain],
       backgroundColor: [
         '#510707',
@@ -165,7 +165,7 @@ const Breakup = ({ email, carbon, alteredCarbon, userCarbon, userCarbonDitched }
     <React.Fragment>
           <div className="row">
             <div className="col-12">
-              <Bar data={email === undefined ? noUserChartData : chartData} height={450} options={chartOptions}/>
+              <Bar data={firstName === undefined ? noUserChartData : chartData} height={450} options={chartOptions}/>
             </div>
           </div>
     </React.Fragment>

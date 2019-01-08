@@ -12,7 +12,7 @@ const CommunityPage = ({user, reports, calculator}) => {
       <div className="pt-5 container">
         <p className="h5 text-center">Alter the report below to see how much you save!</p>
         <Report alterReport={alterReport} getCalculation={getCalculation} calculator={calculator} user={user}/>
-        <GlobalChart grabAllReports={grabAllReports} reports={reports.reports} email={user.email} />
+        <GlobalChart grabAllReports={grabAllReports} reports={reports.reports} email={user.email} firstName = {user.firstName} />
       </div>
     </div>
   )

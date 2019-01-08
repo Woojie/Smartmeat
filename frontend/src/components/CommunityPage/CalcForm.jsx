@@ -49,8 +49,15 @@ class CalcForm extends Component {
         <option value='hamburger'>Hamburger</option>
         <option value='steak'>Steak</option>
         <option value='beef'>Beef, per serving</option>
+        <option value='cheeseburger'>Cheeseburger</option>
+        <option value='chickenburger'>Chicken burger</option>
+        <option value='eggs'>Eggs</option>
+        <option value='tunasandwich'>Tuna sandwich</option>
+        <option value='coffee'>Coffee</option>
+        <option value='blt'>BLT</option>
       </select>
     
+
       <label>How many you ordering<i>Old quantity: {oldQuantity}</i></label>
       <select className="form-control" name="quantity" value={quantity} onChange={this.handleQuantitySelect}>
         <option value={1}>1</option>

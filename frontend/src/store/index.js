@@ -31,11 +31,13 @@ export const logUserIn = (e, email, password) => {
   .catch(error => console.log("error:", error))
 }
 
-export const signUserUp = (e, email, password) => {
+export const signUserUp = (e, email, password, firstName, lastName) => {
   e.preventDefault()
   store.dispatch(startSignup())
-  axios.post('http://localhost:3030/user/', {email, password})
+
+  axios.post('http://localhost:3030/user/', {email, password, firstName, lastName})
   .then((res)=>{
+
     if(res.data.error) {
       store.dispatch(userExists())
     }else if (res.data.emailError) {

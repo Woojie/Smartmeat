@@ -4,7 +4,6 @@ import Results from './Results'
 
 
 const ProfilePage = ( {user, loggedIn} ) => {
-  
   let reports = user.reports === undefined ? "" : user.reports.map((report, i) => (
     <div className='accordion'>
     <Results
@@ -22,7 +21,7 @@ const ProfilePage = ( {user, loggedIn} ) => {
 ))
   let profilePage = loggedIn ? (
     <div className="container py-5">
-      <p className="h1 text-center my-5">{user.email}'s Profile Page</p>
+      <p className="h1 text-center my-5">{user.firstName}'s Profile Page</p>
       <p className="h3">Saved Reports:</p>
       {reports}
     </div>)
