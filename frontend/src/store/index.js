@@ -2,7 +2,7 @@ import logger from 'redux-logger'
 import axios from 'axios'
 import { createStore, applyMiddleware } from 'redux'
 
-import { startSignup, finishSignup, validateError, userExists } from './actions'
+import { startSignup, finishSignup, validateEmailError, validateNamesError, validatePasswordError, userExists } from './actions'
 import { startLogin, finishLogin, startCheckForUser, checkForUser, validateLogin } from './actions/login'
 import { startCalculate, finishCalculate } from './actions/calculator'
 import { startReport, finishReport, startAlterReport,  finishAlterReport, startDeleteReport, finishDeleteReport } from './actions/saveReport'
@@ -34,14 +34,22 @@ export const logUserIn = (e, email, password) => {
 export const signUserUp = (e, email, password, firstName, lastName) => {
   e.preventDefault()
   store.dispatch(startSignup())
-
   axios.post('http://localhost:3030/user/', {email, password, firstName, lastName})
   .then((res)=>{
-
+    
     if(res.data.error) {
       store.dispatch(userExists())
-    }else if (res.data.emailError) {
-      store.dispatch(validateError())
+    }else if (res.data.emailError || res.data.passwordError || res.data.namesError) {
+      console.log(res.data)
+      if (res.data.emailError) {
+        store.dispatch(validateEmailError())
+      }
+      if (res.data.passwordError) {
+        store.dispatch(validatePasswordError())
+      }
+      if (res.data.namesError) {
+        store.dispatch(validateNamesError())
+      }
     }else {
 
     store.dispatch(finishSignup())

@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 import { signUserUp } from '../store'
 
-const SignupForm = ({validateError, userExists, successfulLogin}) => {
+const SignupForm = ({validateError, userExists, successfulLogin, namesError, passwordError}) => {
   if (successfulLogin) {
     let waitFiveSeconds = () => {
       return new Promise (resolve => {
@@ -22,10 +22,16 @@ const SignupForm = ({validateError, userExists, successfulLogin}) => {
   [lastName, getLastName] = useState("")
 
 
-  const signUpError = validateError ? <div className="alert alert-danger" role="alert">Please use a valid email address</div> : ""
+  const signUpError = validateError ? <div className="alert alert-danger" role="alert">Please use a valid email address</div> 
+  : ""
+  const passwordValidation = passwordError ? <div className="alert alert-danger" role="alert">Password must be at least 5 characters</div> 
+  : ""
+  const namesValidation = namesError ? <div className="alert alert-danger" role="alert">You Must fill out both your first and last name!</div> 
+  : ""
   const userAlreadyExistError = userExists ? <div className="alert alert-danger" role="alert">This email is already signed up! Please use another or proceed to the login page.</div>
   : ""
-  const successfullyLogged = successfulLogin ? <div className="alert alert-success" role="alert">Successfully Signed Up! Will Redirect to the Login page in 3 seconds!</div> : "" 
+  const successfullyLogged = successfulLogin ? <div className="alert alert-success" role="alert">Successfully Signed Up! Will Redirect to the Login page in 3 seconds!</div> 
+  : "" 
   return(
     <Fragment>
       <div className="main-body light pt-5">
@@ -38,6 +44,7 @@ const SignupForm = ({validateError, userExists, successfulLogin}) => {
 
           <div className="form-group">
             <input className="form-control" type="password" onChange={(e)=>getPassword(e.target.value)} placeholder="Enter your password" />
+            {passwordValidation}
           </div>
           {userAlreadyExistError}
           <div className="form-group">
@@ -45,7 +52,8 @@ const SignupForm = ({validateError, userExists, successfulLogin}) => {
           </div>
           <div className="form-group">
             <input className="form-control" type="text" onChange={(e)=>getLastName(e.target.value)} placeholder="Enter your last name" />
-          </div>
+          {namesValidation}
+        </div>
           <button className="btn btn-secondary mb-2 mainColor primary" type="submit" onClick={(e)=>signUserUp( e, email, password, firstName, lastName )}  >Sign Up</button>
           {successfullyLogged}
           <p>Already a user? Login <a href="/login"> <b className='primary'>here</b></a>.</p>
@@ -55,11 +63,13 @@ const SignupForm = ({validateError, userExists, successfulLogin}) => {
   )
 }
 
-const mapStateToProps = ({signin:{validateError, userExists, successfulLogin}}) => {
+const mapStateToProps = ({signin:{validateError, userExists, successfulLogin, passwordError, namesError}}) => {
   return {
     validateError,
     userExists,
-    successfulLogin
+    successfulLogin,
+    passwordError,
+    namesError
   }
 }
 

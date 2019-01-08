@@ -140,21 +140,27 @@ router.post('/', (req, res) => {
     firstName,
     lastName
   } = req.body
+
   const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  const passwordRegex = /(.*[a-z0-9]){5}/i
+  const namesRegex = /[^\s]*/
 
   User.findOne({
     email
   }, (err, user) => {
+
     if (err) {
       console.log('User.js post error: ', err)
     } else if (user) {
       res.json({
         error: `Sorry, ${email} already has an account, trying logging in!`
       })
-    } else if (!emailRegex.test(email)) {
+    } else if (!emailRegex.test(email) || !passwordRegex.test(password) || !namesRegex.test(firstName) || !namesRegex.text(lastName)) {
 
       res.json({
-        emailError: `Sorry ${email} is not an email`
+        emailError: `Sorry ${email} is not an email`,
+        passwordError: passwordRegex.test(password) ? undefined : `Password must be at least 5 charcters`,
+        namesError: !namesRegex.test(firstName) || !namesRegex.test(lastName) ? undefined : 'You must fill both name spaces!'
       })
     } else {
       const newUser = new User({
