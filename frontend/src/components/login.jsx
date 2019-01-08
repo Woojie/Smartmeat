@@ -23,7 +23,7 @@ const LoginForm = ({loginError, logUserIn}) => {
             <input className="form-control" type="password" onChange={(e) => getPassword(e.target.value)} placeholder="Password" />
           </div>
 
-          <button className="btn btn-secondary mb-2 primary" type="submit" onClick={(e) => logUserIn(e, email, password)} >Login</button>
+          <button className="btn btn-secondary mb-2" type="submit" onClick={(e) => logUserIn(e, email, password)} >Login</button>
 
           <p>Not a user? Sign up <a href="/signup"><b className="primary">here</b></a>.</p>
         </form>

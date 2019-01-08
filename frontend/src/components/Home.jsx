@@ -17,16 +17,18 @@ const Home = () => {
         <div className="container d-flex flex-column justify-content-center align-items-center h-100">
           <div className="test row text-center">
             <h1 className="col-12">SmartMeat</h1>
+
             <h2 className="col-12"><em>"Less Meat, Less Heat, More Life..."</em></h2>
-            <div className="embed-responsive embed-responsive-16by9 col-12">
+
+            <div className="col-12 flex-2">
               <iframe
                 title="reduce meat consumption"
-                className=""
                 src="https://www.youtube.com/embed/q_1dp0LSyhA" 
                 frameBorder="0"
                 allowFullScreen>
               </iframe>
             </div>
+            
           </div>
         </div>
       </header>
@@ -35,12 +37,12 @@ const Home = () => {
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-6 mb-5 mb-md-0">
-              <h3 className="text-center">Vision</h3>
+              <h3 className="text-center primary">Vision</h3>
               <blockquote><p className="quotation">Green communities with green thinkers that aims for less meat, less heat and more life!</p></blockquote>
             </div>
 
             <div className="col-12 col-md-6">
-              <h3 className="text-center">Mission</h3>
+              <h3 className="text-center primary">Mission</h3>
               <blockquote><p className="quotation">To raise eConsciousness and empower our generation on how we can positively contribute to the environment for daily life choices.</p></blockquote>
             </div>
           </div>
@@ -80,25 +82,25 @@ const Home = () => {
           </div>
 
           <div className="row">
-            <div className="col-12 col-md-6 col-lg-3 mb-5">
+            <div className="col-9 col-md-5 col-lg-3 mb-5 mx-auto">
               <img className="d-block mx-auto img-fluid mb-2" src={munifa} alt="munifa_ahmad"/>
               <h4 className="text-center primary">Munifa Ahmad</h4>
               <h5 className="text-center">Product Owner</h5>
             </div>
 
-            <div className="col-12 col-md-6 col-lg-3 mb-5">
+            <div className="col-9 col-md-5 col-lg-3 mb-5 mx-auto">
               <img className="d-block mx-auto img-fluid mb-2" src={wooj} alt="wooj_chung"/>
               <h4 className="text-center primary">Woo Jae Chung</h4>
               <h5 className="text-center">Lead Full-Stack Developer</h5>
             </div>
 
-            <div className="col-12 col-md-6 col-lg-3 mb-5">
+            <div className="col-9 col-md-5 col-lg-3 mb-5 mx-auto">
               <img className="d-block mx-auto img-fluid mb-2" src={roman} alt="roman_iudin"/>
               <h4 className="text-center primary">Roman Iudin</h4>
               <h5 className="text-center">Front-End Web Developer</h5>
             </div>
 
-            <div className="col-12 col-md-6 col-lg-3 ">
+            <div className="col-9 col-md-5 col-lg-3 mx-auto">
               <img className="d-block mx-auto img-fluid mb-2" src={kary} alt="kary_ma" width="500px"/>
               <h4 className="text-center primary">Kary Ma</h4>
               <h5 className="text-center">Front-End Web Developer</h5>

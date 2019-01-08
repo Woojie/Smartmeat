@@ -1,11 +1,3 @@
-/* canvas {
-    width: 100vw;
-    height: 100vh;
-  } */
-
-  /* .chartjs-render-monitor {
-    height: 100vh;
-  } */
 
  #loginRequest {
    margin-top: 15rem;
@@ -15,27 +7,4 @@
   text-align: center;
  }
 
- #car {
-   float: right;
-   right: 19rem;
-   position: absolute;
- }
-
- #house {
-   float: left;
- }
-
- #breakdown {
-   margin-top: 6rem;
- }
-
- #householdText {
-    position: absolute;
-    margin-bottom: 0;
-    left: 7rem;
- }
-
- #calcResults {
-   position: relative;
- }
 
