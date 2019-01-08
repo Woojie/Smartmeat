@@ -111,7 +111,6 @@ export const alterReport = (oldReport, newReport, alteredReports, email) => {
       axios.get('http://localhost:3030/report/allReports')
       .then((res)=>store.dispatch(finishGettingReports(res.data))
     ))
-  
 }
 
 export const deleteReport = (user, id) => {
