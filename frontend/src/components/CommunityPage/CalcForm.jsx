@@ -27,7 +27,7 @@ class CalcForm extends Component {
 
   render(){
     let { order, quantity, frequency, oldFrequency, oldOrder, oldQuantity } = this.state
-    let calc = this.props.result === 0 ? "" : `You will save ${this.props.result}kg of GHG!`
+    let calc = this.props.result === 0 || isNaN(this.props.result) ? "" : `You will save ${this.props.result}kg of GHG!`
   
     return(
 
