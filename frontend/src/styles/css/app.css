@@ -15,14 +15,6 @@ html, body {
   letter-spacing: 1px;
 }
 
-h1 {
-  letter-spacing: 5px;
-}
-
-h2 {
-  letter-spacing: 8px;
-}
-
 a {
   color: black;
 }
@@ -83,10 +75,6 @@ blockquote:before {
 }
 .btn-brown:hover {
   color: white;
-}
-
-.footer {
-  background-color: #6b4b35;
 }
 
 /*# sourceMappingURL=app.css.map */

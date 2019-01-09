@@ -14,21 +14,19 @@ const Home = () => {
   return (
     <div>
       <header className="showcase">
-        <div className="container d-flex flex-column justify-content-center align-items-center h-100">
-          <div className="test row text-center">
-            <h1 className="col-12">SmartMeat</h1>
-
-            <h2 className="col-12"><em>"Less Meat, Less Heat, More Life..."</em></h2>
-
-            <div className="col-12 flex-2">
-              <iframe
+        <div className="d-flex flex-column justify-content-center align-items-center h-100">
+          <div className="row text-center w-100">
+            <h1 className="col-11">SmartMeat</h1>
+            <h2 className="col-11"><em>"Less Meat, Less Heat, More Life..."</em></h2>
+          </div>
+          <div className="row h-50 w-100">
+            <iframe
+                className="col-12 col-md-8 col-lg-6 mx-auto"
                 title="reduce meat consumption"
                 src="https://www.youtube.com/embed/q_1dp0LSyhA" 
                 frameBorder="0"
                 allowFullScreen>
-              </iframe>
-            </div>
-            
+            </iframe> 
           </div>
         </div>
       </header>

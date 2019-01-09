@@ -16,8 +16,8 @@ const Nav = ( {logout, loggedIn} ) => {
       <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <span className="navbar-brand">
           <Link to="/">
-            <img src={logo} alt="logo" width="20px"/>
-            <span className="secondary">Smart</span><span className='primary'>Meat</span>
+            <img src={logo} alt="logo" width="15px" className="img-fluid"/>
+            <span className="secondary ml-2">Smart</span><span className="primary">Meat</span>
             {/* SmartMeat */}
           </Link>
         </span>
