@@ -27,7 +27,13 @@ class CalcForm extends Component {
 
   render(){
     let { order, quantity, frequency, oldFrequency, oldOrder, oldQuantity } = this.state
+<<<<<<< HEAD
     let calc = this.props.result === 0 || isNaN(this.props.result) ? "" : `You will save ${this.props.result}kg of GHG!`
+||||||| merged common ancestors
+    let calc = this.props.result === 0 ? "" : `You will save ${this.props.result}kg of GHG!`
+=======
+    let calc = this.props.result === 0 ? "" : ` You will save ${this.props.result}kg of GHG!`
+>>>>>>> 33d70069ec8b5fc4678ef5a07634f321ccba225e
   
     return(
 
@@ -58,7 +64,7 @@ class CalcForm extends Component {
       </select>
     
 
-      <label>How many you ordering<i>Old quantity: {oldQuantity}</i></label>
+      <label>How many you ordering? <i>Old quantity: {oldQuantity}</i></label>
       <select className="form-control" name="quantity" value={quantity} onChange={this.handleQuantitySelect}>
         <option value={1}>1</option>
         <option value={2}>2</option>
@@ -66,7 +72,7 @@ class CalcForm extends Component {
         <option value={4}> 4</option>
       </select>
   
-      <label>How many times per week <i>Old frequency {oldFrequency}</i></label>
+      <label>How many times per week? <i>Old frequency: {oldFrequency}</i></label>
       <select className="form-control" name="frequency" value={frequency} onChange={this.handleFrequencySelect}> 
         <option value={1}>Once a week</option>
         <option value={2}>Twice a week</option>
