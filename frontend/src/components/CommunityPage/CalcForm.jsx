@@ -27,13 +27,7 @@ class CalcForm extends Component {
 
   render(){
     let { order, quantity, frequency, oldFrequency, oldOrder, oldQuantity } = this.state
-<<<<<<< HEAD
     let calc = this.props.result === 0 || isNaN(this.props.result) ? "" : `You will save ${this.props.result}kg of GHG!`
-||||||| merged common ancestors
-    let calc = this.props.result === 0 ? "" : `You will save ${this.props.result}kg of GHG!`
-=======
-    let calc = this.props.result === 0 ? "" : ` You will save ${this.props.result}kg of GHG!`
->>>>>>> 33d70069ec8b5fc4678ef5a07634f321ccba225e
   
     return(
 
