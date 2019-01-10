@@ -4,11 +4,11 @@ import { HashRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import store from './store'
-import * as serviceWorker from './serviceWorker'
+import registerServiceWorker from './registerServiceWorker'
 import App from './components/App'
 
 
-serviceWorker.register();
+
 ReactDOM.render(
   (<HashRouter>
     <Provider store={store}>
@@ -21,3 +21,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 
+registerServiceWorker()
