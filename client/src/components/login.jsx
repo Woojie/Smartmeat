@@ -25,7 +25,7 @@ const LoginForm = ({loginError, logUserIn}) => {
 
           <button className="btn btn-secondary mb-2" type="submit" onClick={(e) => logUserIn(e, email, password)} >Login</button>
 
-          <p>Not a user? Sign up <a href="/signup"><b className="primary">here</b></a>.</p>
+          <p>Not a user? Sign up <a href="/#/signup"><b className="primary">here</b></a>.</p>
         </form>
         {errorMessage}
       </div>
