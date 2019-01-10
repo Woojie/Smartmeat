@@ -1,4 +1,7 @@
 # SmartMeat
+Project now live on AWS! 
+### smartmeat.io
+## NOTE: not safe, please do not use your own password (though passwords are properly hashed, just as a safety precaution).
 
 ## Description
 
