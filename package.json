@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "smartmeat",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "server": "nodemon server.js",
+    "eject": "react-scripts eject",
+    "client": "serve -s build",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
@@ -37,6 +40,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "serve": "^10.1.1",
     "uuid": "^3.3.2"
   },
   "eslintConfig": {
