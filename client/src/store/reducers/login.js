@@ -37,7 +37,7 @@ export const loginReducer = (state=loggedIn, action) => {
       loading: true
     }
   }else if(action.type === "CHECK_USER"){
-
+    
     return {
       ...state,
       loading: false,

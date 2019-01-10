@@ -11,17 +11,18 @@ import Footer from './Footer'
 import ProfilePage from './ProfilePage'
 import CommunityPage from './CommunityPage'
 import { searchForUser } from '../store/'
-import { logout } from '../store/actions/login'
+import { logout, reduxThunkTryout } from '../store/actions/login'
+
 
 import '../styles/css/app.css'
 
 
-const App = ({loggedIn, user, logout}) => {
+const App = ({loggedIn, user, logout, reduxThunkTryout}) => {
 
     useEffect(()=>{
       if(localStorage.token === undefined){
       }else{
-      searchForUser(localStorage.token)
+      reduxThunkTryout(localStorage.token)
     }
   },[])
   
@@ -69,8 +70,9 @@ const mapStatetoProps = ({login:{loggedIn, user}}) => {
 const mapFuncToProps = dispatch => {
   return {
     searchForUser: (token) => dispatch(searchForUser(token)),
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    reduxThunkTryout: (token) => dispatch(reduxThunkTryout(token))
   }
 }
 
-export default connect(mapStatetoProps, mapFuncToProps,  null, {pure:false})(App);
+export default connect(mapStatetoProps, {reduxThunkTryout, logout},  null, {pure:false})(App);
