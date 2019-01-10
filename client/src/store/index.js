@@ -16,7 +16,7 @@ export const logUserIn = (e, email, password) => {
 
   store.dispatch(startLogin())
   e.preventDefault()
-  axios.post('http://localhost:3030/user/login', {email, password})
+  axios.post('http://18.217.151.232/user/login', {email, password})
   .then((res)=>{
     if(res.data.message){
       store.dispatch(validateLogin())
@@ -35,7 +35,7 @@ export const logUserIn = (e, email, password) => {
 export const signUserUp = (e, email, password, firstName, lastName) => {
   e.preventDefault()
   store.dispatch(startSignup())
-  axios.post('http://localhost:3030/user/', {email, password, firstName, lastName})
+  axios.post('http://18.217.151.232/user/', {email, password, firstName, lastName})
   .then((res)=>{
     
     if(res.data.error) {
@@ -61,7 +61,7 @@ export const signUserUp = (e, email, password, firstName, lastName) => {
 export const searchForUser = (token) => {
   store.dispatch(startCheckForUser())
   setAuthToken(token)
-  axios.get('http://localhost:3030/user/')
+  axios.get('http://18.217.151.232/user/')
   .then((res)=>{
     if(res.data.error) {
 
@@ -87,7 +87,7 @@ export const saveReport = (report, email) => {
   if (report === "") {
 
   }else {
-    axios.put('http://localhost:3030/report/report', {report, email})
+    axios.put('http://18.217.151.232/report/report', {report, email})
     .then((res)=>{
       store.dispatch(finishReport(res.data))
     })
@@ -96,7 +96,7 @@ export const saveReport = (report, email) => {
 
 export const grabAllReports = () => {
   store.dispatch(getAllReports())
-  axios.get('http://localhost:3030/report/allReports')
+  axios.get('http://18.217.151.232/report/allReports')
   .then((res)=>store.dispatch(finishGettingReports(res.data)))
 }
 
@@ -104,12 +104,12 @@ export const alterReport = (oldReport, newReport, alteredReports, email) => {
     store.dispatch(startAlterReport())
     let newAlteredReports = func.alterReport(oldReport, newReport, alteredReports, email)
     
-    axios.put('http://localhost:3030/report/alterReport', {email, oldReport, newAlteredReports})
+    axios.put('http://18.217.151.232/report/alterReport', {email, oldReport, newAlteredReports})
     .then((res)=> {
       store.dispatch(finishAlterReport(res.data))
     })
     .then(  
-      axios.get('http://localhost:3030/report/allReports')
+      axios.get('http://18.217.151.232/report/allReports')
       .then((res)=>store.dispatch(finishGettingReports(res.data))
     ))
 }
@@ -119,7 +119,7 @@ export const deleteReport = (user, id) => {
  let alteredUser = func.deleteReport(user, id)
  let email = user.email
  console.log(alteredUser)
-    axios.put('http://localhost:3030/report/deleteReport', {email, alteredUser})
+    axios.put('http://18.217.151.232/report/deleteReport', {email, alteredUser})
   .then((res)=> store.dispatch(finishDeleteReport(res.data)))
 }
 
