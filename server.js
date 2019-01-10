@@ -7,7 +7,7 @@ logger = require('morgan'),
 path = require('path'),
 
 
-port = process.env.PORT || 3030
+port = process.env.PORT || 3030,
 dbConnection = require('./database') ,
 user = require('./routes/user'),
 report = require('./routes/report'),
