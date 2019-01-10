@@ -4,7 +4,7 @@ bodyParser = require('body-parser'),
 cors = require('cors'),
 cookieParser = require('cookie-parser'),
 logger = require('morgan'),
-
+path = require('path'),
 
 
 port = process.env.PORT || 3030
@@ -18,6 +18,7 @@ passport = require('./passport')
 
 app.use(logger('dev'))
 app.use(cors())
+app.use(express.static(path.join(__dirname, `client/build`)))
 app.use(cookieParser())
 
 app.use(bodyParser.urlencoded({extended: false}))
