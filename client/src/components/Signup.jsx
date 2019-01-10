@@ -14,7 +14,7 @@ const SignupForm = ({validateError, userExists, successfulLogin, namesError, pas
       })
     }
     waitFiveSeconds()
-    .then(()=>window.location.href="/login")
+    .then(()=>window.location.href="/#/login")
   }
   const [email, getEmail] = useState(""),
   [password, getPassword] = useState(""),
