@@ -1,4 +1,4 @@
-import logger from 'redux-logger'
+// import logger from 'redux-logger'
 import axios from 'axios'
 import { createStore, applyMiddleware } from 'redux'
 import ReduxThunk from 'redux-thunk'
@@ -125,7 +125,7 @@ export const deleteReport = (user, id) => {
 
 const store = createStore(
   allReducers,
-  applyMiddleware(logger, ReduxThunk)
+  applyMiddleware(ReduxThunk)
 )
 
 export default store

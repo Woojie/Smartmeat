@@ -23,7 +23,8 @@ const Home = () => {
             <iframe
                 className="col-12 col-md-8 col-lg-6 mx-auto"
                 title="reduce meat consumption"
-                src="https://www.youtube.com/embed/q_1dp0LSyhA" 
+                src="https://www.youtube.com/embed/5991Pk-aZ8E"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 frameBorder="0"
                 allowFullScreen>
             </iframe> 

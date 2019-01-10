@@ -31,10 +31,6 @@ const DoughnutChart = ({data}) => {
         ]
     }]
   }
-  const chartOptions = {
-    maintainAspectRatio: false
-
-  }
 
   return(
     <div className="row justify-content-center">
