@@ -1,4 +1,4 @@
-module.exports.alterReport = (oldReport, newReport, alteredReports, email) => {
+export const alterReports = (oldReport, newReport, alteredReports, email) => {
   newReport.email = email
   newReport.id = oldReport.id
   let ifReportExists = alteredReports.filter((report)=> report.id !== oldReport.id)
@@ -12,7 +12,7 @@ module.exports.alterReport = (oldReport, newReport, alteredReports, email) => {
   return newAlteredReports
 }
 
-module.exports.deleteReport = (user, id) => {
+export const deleteReports = (user, id) => {
   let newReport = user.reports.filter(report=>report.id !== id) 
   let alterdReport = user.alteredReports.filter(report=>id !== report.id)
   user.reports = newReport
@@ -20,7 +20,7 @@ module.exports.deleteReport = (user, id) => {
   return user
 }
 
-module.exports.calculate = (order, quantity, frequency) => {
+export const calculate = (order, quantity, frequency) => {
   let weeksInYear = 52
   let result;
   quantity = Number(quantity)

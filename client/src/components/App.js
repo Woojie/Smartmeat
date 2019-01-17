@@ -10,13 +10,13 @@ import Home from './Home'
 import Footer from './Footer'
 import ProfilePage from './ProfilePage'
 import CommunityPage from './CommunityPage'
-import { searchForUser } from '../store/'
-import { logout } from '../store/actions/login'
+import { searchForUser } from '../actions/login'
+import { logout } from '../actions/login'
 
 import '../styles/css/app.css'
 
 
-const App = ({loggedIn, user, logout}) => {
+const App = ({loggedIn, user, logout, searchForUser}) => {
 
     useEffect(()=>{
       if(localStorage.token === undefined){

@@ -1,9 +1,9 @@
 import React, { useState, Fragment } from 'react'
 import {connect} from 'react-redux'
 
-import { logUserIn } from '../store'
+import { logUserIn } from '../actions/login'
 
-const LoginForm = ({loginError, logUserIn}) => {
+const LoginForm = ({ loginError, logUserIn }) => {
   const [email, getEmail] = useState(""),
   [password, getPassword] = useState("")
   let errorMessage = !loginError ? "" 
@@ -40,7 +40,7 @@ const mapStateToProps = ({login:{loginError}}) => {
 
 const mapFunctoProps = dispatch => {
   return {
-  logUserIn: (e, email, password) => logUserIn(e, email, password)
+  logUserIn: (e, email, password) => dispatch(logUserIn(e, email, password))
   }
 }
 

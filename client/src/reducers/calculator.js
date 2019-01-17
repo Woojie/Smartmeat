@@ -7,11 +7,8 @@ const calculator = {
 }
 
 export const calculatorReducer = (state=calculator, action) =>{
-  if(action.type === "START_CALCULATE") {
-    return {
-      ...state
-    }
-  }else if(action.type === "FINISH_CALCULATE") {
+
+  if(action.type === "GET_CALCULATE") {
     return {
       ...state,
       result: action.payload.result,
