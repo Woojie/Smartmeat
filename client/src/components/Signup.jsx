@@ -2,9 +2,9 @@ import React, { useState, Fragment } from 'react'
 import {connect} from 'react-redux'
 
 
-import { signUserUp } from '../store'
+import { signUserUp } from '../actions/index'
 
-const SignupForm = ({validateError, userExists, successfulLogin, namesError, passwordError}) => {
+const SignupForm = ({validateError, userExists, successfulLogin, namesError, passwordError, signUserUp}) => {
   if (successfulLogin) {
     let waitFiveSeconds = () => {
       return new Promise (resolve => {
@@ -44,7 +44,7 @@ const SignupForm = ({validateError, userExists, successfulLogin, namesError, pas
           </div>
 
           <div className="form-group">
-            <input className={passwordError ? "form-control is-invalid":"form-control"} type="password" onChange={(e)=>getPassword(e.target.value)} placeholder="Enter your password" rquired />
+            <input className={passwordError ? "form-control is-invalid":"form-control"} type="password" onChange={(e)=>getPassword(e.target.value)} placeholder="Enter your password" required />
             {passwordValidation}
           </div>
           
@@ -81,7 +81,7 @@ const mapStateToProps = ({signin:{validateError, userExists, successfulLogin, pa
 
 const mapFuncToProps = dispatch => {
   return {
-    signUserUp: (e, email, password) => signUserUp(e, email, password)
+    signUserUp: (e, email, password) => dispatch(signUserUp(e, email, password))
   }
 }
 

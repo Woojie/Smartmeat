@@ -1,29 +1,37 @@
+import { mongoUser } from '../apis/mongoDB'
 
-export const startSignup = () => ({
-  type: "START_SIGNUP"
-})
+export const signUserUp = (e, email, password, firstName, lastName) => dispatch => {
+  e.preventDefault()
+  mongoUser.post('', {email, password, firstName, lastName})
+  .then((res)=>{
 
+    if(res.data.error) {
+      dispatch({
+        type: "USER_EXISTS_SIGNUP"
+      })
+    }else if (res.data.emailError || res.data.passwordError || res.data.namesError) {
+      console.log(res.data)
+      if (res.data.emailError) {
+        dispatch({
+          type: "VALIDATE_SIGNUP_ERROR"
+        })
+      }
+      if (res.data.passwordError) {
+        dispatch({
+          type: "VALIDATE_PASSWORD_ERROR"
+        })
+      }
+      if (res.data.namesError) {
+        dispatch({
+          type: "VALIDATE_NAMES_ERROR"
+        })
+      }
+    }else {
 
-export const finishSignup = () => ({
-  type: "FINISH_SIGNUP"
-})
+    dispatch({
+      type: "FINISH_SIGNUP"
+    })
+  }
+  })
+}
 
-export const userExists = () => ({
-  type: "USER_EXISTS_SIGNUP"
-})
-
-
-
-export const validateEmailError = () => ({
-  type: "VALIDATE_SIGNUP_ERROR"
-})
-
-
-export const validatePasswordError = () => ({
-  type: "VALIDATE_PASSWORD_ERROR"
-})
-
-
-export const validateNamesError = () => ({
-  type: "VALIDATE_NAMES_ERROR"
-})

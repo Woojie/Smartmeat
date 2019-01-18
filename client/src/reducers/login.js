@@ -10,12 +10,7 @@ export const loggedIn = {
 
 export const loginReducer = (state=loggedIn, action) => {
 
-  if (action.type === "START_LOGIN"){
-    return {
-      ...state,
-      loading: true
-    }
-  }else if(action.type === "FINISH_LOGIN"){
+  if(action.type === "FINISH_LOGIN"){
     return {
       ...state,
       loading: false,
@@ -29,12 +24,6 @@ export const loginReducer = (state=loggedIn, action) => {
       ...state,
       loading: false,
       loginError: true,
-    }
-  }else if(action.type === "START_CHECK_USER") {
-
-    return {
-      ...state,
-      loading: true
     }
   }else if(action.type === "CHECK_USER"){
 
@@ -52,21 +41,11 @@ export const loginReducer = (state=loggedIn, action) => {
       loggedIn: false,
       user: ""
     }
-  }else if(action.type === "START_REPORT") {
-    return {
-      ...state,
-      loading: true
-    }
-  }else if(action.type === "FINISH_REPORT") {
+  }else if(action.type === "GET_REPORT") {
     return {
       ...state,
       loading: false, 
       user: action.payload.user,
-    }
-  }else if(action.type === "START_ALTER_REPORT") {
-    return {
-      ...state,
-      reportError: false
     }
   }else if(action.type === "FINISH_ALTER_REPORT") {
     return {
@@ -78,11 +57,6 @@ export const loginReducer = (state=loggedIn, action) => {
     return {
       ...state,
       reportError: true
-    }
-  }else if(action.type === "START_DELETE_REPORT") {
-    return {
-      ...state,
-      loading: true
     }
   }else if(action.type === "FINISH_DELETE_REPORT") {
     return {

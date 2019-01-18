@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 
 import Report from './Report'
 import GlobalChart from './GlobalChart'
-import { alterReport } from '../../store'
+import { alterReport } from '../../actions/saveReport'
 import { grabAllReports } from '../../actions/globalReport'
 import { getCalculation } from '../../actions/calculator'
 
 
-const CommunityPage = ({user, reports, calculator, getCalculation, grabAllReports}) => {
+const CommunityPage = ({user, reports, calculator, getCalculation, grabAllReports, alterReport}) => {
   let alterReportText = user.reports === undefined ? "Login to alter reports!"
   : "Alter the report below to see how much you save!"
   return (
@@ -28,4 +28,4 @@ const mapStateToProps = ({reports, calculator}) => {
   }
 }
 
-export default connect(mapStateToProps, {getCalculation, grabAllReports})(CommunityPage)
+export default connect(mapStateToProps, {getCalculation, grabAllReports, alterReport})(CommunityPage)

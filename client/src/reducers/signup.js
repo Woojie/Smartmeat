@@ -10,7 +10,7 @@ const signIn = {
 }
 
 export const signinReducer = (state=signIn, action) => {
-  if (action.type === "START_SIGNUP") {
+  if (action.type === undefined) {
     return {
       ...state,
       loading: true,

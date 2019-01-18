@@ -1,8 +1,10 @@
 import React from 'react'
-import { deleteReport } from '../../../store/index'
+import { connect } from 'react-redux'
+
+import { deleteReport } from '../../../actions/saveReport'
 
 
-const Results = ({ carbon, petrol, number, user, id, order, date }) => {
+const Results = ({ carbon, petrol, number, user, id, order, date, deleteReport }) => {
   let drive = Math.round(petrol * 9.9)
   let directHousehold = Math.round(carbon / 41)
   let globalCitizen = Math.round(carbon / 4400 * 100)
@@ -36,4 +38,4 @@ const Results = ({ carbon, petrol, number, user, id, order, date }) => {
   )
 }
 
-export default Results
+export default connect(null, {deleteReport})(Results)
