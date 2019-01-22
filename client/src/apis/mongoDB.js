@@ -5,5 +5,5 @@ export const mongoUser =  axios.create({
 })
 
 export const mongoReport =  axios.create({
-  baseURL: 'http://18.217.151.232/report'
+  baseURL: 'http://18.217.204.57/report'
 })
