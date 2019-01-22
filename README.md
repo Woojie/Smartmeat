@@ -1,7 +1,4 @@
 # SmartMeat
-Project now live on AWS! 
-### smartmeat.io
-## NOTE: not safe, please do not use your own password (though passwords are properly hashed, just as a safety precaution).
 
 ## Description
 
@@ -27,6 +24,7 @@ This app is a PWA MERN stach that uses the following frameworks/modules:
 
 #### Back-End
 
+**AWS** - Deployed on AWS (currently offline), using nginx and pm2
 **Node.js** - Back-end and Front-end was done in Node.js and using NPM modules
 **MongoDB & Mongoose** - Database for the project was Mongo for its ease of use and JSON-like nature
 **Express** - Used to connect all the HTTP routes with the front-end. 
