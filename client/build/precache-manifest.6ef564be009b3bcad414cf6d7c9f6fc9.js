@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/static/media/calculate.b830adca.svg"
   },
   {
-    "revision": "93c1e64efbd0929f5d6f",
+    "revision": "1432f084ca167d7e2bad",
     "url": "/static/css/main.b2245842.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/static/media/awareness.2b63bae9.svg"
   },
   {
-    "revision": "93c1e64efbd0929f5d6f",
-    "url": "/static/js/main.93c1e64e.chunk.js"
+    "revision": "1432f084ca167d7e2bad",
+    "url": "/static/js/main.1432f084.chunk.js"
   },
   {
     "revision": "5911819776cd40fd607966d84c8c3d96",
@@ -52,7 +52,7 @@ self.__precacheManifest = [
     "url": "/static/media/showcase.90e1813e.jpg"
   },
   {
-    "revision": "1eaae3d056043d7730d7906a3ad10ee0",
+    "revision": "dcb2849bf2faa3d5d267ed21d6c9005a",
     "url": "/index.html"
   }
 ];
