@@ -10,7 +10,7 @@ export const signUserUp = (e, email, password, firstName, lastName) => dispatch 
         type: "USER_EXISTS_SIGNUP"
       })
     }else if (res.data.emailError || res.data.passwordError || res.data.namesError) {
-      console.log(res.data)
+
       if (res.data.emailError) {
         dispatch({
           type: "VALIDATE_SIGNUP_ERROR"
@@ -22,6 +22,7 @@ export const signUserUp = (e, email, password, firstName, lastName) => dispatch 
         })
       }
       if (res.data.namesError) {
+
         dispatch({
           type: "VALIDATE_NAMES_ERROR"
         })

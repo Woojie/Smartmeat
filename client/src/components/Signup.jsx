@@ -30,7 +30,7 @@ const SignupForm = ({validateError, userExists, successfulLogin, namesError, pas
   : ""
   const userAlreadyExistError = userExists ? <div className="alert alert-danger">This email is already signed up! Please use another or proceed to the login page.</div>
   : ""
-  const successfullyLogged = successfulLogin ? <div className="invalid-feedback">Successfully Signed Up! Will Redirect to the Login page in 3 seconds!</div> 
+  const successfullyLogged = successfulLogin ? <div>Successfully Signed Up! Will Redirect to the Login page in 3 seconds!</div> 
   : "" 
   return(
     <Fragment>
@@ -81,7 +81,7 @@ const mapStateToProps = ({signin:{validateError, userExists, successfulLogin, pa
 
 const mapFuncToProps = dispatch => {
   return {
-    signUserUp: (e, email, password) => dispatch(signUserUp(e, email, password))
+    signUserUp: (e, email, password, firstName, lastName) => dispatch(signUserUp(e, email, password, firstName, lastName))
   }
 }
 
