@@ -1,5 +1,5 @@
 import React from 'react'
-import Breakup from './Breakup'
+import DoughnutChart from './DoughnutChart'
 
 class GlobalChart extends React.Component {
   componentDidMount() {
@@ -51,7 +51,8 @@ class GlobalChart extends React.Component {
           
           <p>With the amount saved, you can heat, cool and drive an average Canadian household for <strong>{ directHousehold } days!</strong></p>
 
-          <Breakup 
+
+          <DoughnutChart
             firstName = {this.props.firstName}
             carbon={carbon} 
             alteredCarbon={alteredCarbon} 
